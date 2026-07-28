@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>impulseup para Companhia Têxtil de Castanhal</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --color-bg:#FFFFFF;
+    --color-bg-alt:#F4F2EF;
+    --color-fg:#0C0C0C;
+    --color-fg-muted:#666666;
+    --color-border:#E0E0E0;
+    --color-primary:#CC0088;
+    --color-primary-hover:#A3006D;
+    --color-surface:#F4F2EF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins',sans-serif;background:var(--color-bg);color:var(--color-fg);}
+  .wrap{max-width:1360px;margin:0 auto;padding:0 32px;}
+
+  header{border-bottom:1px solid var(--color-border);padding:20px 0;}
+  .header-row{display:flex;align-items:center;gap:16px;}
+  .brand-iup{font-weight:800;font-size:19px;letter-spacing:-0.02em;}
+  .brand-iup span{color:var(--color-primary);}
+  .divider-v{width:1px;height:28px;background:var(--color-border);}
+  .for-label{font-size:10px;font-weight:600;color:var(--color-fg-muted);letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:2px;}
+
+  .logo-upload-slot{
+    width:120px;height:34px;border:1px dashed var(--color-border);border-radius:6px;
+    display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--color-fg-muted);
+    cursor:pointer;overflow:hidden;background:#fff;position:relative;
+  }
+  .logo-upload-slot img{width:100%;height:100%;object-fit:contain;}
+  .logo-upload-slot input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+  .logo-upload-slot:hover{border-color:var(--color-primary);color:var(--color-primary);}
+
+  .client-logo{width:120px;height:34px;object-fit:contain;display:block;}
+
+  nav.side-nav{display:flex;flex-direction:column;gap:2px;position:sticky;top:24px;align-self:start;}
+  nav.side-nav button{
+    font-family:'Poppins',sans-serif;background:none;border:none;cursor:pointer;text-align:left;
+    font-size:13px;font-weight:600;letter-spacing:0.01em;color:var(--color-fg-muted);
+    padding:11px 14px;border-radius:10px;display:flex;align-items:center;gap:10px;
+    border-left:3px solid transparent;line-height:1.3;
+  }
+  nav.side-nav button.active{color:var(--color-fg);background:var(--color-bg-alt);border-left-color:var(--color-primary);}
+  nav.side-nav button .num{color:var(--color-primary);font-size:11px;flex-shrink:0;}
+  nav.side-nav button:hover:not(.active){background:var(--color-bg-alt);}
+
+  .app-shell{display:grid;grid-template-columns:230px 1fr;gap:44px;padding:40px 0 80px;align-items:start;}
+  @media (max-width:860px){
+    .app-shell{grid-template-columns:1fr;padding-top:24px;}
+    nav.side-nav{
+      flex-direction:row;overflow-x:auto;position:static;gap:6px;padding-bottom:8px;
+      border-bottom:1px solid var(--color-border);margin-bottom:8px;
+    }
+    nav.side-nav button{white-space:nowrap;border-left:none;border-bottom:2px solid transparent;border-radius:8px 8px 0 0;}
+    nav.side-nav button.active{border-left:none;border-bottom-color:var(--color-primary);}
+  }
+
+  main{min-width:0;}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+  .section-title{font-size:26px;font-weight:700;margin-bottom:6px;}
+  .section-sub{font-size:14px;color:var(--color-fg-muted);margin-bottom:40px;}
+
+  .top-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;margin-bottom:48px;}
+  .card{background:var(--color-surface);border-radius:14px;padding:28px;}
+  .card-label{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-primary);margin-bottom:12px;}
+  .card p{font-size:14.5px;line-height:1.7;color:var(--color-fg);}
+  .card.dark{background:var(--color-fg);color:#fff;}
+  .card.dark .card-label{color:#FF7FC8;}
+  .card.dark p{color:#EDEDED;}
+
+  .block-title{font-size:15px;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+  .block-title i{color:var(--color-primary);font-size:16px;}
+
+  .challenges{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;}
+  .challenges.cols-2{grid-template-columns:repeat(2,1fr);}
+  .challenge-card{border:1px solid var(--color-border);border-radius:12px;padding:20px;}
+  .challenge-card .ch-num{font-size:12px;font-weight:700;color:var(--color-primary);margin-bottom:8px;display:block;}
+  .challenge-card h4{font-size:14.5px;font-weight:600;margin-bottom:6px;}
+  .challenge-card p{font-size:13px;color:var(--color-fg-muted);line-height:1.6;}
+  .centered-row{grid-column:1 / -1;display:flex;gap:16px;justify-content:center;}
+  .centered-row .challenge-card{flex:1;max-width:calc((100% - 32px) / 3);}
+
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;}
+  .person-card{border:1px solid var(--color-border);border-radius:12px;padding:18px;display:flex;align-items:center;gap:14px;}
+  .person-photo{
+    width:48px;height:48px;border-radius:50%;background:var(--color-surface);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--color-primary);
+    flex-shrink:0;cursor:pointer;position:relative;overflow:hidden;
+  }
+  .person-photo img{width:100%;height:100%;object-fit:cover;}
+  .person-photo input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+  .person-card h4{font-size:14px;font-weight:600;}
+  .person-card p{font-size:12.5px;color:var(--color-fg-muted);}
+  .person-name[contenteditable="true"],.person-role[contenteditable="true"]{outline:none;border-radius:4px;padding:1px 3px;margin:-1px -3px;}
+  .person-name[contenteditable="true"]:hover,.person-role[contenteditable="true"]:hover,
+  .person-name[contenteditable="true"]:focus,.person-role[contenteditable="true"]:focus{background:var(--color-surface);}
+  .add-person-btn{
+    margin-bottom:48px;background:none;border:1px dashed var(--color-border);border-radius:10px;
+    padding:10px 18px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:var(--color-fg-muted);
+    cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  }
+  .add-person-btn:hover{border-color:var(--color-primary);color:var(--color-primary);}
+
+  .timeline{border:1px solid var(--color-border);border-radius:12px;padding:8px 24px;}
+  .tl-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--color-border);}
+  .tl-item:last-child{border-bottom:none;}
+  .tl-dot{width:10px;height:10px;border-radius:50%;background:var(--color-primary);flex-shrink:0;}
+  .tl-date{font-size:12.5px;font-weight:600;color:var(--color-fg-muted);width:110px;flex-shrink:0;}
+  .tl-date[contenteditable="true"]{outline:none;border-radius:4px;padding:1px 3px;margin:-1px -3px;cursor:text;}
+  .tl-date[contenteditable="true"]:hover,.tl-date[contenteditable="true"]:focus{background:var(--color-surface);}
+  .tl-desc{font-size:14px;font-weight:600;}
+  .tl-meta{font-size:12.5px;color:var(--color-fg-muted);margin-top:2px;}
+
+  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
+  .stat-card{background:var(--color-surface);border-radius:14px;padding:22px;text-align:center;}
+  .stat-card .num{font-size:30px;font-weight:800;color:var(--color-primary);}
+  .stat-card .label{font-size:12.5px;color:var(--color-fg-muted);margin-top:4px;}
+
+  .logo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:14px;margin-bottom:40px;}
+  .logo-placeholder{border:1px solid var(--color-border);border-radius:10px;height:64px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--color-fg-muted);}
+  .logo-grid-slot{border:1px solid var(--color-border);border-radius:10px;height:64px;padding:8px;display:flex;align-items:center;justify-content:center;position:relative;background:#fff;}
+  .logo-grid-slot img{max-width:100%;max-height:100%;object-fit:contain;}
+  .logo-grid-slot input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+  .logo-grid-slot:hover{border-color:var(--color-primary);}
+
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
+  .positioning-line{font-size:15px;font-weight:600;color:var(--color-fg);background:#FBEAF0;border-left:3px solid var(--color-primary);border-radius:8px;padding:16px 20px;margin-bottom:32px;line-height:1.5;}
+  .positioning-line i{color:var(--color-primary);margin-right:6px;}
+  .logo-grid.logo-grid-fixed5{grid-template-columns:repeat(5,1fr);}
+  .pillar-card{border:1px solid var(--color-border);border-radius:12px;padding:20px;}
+  .pillar-card .pillar-num{font-size:12px;font-weight:700;color:var(--color-primary);margin-bottom:8px;display:block;}
+  .pillar-card h4{font-size:14px;font-weight:600;margin-bottom:6px;}
+  .pillar-card p{font-size:13px;color:var(--color-fg-muted);line-height:1.6;}
+
+  .empty-state{border:1px dashed var(--color-border);border-radius:14px;padding:48px;text-align:center;color:var(--color-fg-muted);}
+  .empty-state i{font-size:26px;margin-bottom:12px;display:block;color:var(--color-border);}
+  .empty-state h3{font-size:15px;font-weight:600;color:var(--color-fg);margin-bottom:6px;}
+  .empty-state p{font-size:13px;}
+
+  .rfp-table{width:100%;border-collapse:collapse;border:1px solid var(--color-border);border-radius:12px;overflow:hidden;}
+  .rfp-table th{background:var(--color-bg-alt);font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--color-fg-muted);text-align:center;padding:16px 14px;border-bottom:1px solid var(--color-border);}
+  .rfp-table th:first-child{text-align:left;}
+  .rfp-table th.iup-col{color:var(--color-primary);background:#FBEAF0;}
+  .rfp-table td{padding:16px 14px;border-bottom:1px solid var(--color-border);vertical-align:top;}
+  .rfp-table td.iup-col{background:#FBEAF0;}
+  .rfp-table .feat-name{font-size:13.5px;font-weight:600;margin-bottom:4px;}
+  .rfp-table .feat-desc{font-size:12px;color:var(--color-fg-muted);line-height:1.5;}
+  .feat-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-top:2px;background:#FBEAF0;color:var(--color-primary);}
+  .rfp-table td.check-cell{text-align:center;}
+  .rfp-table .icon-yes{color:#1D9E75;font-size:16px;}
+  .rfp-table .icon-no{color:#D4534F;font-size:16px;}
+
+  .video-grid{display:flex;flex-direction:column;gap:28px;margin-top:8px;}
+  .video-card{border:1px solid var(--color-border);border-radius:14px;padding:20px;background:var(--color-surface);}
+  .video-card h4{font-size:15px;font-weight:600;margin-bottom:4px;}
+  .video-card p{font-size:13px;color:var(--color-fg-muted);margin-bottom:16px;line-height:1.5;}
+  .video-embed-wrap{position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000;}
+  .video-embed-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-embed-empty{background:var(--color-bg-alt);border:1px dashed var(--color-border);}
+  .video-paste-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:text;color:var(--color-fg-muted);font-size:13px;padding:24px 24px 54px;text-align:center;}
+  .video-paste-label i{font-size:22px;color:var(--color-primary);}
+  .video-url-input{position:absolute;bottom:14px;left:14px;right:14px;padding:9px 12px;border:1px solid var(--color-border);border-radius:8px;font-size:12.5px;background:#FFFFFF;}
+  .video-link-card{border:1px dashed var(--color-border);border-radius:10px;padding:32px;text-align:center;background:var(--color-bg-alt);}
+  .video-link-card i{font-size:24px;color:var(--color-primary);margin-bottom:10px;display:block;}
+  .video-link-card p{font-size:13px;color:var(--color-fg-muted);}
+  .video-link-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;color:var(--color-primary);font-weight:600;font-size:13px;text-decoration:none;}
+  .video-link-btn:hover{color:var(--color-primary-hover);}
+  .rfp-cat-row td{background:var(--color-bg-alt);font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--color-primary);padding:10px 14px;border-bottom:1px solid var(--color-border);}
+
+  .investment-hero{background:var(--color-fg);color:#fff;border-radius:14px;padding:32px 28px;margin-bottom:12px;}
+  .investment-hero .label{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#FF7FC8;margin-bottom:10px;}
+  .investment-hero .value{font-size:36px;font-weight:700;color:#fff;}
+  .investment-hero-meta{font-size:12.5px;color:var(--color-fg-muted);margin-bottom:32px;}
+
+  .module-list{display:flex;flex-direction:column;gap:0;margin-bottom:32px;border:1px solid var(--color-border);border-radius:12px;overflow:hidden;}
+  .module-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 18px;border-bottom:1px solid var(--color-border);}
+  .module-row:last-child{border-bottom:none;}
+  .module-row-main h4{font-size:14px;font-weight:600;margin-bottom:3px;}
+  .module-row-main p{font-size:12.5px;color:var(--color-fg-muted);}
+  .module-row-users{font-size:12px;color:var(--color-fg-muted);white-space:nowrap;}
+
+  .approval-row{display:grid;grid-template-columns:28px 1fr;gap:0;margin-bottom:32px;}
+  .approval-row:last-child{margin-bottom:0;}
+  .approval-num-col{display:flex;flex-direction:column;align-items:center;}
+  .approval-num-col .approval-num{width:28px;height:28px;border-radius:50%;background:var(--color-primary);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .approval-num-col .approval-line{flex:1;width:2px;background:var(--color-border);margin:6px 0;}
+  .approval-row:last-child .approval-num-col .approval-line{display:none;}
+  .approval-stages{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-left:20px;align-items:stretch;}
+  .approval-inputs{display:grid;grid-template-columns:1fr;gap:14px;}
+  .approval-stage{border:1px solid var(--color-border);border-radius:12px;padding:16px;}
+  .approval-stage .approval-stage-label{font-size:10.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;display:block;}
+  .approval-stage.motivador .approval-stage-label{color:var(--color-fg-muted);}
+  .approval-stage.solucao{background:#FBEAF0;border-color:#FBEAF0;}
+  .approval-stage.solucao .approval-stage-label{color:var(--color-primary);}
+  .approval-stage h4{font-size:13.5px;font-weight:600;margin-bottom:6px;}
+  .approval-stage p{font-size:12.5px;color:var(--color-fg-muted);line-height:1.6;}
+  .approval-outcome{background:var(--color-bg-alt);border-radius:16px;padding:18px;border:1px solid var(--color-border);}
+  .approval-outcome-title{font-size:11.5px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-primary);margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+  .approval-outcome-title i{font-size:13px;}
+  .approval-outcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .approval-outcome .approval-stage{border:none;padding:14px;border-radius:10px;}
+  .approval-outcome .approval-stage.futuro{background:var(--color-fg);}
+  .approval-outcome .approval-stage.futuro .approval-stage-label{color:#FF7FC8;}
+  .approval-outcome .approval-stage.futuro p{color:#EDEDED;}
+  .approval-outcome .approval-stage.negocio{background:#fff;border:2px solid var(--color-primary);}
+  .approval-outcome .approval-stage.negocio .approval-stage-label{color:var(--color-primary);}
+  @media (max-width:980px){.approval-stages{grid-template-columns:1fr;}.approval-outcome-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.approval-outcome-grid{grid-template-columns:1fr;}}
+
+  .objetivo-card{border:1px solid var(--color-border);border-radius:16px;padding:22px 24px;margin-bottom:20px;}
+  .objetivo-card:last-child{margin-bottom:0;}
+  .objetivo-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px;}
+  .objetivo-num{width:32px;height:32px;border-radius:50%;background:var(--color-primary);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .objetivo-header h3{font-size:16.5px;font-weight:700;margin-bottom:4px;}
+  .objetivo-header p{font-size:12.5px;color:var(--color-fg-muted);line-height:1.55;}
+  .objetivo-body{display:grid;grid-template-columns:0.82fr 1.18fr;gap:28px;align-items:start;}
+  .objetivo-compare-col{display:flex;flex-direction:column;gap:10px;}
+  .objetivo-compare-box{border-radius:12px;padding:13px 15px;}
+  .objetivo-compare-box.atual{background:var(--color-bg-alt);border:1px solid var(--color-border);}
+  .objetivo-compare-box.meta{background:#FBEAF0;}
+  .objetivo-compare-label{font-size:9.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px;display:block;}
+  .objetivo-compare-box.atual .objetivo-compare-label{color:var(--color-fg-muted);}
+  .objetivo-compare-box.meta .objetivo-compare-label{color:var(--color-primary);}
+  .objetivo-compare-box p{font-size:12px;line-height:1.5;color:var(--color-fg);}
+  .objetivo-plan-col{border-left:1px solid var(--color-border);padding-left:24px;}
+  .objetivo-etapas-title{font-size:10.5px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--color-fg-muted);margin-bottom:10px;}
+  .objetivo-etapas{display:flex;flex-direction:column;}
+  .objetivo-etapa{display:grid;grid-template-columns:18px 1fr;gap:0;padding-bottom:12px;position:relative;}
+  .objetivo-etapa:last-child{padding-bottom:0;}
+  .objetivo-etapa-dot{width:18px;height:18px;border-radius:50%;background:var(--color-fg);color:#fff;font-size:8.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;}
+  .objetivo-etapa-line{position:absolute;left:8px;top:18px;bottom:0;width:2px;background:var(--color-border);}
+  .objetivo-etapa:last-child .objetivo-etapa-line{display:none;}
+  .objetivo-etapa-content{padding-left:12px;}
+  .objetivo-etapa-period{font-size:9.5px;font-weight:700;color:var(--color-primary);text-transform:uppercase;letter-spacing:0.04em;display:block;margin-bottom:2px;}
+  .objetivo-etapa-content h4{font-size:12.5px;font-weight:600;margin-bottom:3px;}
+  .objetivo-etapa-content p{font-size:11.5px;color:var(--color-fg-muted);line-height:1.5;margin-bottom:3px;}
+  .objetivo-etapa-resp{font-size:10px;color:var(--color-fg-muted);font-style:italic;}
+  .objetivo-indicador{margin-top:14px;background:var(--color-fg);border-radius:12px;padding:12px 14px;display:flex;align-items:flex-start;gap:9px;}
+  .objetivo-indicador i{color:#FF7FC8;font-size:13px;margin-top:2px;}
+  .objetivo-indicador-label{font-size:9.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#FF7FC8;display:block;margin-bottom:3px;}
+  .objetivo-indicador p{font-size:11.5px;color:#EDEDED;line-height:1.5;}
+  @media (max-width:900px){.objetivo-body{grid-template-columns:1fr;}.objetivo-plan-col{border-left:none;padding-left:0;padding-top:16px;border-top:1px solid var(--color-border);}}
+
+  .proposal-upload-slot{border:1px dashed var(--color-border);border-radius:14px;padding:56px;text-align:center;cursor:pointer;display:block;position:relative;background:var(--color-bg-alt);}
+  .proposal-upload-slot:hover{border-color:var(--color-primary);}
+  .proposal-upload-slot input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+  .proposal-upload-slot img{max-width:100%;border-radius:8px;display:block;}
+  footer p{font-size:11px;color:var(--color-fg-muted);}
+
+  /* ABA 7 — PROCESSO DE IMPLEMENTAÇÃO */
+  .module-tabs{display:flex;gap:8px;margin:24px 0 32px 0;flex-wrap:wrap;}
+  .module-tab{
+    font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;padding:9px 18px;
+    border-radius:32px;border:1px solid var(--color-border);background:var(--color-bg);
+    color:var(--color-fg-muted);cursor:pointer;transition:all 150ms ease;
+  }
+  .module-tab.active{background:var(--color-primary);border-color:var(--color-primary);color:#fff;}
+  .module-tab:hover:not(.active){border-color:var(--color-primary);color:var(--color-primary);}
+
+  .impl-timeline{position:relative;padding-left:26px;}
+  .impl-timeline::before{content:'';position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--color-border);}
+  .impl-phase{position:relative;margin-bottom:18px;}
+  .impl-phase-dot{position:absolute;left:-26px;top:2px;width:20px;height:20px;border-radius:50%;background:var(--color-bg);border:3px solid var(--color-primary);}
+  .impl-phase.muted .impl-phase-dot{border-color:var(--color-border);}
+  .impl-phase-header{display:flex;align-items:baseline;gap:10px;margin-bottom:9px;}
+  .impl-phase-title{font-weight:700;font-size:16px;}
+  .impl-phase-duration{font-size:12px;color:var(--color-fg-muted);font-weight:500;}
+  .impl-steps-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:10px;padding:16px 20px;}
+  .impl-step{display:flex;align-items:flex-start;gap:12px;padding:9px 0;border-bottom:1px solid var(--color-border);font-size:14px;}
+  .impl-step:last-child{border-bottom:none;}
+  .impl-step.extra{font-style:italic;}
+  .impl-step-check{width:16px;height:16px;margin-top:3px;flex-shrink:0;}
+  .impl-step-text{flex:1;line-height:1.45;outline:none;}
+  .impl-step-text[contenteditable="true"]:hover{background:rgba(204,0,136,0.05);border-radius:4px;}
+  .impl-role-tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:16px;white-space:nowrap;flex-shrink:0;}
+  .impl-role-consultor{background:#FCE4F2;color:var(--color-primary-hover);}
+  .impl-role-suporte{background:#EAEAF6;color:#4B4B8A;}
+  .impl-role-gerente{background:#111;color:#fff;}
+  .impl-add-step{
+    font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:var(--color-primary);
+    background:none;border:none;cursor:pointer;padding:8px 0 0 0;
+  }
+  .impl-add-step:hover{text-decoration:underline;}
+  .impl-cycle-banner{
+    margin:10px 0 0 0;background:linear-gradient(90deg, rgba(204,0,136,0.08), rgba(204,0,136,0.02));
+    border:1px dashed var(--color-primary);border-radius:10px;padding:12px 16px;font-size:13px;
+    color:var(--color-primary-hover);font-weight:500;
+  }
+  .impl-legend{margin-top:32px;padding-top:20px;border-top:1px solid var(--color-border);display:flex;gap:22px;flex-wrap:wrap;font-size:12px;color:var(--color-fg-muted);}
+  .impl-legend-item{display:flex;align-items:center;gap:6px;}
+  .impl-legend-dot{width:10px;height:10px;border-radius:50%;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="header-row">
+      <span class="brand-iup">impulse<span>up</span></span>
+      <div class="divider-v"></div>
+      <div>
+        <span class="for-label">Para</span>
+        <label class="logo-upload-slot" id="clientLogoSlot">
+          <span id="clientLogoText">logo do cliente</span>
+          <input type="file" accept="image/*" id="clientLogoInput">
+        </label>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="app-shell">
+    <nav class="side-nav" id="tabNav">
+      <button class="active" data-tab="1"><span class="num">01</span>Diagnóstico</button>
+      <button data-tab="2"><span class="num">02</span>A impulseup</button>
+      <button data-tab="3"><span class="num">03</span>Demonstração</button>
+      <button data-tab="4"><span class="num">04</span>Diferenciais impulseup</button>
+      <button data-tab="5"><span class="num">05</span>Aprovação do projeto</button>
+      <button data-tab="6"><span class="num">06</span>Plano de ação</button>
+      <button data-tab="7"><span class="num">07</span>Processo de implementação</button>
+      <button data-tab="8"><span class="num">08</span>Proposta comercial</button>
+      <button data-tab="9"><span class="num">09</span>Próximos passos</button>
+    </nav>
+
+    <main>
+
+    <!-- ABA 1 — DIAGNÓSTICO -->
+    <section class="tab-panel active" id="tab-1">
+      <h1 class="section-title">Diagnóstico — Companhia Têxtil de Castanhal</h1>
+      <p class="section-sub">Reunião de conexão</p>
+
+      <div class="top-grid">
+        <div class="card">
+          <div class="card-label">Perfil</div>
+          <p>Indústria têxtil com quase 60 anos de atuação, que trabalha fibras amazônicas (juta e malva) para produção de sacos de café. Sede administrativa em Castanhal (PA), unidade fabril e de coleta de matéria-prima em Manacapuru (AM) e escritório comercial em São Paulo. Entre 1.000 e 1.300 colaboradores no total, com forte presença de público operacional.</p>
+        </div>
+        <div class="card dark">
+          <div class="card-label">Momento atual</div>
+          <p>Rodou o primeiro ciclo de avaliação de desempenho em 2024, de forma manual em planilhas e Forms, e agora busca uma plataforma para consolidar avaliação e pesquisa de clima antes do próximo ciclo, em outubro. Projeto ainda em construção de business case interno — aprovação de orçamento com a diretoria ainda não conquistada.</p>
+        </div>
+      </div>
+
+      <div class="block-title"><i class="fa-regular fa-flag"></i>Desafios mapeados</div>
+      <div class="challenges">
+        <div class="challenge-card"><span class="ch-num">01</span><h4>Ciclo 100% manual</h4><p>Compilação dos dados do último ciclo, feita em planilhas e Forms, levou cerca de 20 dias entre respostas e devolutiva aos gestores.</p></div>
+        <div class="challenge-card"><span class="ch-num">02</span><h4>Avaliação apenas 90 graus</h4><p>Ciclo de 2024 avaliou os colaboradores só pela ótica do gestor, sem espaço para autoavaliação.</p></div>
+        <div class="challenge-card"><span class="ch-num">03</span><h4>PDI sem continuidade</h4><p>Planos de desenvolvimento foram iniciados após o feedback, mas o acompanhamento não se sustentou em todas as áreas.</p></div>
+        <div class="centered-row">
+          <div class="challenge-card"><span class="ch-num">04</span><h4>Metas desconectadas da avaliação</h4><p>Tentativa de vincular metas ao ciclo de desempenho não avançou em 2024.</p></div>
+          <div class="challenge-card"><span class="ch-num">05</span><h4>Baixa adesão do público operacional</h4><p>Gestores com pouca familiaridade tecnológica, sobretudo em Manacapuru, dificultaram atingir 100% de adesão ao ciclo.</p></div>
+        </div>
+      </div>
+
+      <div class="block-title"><i class="fa-regular fa-user-tie"></i>Responsáveis pelo projeto</div>
+      <div class="team" id="teamGrid">
+        <div class="person-card">
+          <label class="person-photo" data-initials="ON"><span>ON</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <div>
+            <h4 contenteditable="true" class="person-name">Otávio Neto</h4>
+            <p contenteditable="true" class="person-role">Supervisor de Gestão de Pessoas (Champion)</p>
+          </div>
+        </div>
+        <div class="person-card">
+          <label class="person-photo" data-initials="BP"><span>BP</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <div>
+            <h4 contenteditable="true" class="person-name">Bárbara Pereira</h4>
+            <p contenteditable="true" class="person-role">Gerente de RH — leva a argumentação para a diretoria</p>
+          </div>
+        </div>
+        <div class="person-card">
+          <label class="person-photo" data-initials="JO"><span>JO</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <div>
+            <h4 contenteditable="true" class="person-name">João</h4>
+            <p contenteditable="true" class="person-role">Cargos e Salários / apoio na pesquisa de clima</p>
+          </div>
+        </div>
+      </div>
+      <button type="button" id="addPersonBtn" class="add-person-btn"><i class="fa-solid fa-plus"></i> Adicionar pessoa</button>
+
+      <div class="block-title"><i class="fa-regular fa-calendar"></i>Cronograma preliminar</div>
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Julho</span><span class="tl-desc">Diagnóstico, demonstração da plataforma e construção da proposta</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Agosto</span><span class="tl-desc">Apresentação e aprovação com a diretoria (previsão entre 3 e 7/ago)</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Setembro</span><span class="tl-desc">Assinatura e kickoff de implementação</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Outubro</span><span class="tl-desc">Primeiro ciclo de avaliação de desempenho na plataforma</span></div>
+      </div>
+    </section>
+
+    <!-- ABA 2 — A IMPULSEUP -->
+    <section class="tab-panel" id="tab-2">
+      <h1 class="section-title">A impulseup</h1>
+      <p class="section-sub">Quem somos e por que empresas como a Companhia Têxtil de Castanhal escolhem a gente</p>
+
+      <div class="stat-grid">
+        <div class="stat-card"><div class="num">500+</div><div class="label">empresas clientes</div></div>
+        <div class="stat-card"><div class="num">180 mil</div><div class="label">usuários ativos</div></div>
+        <div class="stat-card"><div class="num">1M+</div><div class="label">avaliações e pesquisas realizadas</div></div>
+      </div>
+
+      <div class="block-title"><i class="fa-regular fa-building"></i>Empresas que confiam na impulseup</div>
+      <div class="logo-grid" id="logoGrid">
+        <!--LOGO_GRID_SLOTS: aguardando confirmação do setor (indústria/manufatura) e da composição do grid antes de publicar-->
+      </div>
+
+      <!-- LINHA DE POSICIONAMENTO — fixa, não personalizada por cliente (ver estrutura-abas.md,
+           Aba 2, "Linha de posicionamento"). Marca a diferença impulseup vs. mercado: mercado
+           busca abrangência, impulseup busca profundidade. -->
+      <p class="positioning-line"><i class="fa-solid fa-crosshairs"></i> Enquanto o mercado tem buscado ser cada vez mais abrangente, a impulseup escolheu o caminho da profundidade: menos módulos genéricos, mais especialização em gestão de performance e desenvolvimento.</p>
+
+      <div class="block-title"><i class="fa-regular fa-star"></i>Por que empresas com público operacional e múltiplas unidades escolhem a impulseup</div>
+      <div class="pillars">
+        <div class="pillar-card"><span class="pillar-num">01</span><h4>Decisão sobre desempenho sai em dias, não em semanas</h4><p>Assim que o ciclo é encerrado, os relatórios já saem prontos por área, unidade ou colaborador — o RH deixa de gastar semanas compilando planilha para focar em decidir sobre as pessoas.</p></div>
+        <div class="pillar-card"><span class="pillar-num">02</span><h4>Ciclo evolui de 90° para 360° sem reconstruir do zero</h4><p>A plataforma comporta o formato que a empresa já usa e permite evoluir para autoavaliação e outras perspectivas, sem depender de nova ferramenta.</p></div>
+        <div class="pillar-card"><span class="pillar-num">03</span><h4>Adesão deixa de depender de login e de e-mail corporativo</h4><p>Colaboradores de fábrica recebem o ciclo direto no WhatsApp e respondem em poucos cliques — a adesão do público operacional deixa de ser um risco do projeto.</p></div>
+      </div>
+    </section>
+
+    <!-- ABA 3 — DEMONSTRAÇÃO -->
+    <section class="tab-panel" id="tab-3">
+      <h1 class="section-title">Demonstração</h1>
+      <p class="section-sub">Vídeos da plataforma, orientados aos desafios da Companhia Têxtil de Castanhal</p>
+      <div id="tab3Content">
+        <div class="stat-grid" id="tab3ImpactoGrid">
+          <div class="stat-card"><div class="num">20 dias</div><div class="label">tempo levado para compilar os dados do último ciclo em planilhas</div></div>
+          <div class="stat-card"><div class="num">1.300</div><div class="label">colaboradores que podem ser atendidos em um único ciclo na plataforma</div></div>
+          <div class="stat-card"><div class="num">30</div><div class="label">perguntas já estruturadas para a pesquisa de clima, prontas para migrar</div></div>
+        </div>
+        <div style="overflow-x:auto;margin-bottom:40px;">
+          <table class="rfp-table" id="tab3ComparativoTable">
+            <thead>
+              <tr><th>Situação atual</th><th>Módulo impulseup</th><th>Como fica</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Ciclo rodado em Forms e planilhas, com compilação manual de ~20 dias</td><td class="feat-name">Avaliação de Desempenho + People Analytics</td><td>Relatório do ciclo é gerado automaticamente assim que os colaboradores respondem</td></tr>
+              <tr><td>Apenas gestores avaliavam os colaboradores (ciclo 90°)</td><td class="feat-name">Avaliação de Desempenho</td><td>Plataforma comporta qualquer formato (90/180/360), incluindo autoavaliação, sem reconstruir o modelo já validado</td></tr>
+              <tr><td>Gestores com pouca familiaridade tecnológica tinham dificuldade de concluir a avaliação de todos os liderados</td><td class="feat-name">Integração com WhatsApp</td><td>Avaliação chega direto no WhatsApp do gestor e do colaborador, sem login ou senha</td></tr>
+              <tr><td>Pesquisa de clima nunca foi aplicada; modelo com 30 perguntas ainda depende de uma ferramenta</td><td class="feat-name">Pesquisas (clima)</td><td>Modelo já estruturado pela Castanhal é migrado para a plataforma, com formato confidencial para segmentar por área sem perder o anonimato</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="video-grid" id="tab3VideoGrid">
+          <div class="video-card">
+            <h4>Avaliação de desempenho</h4><p>Fluxo completo do colaborador ao RH, incluindo Analytics e Nine-Box.</p>
+            <div class="video-embed-wrap video-embed-empty" data-video-idx="0">
+              <label class="video-paste-label">
+                <i class="fa-regular fa-circle-play"></i>
+                <span>Cole aqui o link do vídeo (YouTube ou Drive)</span>
+              </label>
+              <input type="text" class="video-url-input" data-video-idx="0" placeholder="https://...">
+            </div>
+          </div>
+          <div class="video-card">
+            <h4>Pesquisa de clima</h4><p>Configuração da pesquisa, formatos anônimo/confidencial/identificado e leitura dos resultados.</p>
+            <div class="video-embed-wrap video-embed-empty" data-video-idx="1">
+              <label class="video-paste-label">
+                <i class="fa-regular fa-circle-play"></i>
+                <span>Cole aqui o link do vídeo (YouTube ou Drive)</span>
+              </label>
+              <input type="text" class="video-url-input" data-video-idx="1" placeholder="https://...">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABA 4 — DIFERENCIAIS IMPULSEUP -->
+    <section class="tab-panel" id="tab-4">
+      <h1 class="section-title">Diferenciais impulseup</h1>
+      <p class="section-sub">Comparativo com base nos critérios mais importantes para este projeto</p>
+      <div class="empty-state" id="tab4EmptyState">
+        <i class="fa-regular fa-list-check"></i>
+        <h3>Aguardando confirmação dos concorrentes</h3>
+        <p>A reunião de Diagnóstico já aconteceu e a Culture Rocks (Qulture.Rocks) foi confirmada como concorrente na disputa. Porém, a transcrição também cita "Coblu/Colu/CodeBlue" e "Brenner" — nomes que não batem com segurança com a lista de concorrentes conhecidos. Assim que Lucão confirmar esses nomes, esta aba mostra o comparativo completo.</p>
+      </div>
+      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;display:none;">
+        <table class="rfp-table" id="tab4Table">
+          <!-- Preenchido pela skill site-cliente-impulseup a partir da transcrição da reunião de Diagnóstico e de references/rfp-criterios.json.
+               Cada critério exibe sua tag (campo "tags" do JSON) junto ao nome, ex:
+               <tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>...</tr> -->
+        </table>
+      </div>
+    </section>
+
+    <!-- ABA 5 — APROVAÇÃO DO PROJETO -->
+    <section class="tab-panel" id="tab-5">
+      <h1 class="section-title">Aprovação do projeto</h1>
+      <p class="section-sub">Do motivador da contratação ao estado futuro da Companhia Têxtil de Castanhal com a impulseup</p>
+      <div id="tab5ApprovalWrap">
+        <div class="approval-row">
+          <div class="approval-num-col"><span class="approval-num">1</span><span class="approval-line"></span></div>
+          <div class="approval-stages">
+            <div class="approval-inputs">
+              <div class="approval-stage motivador"><span class="approval-stage-label">Motivador</span><p>Compilar os resultados do ciclo levava cerca de 20 dias em planilhas, atrasando devolutiva, feedback e PDI logo na largada do processo.</p></div>
+              <div class="approval-stage solucao"><span class="approval-stage-label">Solução impulseup</span><p>A plataforma organiza os dados do ciclo automaticamente, com comparativos prontos por colaborador, área ou unidade assim que o ciclo é encerrado.</p></div>
+            </div>
+            <div class="approval-outcome">
+              <div class="approval-outcome-title"><i class="fa-solid fa-arrow-trend-up"></i>Estado futuro</div>
+              <div class="approval-outcome-grid">
+                <div class="approval-stage futuro"><span class="approval-stage-label">RH / DHO</span><p>Sai de compilar planilha por 20 dias para abrir um relatório pronto no dia seguinte ao encerramento do ciclo.</p></div>
+                <div class="approval-stage negocio"><span class="approval-stage-label">Negócio</span><p>Feedback, PDI e decisões de carreira deixam de esperar semanas para começar.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="approval-row">
+          <div class="approval-num-col"><span class="approval-num">2</span><span class="approval-line"></span></div>
+          <div class="approval-stages">
+            <div class="approval-inputs">
+              <div class="approval-stage motivador"><span class="approval-stage-label">Motivador</span><p>O ciclo rodado em 2024 avaliou os colaboradores só pela ótica do gestor, sem espaço para autoavaliação.</p></div>
+              <div class="approval-stage solucao"><span class="approval-stage-label">Solução impulseup</span><p>A plataforma comporta qualquer formato — 90, 180 ou 360 graus — sem exigir reconstruir o modelo de competências já validado.</p></div>
+            </div>
+            <div class="approval-outcome">
+              <div class="approval-outcome-title"><i class="fa-solid fa-arrow-trend-up"></i>Estado futuro</div>
+              <div class="approval-outcome-grid">
+                <div class="approval-stage futuro"><span class="approval-stage-label">RH / DHO</span><p>Decide, ciclo a ciclo, se mantém 90° ou evolui para autoavaliação e outras perspectivas, sem depender de nova ferramenta.</p></div>
+                <div class="approval-stage negocio"><span class="approval-stage-label">Negócio</span><p>Avaliação passa a refletir mais de uma visão sobre a mesma pessoa, tornando promoção e sucessão mais defensáveis diante da diretoria.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="approval-row">
+          <div class="approval-num-col"><span class="approval-num">3</span><span class="approval-line"></span></div>
+          <div class="approval-stages">
+            <div class="approval-inputs">
+              <div class="approval-stage motivador"><span class="approval-stage-label">Motivador</span><p>PDIs foram iniciados após o feedback de 2024, mas o acompanhamento não se sustentou em todas as áreas por ser um processo manual.</p></div>
+              <div class="approval-stage solucao"><span class="approval-stage-label">Solução impulseup</span><p>Cada PDI fica vinculado ao colaborador dentro da plataforma, com prazo, status e relatório periódico de execução para o gestor.</p></div>
+            </div>
+            <div class="approval-outcome">
+              <div class="approval-outcome-title"><i class="fa-solid fa-arrow-trend-up"></i>Estado futuro</div>
+              <div class="approval-outcome-grid">
+                <div class="approval-stage futuro"><span class="approval-stage-label">RH / DHO</span><p>Vê, a qualquer momento, quantos PDIs estão em andamento, atrasados ou concluídos, sem depender de cada gestor reportar manualmente.</p></div>
+                <div class="approval-stage negocio"><span class="approval-stage-label">Negócio</span><p>Desenvolvimento das pessoas passa a ter continuidade real, sustentando decisões futuras de promoção e sucessão.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="approval-row">
+          <div class="approval-num-col"><span class="approval-num">4</span><span class="approval-line"></span></div>
+          <div class="approval-stages">
+            <div class="approval-inputs">
+              <div class="approval-stage motivador"><span class="approval-stage-label">Motivador</span><p>A tentativa de vincular metas ao ciclo de avaliação não avançou em 2024, ficando restrita a méritos e promoções pontuais.</p></div>
+              <div class="approval-stage solucao"><span class="approval-stage-label">Solução impulseup</span><p>O módulo de metas se conecta automaticamente à avaliação de desempenho, cruzando entrega de resultado com desempenho na mesma matriz de calibração.</p></div>
+            </div>
+            <div class="approval-outcome">
+              <div class="approval-outcome-title"><i class="fa-solid fa-arrow-trend-up"></i>Estado futuro</div>
+              <div class="approval-outcome-grid">
+                <div class="approval-stage futuro"><span class="approval-stage-label">RH / DHO</span><p>Calibra desempenho e entrega de meta lado a lado, para cada colaborador, sem cruzamento manual de planilhas.</p></div>
+                <div class="approval-stage negocio"><span class="approval-stage-label">Negócio</span><p>Decisões de promoção e sucessão passam a considerar entrega de resultado, tornando o processo mais justo e mais fácil de defender internamente.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="approval-row">
+          <div class="approval-num-col"><span class="approval-num">5</span></div>
+          <div class="approval-stages">
+            <div class="approval-inputs">
+              <div class="approval-stage motivador"><span class="approval-stage-label">Motivador</span><p>Gestores com pouca familiaridade tecnológica tiveram dificuldade de concluir a avaliação de todos os liderados, e a empresa não atingiu 100% de adesão.</p></div>
+              <div class="approval-stage solucao"><span class="approval-stage-label">Solução impulseup</span><p>Colaboradores recebem o ciclo direto por WhatsApp e respondem sem precisar de login, senha ou e-mail corporativo.</p></div>
+            </div>
+            <div class="approval-outcome">
+              <div class="approval-outcome-title"><i class="fa-solid fa-arrow-trend-up"></i>Estado futuro</div>
+              <div class="approval-outcome-grid">
+                <div class="approval-stage futuro"><span class="approval-stage-label">RH / DHO</span><p>Deixa de depender da familiaridade tecnológica do gestor para garantir que o ciclo chegue a 100% da operação, incluindo Manacapuru.</p></div>
+                <div class="approval-stage negocio"><span class="approval-stage-label">Negócio</span><p>Mais colaboradores operacionais participam do ciclo, dando à diretoria uma leitura real de desempenho de toda a força de trabalho.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABA 6 — PLANO DE AÇÃO -->
+    <section class="tab-panel" id="tab-6">
+      <h1 class="section-title">Plano de ação</h1>
+      <p class="section-sub">Objetivos de negócio da Companhia Têxtil de Castanhal e o caminho para chegar lá com a impulseup</p>
+      <div id="tab6ObjetivosWrap">
+        <div class="objetivo-card">
+          <div class="objetivo-header"><span class="objetivo-num">1</span><div><h3>Reduzir o tempo entre avaliar e agir</h3><p>Encurtar a distância entre o encerramento do ciclo e a tomada de decisão sobre as pessoas.</p></div></div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>Compilação do último ciclo levou cerca de 20 dias em planilhas antes de qualquer devolutiva.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Relatório do ciclo disponível de forma automática assim que o ciclo é encerrado.</p></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">1</span><span class="objetivo-etapa-line"></span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Setembro</span><h4>Parametrização do ciclo</h4><p>Cadastro do modelo de competências já usado pela Castanhal na plataforma.</p><span class="objetivo-etapa-resp">impulseup</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">2</span><span class="objetivo-etapa-line"></span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Outubro</span><h4>Primeiro ciclo rodando</h4><p>Avaliação de desempenho roda na plataforma, com envio via WhatsApp.</p><span class="objetivo-etapa-resp">Castanhal + impulseup</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">3</span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Novembro em diante*</span><h4>Acompanhamento contínuo</h4><p>Relatórios e comparativos disponíveis a cada novo ciclo.</p><span class="objetivo-etapa-resp">impulseup</span></div></div>
+              </div>
+              <div class="objetivo-indicador"><i class="fa-regular fa-square-check"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Tempo entre encerramento do ciclo e relatório disponível cai de ~20 dias para imediato.</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="objetivo-card">
+          <div class="objetivo-header"><span class="objetivo-num">2</span><div><h3>Aumentar a profundidade da avaliação de desempenho</h3><p>Evoluir do ciclo 90° para múltiplas perspectivas, quando fizer sentido para a Castanhal.</p></div></div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>Ciclo de 2024 avaliou apenas pela ótica do gestor (90°), sem autoavaliação.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Modelo evolui para incluir autoavaliação e outras perspectivas dentro do mesmo processo já validado.</p></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">1</span><span class="objetivo-etapa-line"></span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Setembro</span><h4>Definição do formato do ciclo</h4><p>RH decide, junto à impulseup, quais perspectivas entram no próximo ciclo.</p><span class="objetivo-etapa-resp">conjunta</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">2</span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Outubro</span><h4>Primeiro ciclo com o formato definido</h4><p>Ciclo roda na plataforma, sem depender de novo Forms.</p><span class="objetivo-etapa-resp">Castanhal + impulseup</span></div></div>
+              </div>
+              <div class="objetivo-indicador"><i class="fa-regular fa-square-check"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Ciclo de outubro roda com o formato definido em conjunto, sem depender de nova ferramenta manual.</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="objetivo-card">
+          <div class="objetivo-header"><span class="objetivo-num">3</span><div><h3>Sustentar o PDI ao longo do ano</h3><p>Garantir que o desenvolvimento iniciado após o feedback tenha continuidade em todas as áreas.</p></div></div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>PDIs iniciados após o feedback de 2024 não tiveram acompanhamento consistente em todas as áreas.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Gestores acompanham PDI de seus liderados dentro da plataforma, com prazo e status visíveis ao RH.</p></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">1</span><span class="objetivo-etapa-line"></span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Outubro*</span><h4>Treinamento dos gestores</h4><p>Capacitação no módulo de PDI e feedback, logo após o ciclo de avaliação.</p><span class="objetivo-etapa-resp">impulseup</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">2</span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Novembro em diante*</span><h4>Registro e acompanhamento contínuo</h4><p>PDIs abertos e monitorados dentro da plataforma, com relatório periódico para o RH.</p><span class="objetivo-etapa-resp">Castanhal + impulseup</span></div></div>
+              </div>
+              <div class="objetivo-indicador"><i class="fa-regular fa-square-check"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>% de PDIs concluídos ou em andamento visível a qualquer momento para o RH, sem cobrança manual por área.</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="objetivo-card">
+          <div class="objetivo-header"><span class="objetivo-num">4</span><div><h3>Conectar metas e desempenho na tomada de decisão</h3><p>Levar entrega de resultado, e não só percepção do gestor, para as decisões de promoção e sucessão.</p></div></div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>Tentativa de ligar metas ao ciclo de avaliação não avançou em 2024, ficando as promoções fora desse cruzamento.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Metas e avaliação cruzadas automaticamente na matriz de calibração, subsidiando decisões de promoção e sucessão.</p></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">1</span><span class="objetivo-etapa-line"></span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">A definir*</span><h4>Estruturação do módulo de metas</h4><p>Definição, junto ao RH, do desdobramento de metas (empresa → área → indivíduo).</p><span class="objetivo-etapa-resp">conjunta</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">2</span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">A definir*</span><h4>Cruzamento no Nine-Box</h4><p>Uso do cruzamento de metas x avaliação nas decisões de promoção e sucessão.</p><span class="objetivo-etapa-resp">Castanhal</span></div></div>
+              </div>
+              <div class="objetivo-indicador"><i class="fa-regular fa-square-check"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Decisões de promoção passam a citar entrega de meta + resultado de avaliação, não apenas percepção do gestor.</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="objetivo-card">
+          <div class="objetivo-header"><span class="objetivo-num">5</span><div><h3>Levar o público operacional para dentro do ciclo digital</h3><p>Garantir que Manacapuru e o chão de fábrica participem do ciclo tanto quanto a sede.</p></div></div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>Empresa não atingiu 100% de adesão no último ciclo, com gestores de baixa familiaridade tecnológica em Manacapuru.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Ciclo chega a 100% da operação, incluindo Manacapuru, via link direto no WhatsApp.</p></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">1</span><span class="objetivo-etapa-line"></span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Setembro</span><h4>Configuração do envio via WhatsApp</h4><p>Integração ativada para toda a base de colaboradores.</p><span class="objetivo-etapa-resp">impulseup</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">2</span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Outubro</span><h4>Primeiro ciclo com adesão monitorada</h4><p>Acompanhamento em tempo real de quem já respondeu, por unidade.</p><span class="objetivo-etapa-resp">conjunta</span></div></div>
+              </div>
+              <div class="objetivo-indicador"><i class="fa-regular fa-square-check"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Percentual de adesão ao ciclo comparado ao ciclo anterior (que não atingiu 100%).</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:12px;color:var(--color-fg-muted);margin-top:8px;">* Períodos marcados com asterisco são estimativas de onboarding, não cronograma comercial confirmado — Lucão, favor validar antes de tratar como compromisso com o cliente. Setembro e outubro (objetivos 1, 2 e 5) refletem o cronograma real já comentado por Otávio.</p>
+      </div>
+    </section>
+
+    <!-- ABA 7 — PROCESSO DE IMPLEMENTAÇÃO -->
+    <section class="tab-panel" id="tab-7">
+      <h1 class="section-title">Processo de implementação</h1>
+      <p class="section-sub">Como será a jornada de implementação da Companhia Têxtil de Castanhal com a impulseup</p>
+
+      <div class="empty-state" id="tab7EmptyState">
+        <i class="fa-regular fa-map"></i>
+        <h3>Aba liberada após o closer confirmar os módulos contratados</h3>
+        <p>Assim que os módulos da proposta forem confirmados, esta aba mostra o fluxo de implementação de cada um: fases, etapas e responsáveis do nosso lado.</p>
+      </div>
+
+      <div id="tab7ProcessWrap" style="display:none;">
+        <!--MODULE_TABS-->
+        <div class="impl-timeline" id="implTimeline">
+          <!--IMPL_PHASES-->
+        </div>
+        <div class="impl-legend">
+          <div class="impl-legend-item"><span class="impl-legend-dot" style="background:#CC0088;"></span>Consultor de implementação</div>
+          <div class="impl-legend-item"><span class="impl-legend-dot" style="background:#4B4B8A;"></span>Suporte técnico</div>
+          <div class="impl-legend-item"><span class="impl-legend-dot" style="background:#111;"></span>Gerente de contas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABA 8 — PROPOSTA COMERCIAL -->
+    <section class="tab-panel" id="tab-8">
+      <h1 class="section-title">Proposta comercial</h1>
+      <p class="section-sub">Investimento para a Companhia Têxtil de Castanhal</p>
+
+      <div class="empty-state" id="tab8EmptyState">
+        <i class="fa-regular fa-file-invoice-dollar"></i>
+        <h3>Aba liberada após o closer informar a proposta comercial</h3>
+        <p>Assim que o closer passar os valores definidos na ferramenta de precificação da impulseup, esta aba mostra o investimento, os módulos e serviços incluídos e o detalhamento de valores.</p>
+      </div>
+
+      <div id="tab8ProposalWrap" style="display:none;">
+        <div class="investment-hero">
+          <div class="label">Investimento mensal</div>
+          <div class="value">R$ 12.400/mês</div>
+        </div>
+        <p class="investment-hero-meta">Investimento total do contrato: R$ 148.800 · Validade da proposta: 15 dias · Duração do contrato: 12 meses</p>
+
+        <div class="block-title"><i class="fa-regular fa-layer-group"></i>Módulos e serviços incluídos</div>
+        <div class="module-list">
+          <div class="module-row">
+            <div class="module-row-main"><h4>Avaliação de Desempenho</h4><p>Ciclos completos com nine-box e PDI integrado.</p></div>
+            <div class="module-row-users">500 usuários</div>
+          </div>
+          <div class="module-row">
+            <div class="module-row-main"><h4>Plano de Serviço III</h4><p>Implementação assistida por especialista em DHO.</p></div>
+            <div class="module-row-users"></div>
+          </div>
+        </div>
+
+        <div class="block-title"><i class="fa-regular fa-table"></i>Detalhamento de valores</div>
+        <table class="rfp-table" id="proposalValuesTable">
+          <tr><th>Item</th><th>Usuários</th><th>Valor unitário</th><th>Valor mensal</th><th>Observação</th></tr>
+          <tr><td><div class="feat-name">Avaliação de Desempenho</div></td><td class="check-cell">500</td><td class="check-cell">R$ 22,00</td><td class="check-cell">R$ 11.000,00</td><td class="check-cell">—</td></tr>
+          <tr><td><div class="feat-name">Plano de Serviço III</div></td><td class="check-cell">—</td><td class="check-cell">R$ 16.800,00</td><td class="check-cell">—</td><td class="check-cell">Cobrança única</td></tr>
+          <tr><td colspan="4" style="text-align:right;font-weight:600;">Total do contrato (12 meses)</td><td class="check-cell" style="font-weight:700;color:var(--color-primary);">R$ 148.800</td></tr>
+        </table>
+
+        <label class="proposal-upload-slot" id="proposalSlot" style="margin-top:24px;">
+          <div id="proposalPlaceholder">
+            <i class="fa-regular fa-image" style="font-size:22px;color:var(--color-border);display:block;margin-bottom:10px;"></i>
+            <span style="font-size:13px;color:var(--color-fg-muted);">Clique para anexar</span>
+          </div>
+          <input type="file" accept="image/*" id="proposalInput">
+        </label>
+      </div>
+    </section>
+
+    <!-- ABA 9 — PRÓXIMOS PASSOS -->
+    <section class="tab-panel" id="tab-9">
+      <h1 class="section-title">Próximos passos</h1>
+      <p class="section-sub">Jornada de compra da Companhia Têxtil de Castanhal</p>
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">Julho</span><div><span class="tl-desc">Reunião de Diagnóstico</span><div class="tl-meta">Entender contexto e desafios · Otávio Neto, João e Bárbara Pereira</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">21 jul</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Avaliação de desempenho e pesquisa de clima aplicadas aos desafios mapeados · Otávio e João</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">28 jul</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Implementação, cenários de investimento (usuários x créditos) e argumentação para a diretoria · Otávio e Bárbara</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">3 a 7 ago</span><div><span class="tl-desc">Apresentação para diretoria</span><div class="tl-meta">Bárbara apresenta o projeto internamente, com apoio do material de Aprovação do projeto</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Revisão jurídica</span></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">Setembro</span><div><span class="tl-desc">Assinatura e kickoff</span><div class="tl-meta">Ciclo de avaliação de desempenho planejado para rodar em outubro</div></div></div>
+      </div>
+    </section>
+
+    </main>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap"><p>impulseup · Material preparado para Companhia Têxtil de Castanhal</p></div>
+</footer>
+
+<script>
+  document.querySelectorAll('#tabNav button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#tabNav button').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  const STORAGE_KEY = 'iup_site_castanhal';
+
+  function saveImage(key, dataUrl){
+    const store = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    store[key] = dataUrl;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+  }
+  function loadStore(){
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  }
+
+  // clientLogoInput só existe quando a logo do cliente ainda não foi embutida pela skill
+  // (fallback de upload manual) — se a skill já embutiu a logo (<img class="client-logo">
+  // estático, sem input), este bloco não faz nada.
+  const clientLogoInputEl = document.getElementById('clientLogoInput');
+  if(clientLogoInputEl){
+    clientLogoInputEl.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const slot = document.getElementById('clientLogoSlot');
+        slot.innerHTML = '<img src="' + ev.target.result + '"><input type="file" accept="image/*" id="clientLogoInput">';
+        document.getElementById('clientLogoInput').addEventListener('change', arguments.callee);
+        saveImage('clientLogo', ev.target.result);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  (function restoreImages(){
+    const store = loadStore();
+    const clientLogoSlotEl = document.getElementById('clientLogoSlot');
+    if(store.clientLogo && clientLogoSlotEl){
+      clientLogoSlotEl.innerHTML = '<img src="' + store.clientLogo + '">';
+      const input = document.createElement('input');
+      input.type = 'file'; input.accept = 'image/*'; input.id = 'clientLogoInput';
+      clientLogoSlotEl.appendChild(input);
+    }
+    document.querySelectorAll('.personPhotoInput').forEach((input, idx) => {
+      if(store['person_' + idx]){
+        const label = input.closest('.person-photo');
+        label.innerHTML = '<img src="' + store['person_' + idx] + '">';
+        label.appendChild(input);
+      }
+    });
+    document.querySelectorAll('.logo-grid-input').forEach((input, idx) => {
+      if(store['logo_' + idx]){
+        const slot = input.closest('.logo-grid-slot');
+        slot.innerHTML = '<img src="' + store['logo_' + idx] + '">';
+        const novoInput = document.createElement('input');
+        novoInput.type = 'file'; novoInput.accept = 'image/*'; novoInput.className = 'logo-grid-input';
+        slot.appendChild(novoInput);
+        novoInput.addEventListener('change', handleLogoGridChange);
+      }
+    });
+  })();
+
+  function handleLogoGridChange(e){
+    const input = e.target;
+    const slot = input.closest('.logo-grid-slot');
+    const idx = Array.from(document.querySelectorAll('.logo-grid-slot')).indexOf(slot);
+    const file = input.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      slot.innerHTML = '<img src="' + ev.target.result + '">';
+      const novoInput = document.createElement('input');
+      novoInput.type = 'file'; novoInput.accept = 'image/*'; novoInput.className = 'logo-grid-input';
+      slot.appendChild(novoInput);
+      novoInput.addEventListener('change', handleLogoGridChange);
+      saveImage('logo_' + idx, ev.target.result);
+    };
+    reader.readAsDataURL(file);
+  }
+  document.querySelectorAll('.logo-grid-input').forEach(input => {
+    input.addEventListener('change', handleLogoGridChange);
+  });
+  document.getElementById('proposalInput').addEventListener('change', e => {
+    const file = e.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const slot = document.getElementById('proposalSlot');
+      slot.innerHTML = '<img src="' + ev.target.result + '"><input type="file" accept="image/*" id="proposalInput">';
+      document.getElementById('proposalInput').addEventListener('change', arguments.callee);
+      saveImage('proposalImage', ev.target.result);
+    };
+    reader.readAsDataURL(file);
+  });
+
+  (function restoreProposalImage(){
+    const store = loadStore();
+    if(store.proposalImage){
+      const slot = document.getElementById('proposalSlot');
+      slot.innerHTML = '<img src="' + store.proposalImage + '">';
+      const input = document.createElement('input');
+      input.type = 'file'; input.accept = 'image/*'; input.id = 'proposalInput';
+      slot.appendChild(input);
+    }
+  })();
+
+  // --- Aba 3 (Demonstração): embed de vídeo a partir de link de YouTube ou Drive ---
+  // Reconhece o link colado (pelo closer, no chat ou direto no site) e monta o player
+  // certo. Se não reconhecer o domínio/formato, cai num card com botão "Assistir vídeo"
+  // apontando pro link original — nunca falha silenciosamente.
+  function parseVideoEmbedUrl(url){
+    let u;
+    try{ u = new URL(url.trim()); } catch(e){ return null; }
+    if(u.hostname.includes('youtu.be')){
+      const id = u.pathname.replace('/', '');
+      if(id) return 'https://www.youtube.com/embed/' + id;
+    }
+    if(u.hostname.includes('youtube.com')){
+      if(u.pathname === '/watch' && u.searchParams.get('v')) return 'https://www.youtube.com/embed/' + u.searchParams.get('v');
+      if(u.pathname.startsWith('/shorts/')) return 'https://www.youtube.com/embed/' + u.pathname.split('/')[2];
+      if(u.pathname.startsWith('/embed/')) return url.trim();
+    }
+    if(u.hostname.includes('drive.google.com')){
+      const match = u.pathname.match(/\/file\/d\/([^/]+)/);
+      if(match) return 'https://drive.google.com/file/d/' + match[1] + '/preview';
+    }
+    return null;
+  }
+
+  function renderVideoEmbed(wrap, url){
+    const embedUrl = parseVideoEmbedUrl(url);
+    if(embedUrl){
+      wrap.classList.remove('video-embed-empty');
+      wrap.innerHTML = '<iframe src="' + embedUrl + '" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+    } else {
+      const card = document.createElement('div');
+      card.className = 'video-link-card';
+      card.innerHTML = '<i class="fa-brands fa-google-drive"></i><p>Vídeo disponível para acesso externo</p>' +
+        '<a href="' + url + '" target="_blank" rel="noopener" class="video-link-btn">Assistir vídeo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>';
+      wrap.replaceWith(card);
+    }
+  }
+
+  document.querySelectorAll('.video-url-input').forEach(input => {
+    input.addEventListener('keydown', e => {
+      if(e.key !== 'Enter') return;
+      e.preventDefault();
+      const url = input.value.trim();
+      if(!url) return;
+      const idx = input.dataset.videoIdx;
+      const wrap = input.closest('.video-embed-wrap');
+      saveImage('video_' + idx, url);
+      renderVideoEmbed(wrap, url);
+    });
+  });
+
+  (function restoreVideos(){
+    const store = loadStore();
+    document.querySelectorAll('.video-embed-wrap[data-video-idx]').forEach(wrap => {
+      const idx = wrap.dataset.videoIdx;
+      if(store['video_' + idx]) renderVideoEmbed(wrap, store['video_' + idx]);
+    });
+  })();
+
+  // --- Edição de texto (responsáveis e datas) ---
+
+  function personCardHTML(initials, name, role){
+    return '<label class="person-photo" data-initials="' + initials + '"><span>' + initials + '</span>' +
+      '<input type="file" accept="image/*" class="personPhotoInput"></label>' +
+      '<div><h4 contenteditable="true" class="person-name">' + name + '</h4>' +
+      '<p contenteditable="true" class="person-role">' + role + '</p></div>';
+  }
+
+  function attachPersonPhotoHandler(input, key){
+    input.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const label = input.closest('.person-photo');
+        label.innerHTML = '<img src="' + ev.target.result + '">';
+        label.appendChild(input);
+        saveImage(key, ev.target.result);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function attachEditableSave(el, key){
+    el.addEventListener('input', () => {
+      debouncedSaveText(key, el.textContent);
+    });
+  }
+
+  let textSaveTimeout;
+  function debouncedSaveText(key, value){
+    clearTimeout(textSaveTimeout);
+    textSaveTimeout = setTimeout(() => {
+      const store = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      store[key] = value;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    }, 400);
+  }
+
+  document.getElementById('addPersonBtn').addEventListener('click', () => {
+    const teamGrid = document.getElementById('teamGrid');
+    const idx = teamGrid.querySelectorAll('.person-card').length;
+    const card = document.createElement('div');
+    card.className = 'person-card';
+    card.innerHTML = personCardHTML('??', 'Nome a preencher', 'Cargo a preencher');
+    teamGrid.appendChild(card);
+    const input = card.querySelector('.personPhotoInput');
+    attachPersonPhotoHandler(input, 'person_' + idx);
+    card.querySelectorAll('[contenteditable]').forEach((el, i) => {
+      const key = 'person_' + idx + (i === 0 ? '_name' : '_role');
+      attachEditableSave(el, key);
+    });
+  });
+
+  document.querySelectorAll('#teamGrid .personPhotoInput').forEach((input, idx) => {
+    attachPersonPhotoHandler(input, 'person_' + idx);
+  });
+  document.querySelectorAll('#teamGrid .person-name, #teamGrid .person-role').forEach((el) => {
+    const card = el.closest('.person-card');
+    const idx = Array.from(document.querySelectorAll('#teamGrid .person-card')).indexOf(card);
+    const key = 'person_' + idx + (el.classList.contains('person-name') ? '_name' : '_role');
+    attachEditableSave(el, key);
+  });
+  document.querySelectorAll('.tl-date[contenteditable]').forEach((el, idx) => {
+    attachEditableSave(el, 'tl_date_' + idx);
+  });
+
+  (function restoreEditableText(){
+    const store = loadStore();
+    document.querySelectorAll('#teamGrid .person-name, #teamGrid .person-role').forEach((el) => {
+      const card = el.closest('.person-card');
+      const idx = Array.from(document.querySelectorAll('#teamGrid .person-card')).indexOf(card);
+      const key = 'person_' + idx + (el.classList.contains('person-name') ? '_name' : '_role');
+      if(store[key] !== undefined) el.textContent = store[key];
+    });
+    document.querySelectorAll('.tl-date[contenteditable]').forEach((el, idx) => {
+      const key = 'tl_date_' + idx;
+      if(store[key] !== undefined) el.textContent = store[key];
+    });
+  })();
+
+  // --- Aba 7 (Processo de implementação): seletor de módulo (só existe com 2+ módulos) ---
+  document.querySelectorAll('.module-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.module-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.impl-module-panel').forEach(p => p.style.display = 'none');
+      btn.classList.add('active');
+      const panel = document.getElementById('implModule-' + btn.dataset.module);
+      if(panel) panel.style.display = 'block';
+    });
+  });
+
+  // Botão "+ Adicionar etapa": insere uma etapa editável extra na fase clicada.
+  // Nunca reescreve as etapas fixas — só adiciona uma linha nova ao final do .steps-card.
+  document.querySelectorAll('.impl-add-step').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.previousElementSibling;
+      const step = document.createElement('div');
+      step.className = 'impl-step extra';
+      step.innerHTML = '<svg class="impl-step-check" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#CC0088" stroke-width="1.5"/><path d="M6 10l2.5 2.5L14 7" stroke="#CC0088" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+        '<div class="impl-step-text" contenteditable="true">Etapa combinada com o cliente</div>' +
+        '<span class="impl-role-tag impl-role-consultor">Consultor de implementação</span>';
+      card.appendChild(step);
+      step.querySelector('.impl-step-text').focus();
+    });
+  });
+</script>
+
+</body>
+</html>
