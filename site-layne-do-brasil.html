@@ -278,8 +278,8 @@
       <button data-tab="2"><span class="num">02</span>A impulseup</button>
       <button data-tab="3"><span class="num">03</span>Demonstração</button>
       <button data-tab="4"><span class="num">04</span>Diferenciais impulseup</button>
-      <button data-tab="5"><span class="num">05</span>Aprovação do projeto</button>
-      <button data-tab="6"><span class="num">06</span>Plano de ação</button>
+      <button data-tab="5"><span class="num">05</span>Aprovação e plano de ação</button>
+      <button data-tab="6"><span class="num">06</span>Processo de implementação</button>
       <button data-tab="7"><span class="num">07</span>Proposta comercial</button>
       <button data-tab="8"><span class="num">08</span>Próximos passos</button>
     </nav>
@@ -433,29 +433,29 @@
 
     <!-- ABA 5 — APROVAÇÃO DO PROJETO -->
     <section class="tab-panel" id="tab-5">
-      <h1 class="section-title">Aprovação do projeto</h1>
-      <p class="section-sub">Do motivador da contratação ao estado futuro da Layne do Brasil Sondagens com a impulseup</p>
+      <h1 class="section-title">Aprovação e plano de ação</h1>
+      <p class="section-sub">Do motivador da contratação ao estado futuro da Layne do Brasil Sondagens com a impulseup, com o plano de ação e cronograma para chegar lá</p>
       <div class="empty-state" id="tab5EmptyState">
         <i class="fa-regular fa-square-check"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
-        <p>Assim que os desafios forem mapeados, esta aba mostra, para cada um deles, o motivador da contratação, como a impulseup resolve e qual o estado futuro do negócio — pronta para embasar a apresentação à diretoria.</p>
+        <p>Assim que os desafios forem mapeados, esta aba mostra, para cada um deles, o motivador da contratação, como a impulseup resolve e qual o estado futuro do negócio, além dos objetivos de negócio e RH por trás do projeto e o plano de ação com cronograma — pronta para embasar a apresentação à diretoria.</p>
       </div>
       <div id="tab5ApprovalWrap" style="display:none;">
         <!--APPROVAL_ROWS-->
       </div>
     </section>
 
-    <!-- ABA 6 — PLANO DE AÇÃO -->
+    <!-- ABA 6 — PROCESSO DE IMPLEMENTAÇÃO -->
     <section class="tab-panel" id="tab-6">
-      <h1 class="section-title">Plano de ação</h1>
-      <p class="section-sub">Objetivos de negócio da Layne do Brasil Sondagens e o caminho para chegar lá com a impulseup</p>
+      <h1 class="section-title">Processo de implementação</h1>
+      <p class="section-sub">Como a implementação da impulseup acontece na Layne do Brasil Sondagens, módulo a módulo</p>
       <div class="empty-state" id="tab6EmptyState">
-        <i class="fa-regular fa-clipboard"></i>
-        <h3>Aba liberada após a reunião de Diagnóstico</h3>
-        <p>Assim que os desafios forem mapeados, esta aba mostra os objetivos de negócio e RH por trás do projeto e o plano de ação, com cronograma, para chegar lá com a impulseup.</p>
+        <i class="fa-regular fa-gears"></i>
+        <h3>Aba liberada junto com a proposta comercial</h3>
+        <p>Assim que a proposta for definida, esta aba mostra o passo a passo de implementação de cada módulo contratado, com prazos e responsáveis, para dar visibilidade sobre a jornada até o go-live.</p>
       </div>
-      <div id="tab6ObjetivosWrap" style="display:none;">
-        <!--OBJETIVOS-->
+      <div id="tab6ImplementacaoWrap" style="display:none;">
+        <!--IMPLEMENTACAO-->
       </div>
     </section>
 
@@ -473,28 +473,19 @@
       <div id="tab7ProposalWrap" style="display:none;">
         <div class="investment-hero">
           <div class="label">Investimento mensal</div>
-          <div class="value">R$ 12.400/mês</div>
+          <div class="value">A definir</div>
         </div>
-        <p class="investment-hero-meta">Investimento total do contrato: R$ 148.800 · Validade da proposta: 15 dias · Duração do contrato: 12 meses</p>
+        <p class="investment-hero-meta">Investimento total do contrato: a definir · Validade da proposta: a definir · Duração do contrato: a definir</p>
 
         <div class="block-title"><i class="fa-regular fa-layer-group"></i>Módulos e serviços incluídos</div>
         <div class="module-list">
-          <div class="module-row">
-            <div class="module-row-main"><h4>Avaliação de Desempenho</h4><p>Ciclos completos com nine-box e PDI integrado.</p></div>
-            <div class="module-row-users">500 usuários</div>
-          </div>
-          <div class="module-row">
-            <div class="module-row-main"><h4>Plano de Serviço III</h4><p>Implementação assistida por especialista em DHO.</p></div>
-            <div class="module-row-users"></div>
-          </div>
+          <!--MODULES_ROWS-->
         </div>
 
         <div class="block-title"><i class="fa-regular fa-table"></i>Detalhamento de valores</div>
         <table class="rfp-table" id="proposalValuesTable">
           <tr><th>Item</th><th>Usuários</th><th>Valor unitário</th><th>Valor mensal</th><th>Observação</th></tr>
-          <tr><td><div class="feat-name">Avaliação de Desempenho</div></td><td class="check-cell">500</td><td class="check-cell">R$ 22,00</td><td class="check-cell">R$ 11.000,00</td><td class="check-cell">—</td></tr>
-          <tr><td><div class="feat-name">Plano de Serviço III</div></td><td class="check-cell">—</td><td class="check-cell">R$ 16.800,00</td><td class="check-cell">—</td><td class="check-cell">Cobrança única</td></tr>
-          <tr><td colspan="4" style="text-align:right;font-weight:600;">Total do contrato (12 meses)</td><td class="check-cell" style="font-weight:700;color:var(--color-primary);">R$ 148.800</td></tr>
+          <!--VALUES_ROWS-->
         </table>
 
         <label class="proposal-upload-slot" id="proposalSlot" style="margin-top:24px;">
