@@ -277,8 +277,8 @@
       <button data-tab="2"><span class="num">02</span>A impulseup</button>
       <button data-tab="3"><span class="num">03</span>Demonstração</button>
       <button data-tab="4"><span class="num">04</span>Diferenciais impulseup</button>
-      <button data-tab="5"><span class="num">05</span>Aprovação do projeto</button>
-      <button data-tab="6"><span class="num">06</span>Plano de ação</button>
+      <button data-tab="5"><span class="num">05</span>Aprovação e plano de ação</button>
+      <button data-tab="6"><span class="num">06</span>Processo de implementação</button>
       <button data-tab="7"><span class="num">07</span>Proposta comercial</button>
       <button data-tab="8"><span class="num">08</span>Próximos passos</button>
     </nav>
@@ -316,24 +316,24 @@
       <div class="block-title"><i class="fa-regular fa-user-tie"></i>Responsáveis pelo projeto</div>
       <div class="team" id="teamGrid">
         <div class="person-card">
-          <label class="person-photo" data-initials="??"><span>??</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <label class="person-photo" data-initials="KP"><span>KP</span><input type="file" accept="image/*" class="personPhotoInput"></label>
           <div>
-            <h4 contenteditable="true" class="person-name">Nome a preencher</h4>
-            <p contenteditable="true" class="person-role">Ponto de contato do projeto</p>
+            <h4 contenteditable="true" class="person-name">Kianni Patrizi Barbosa</h4>
+            <p contenteditable="true" class="person-role">Ponto de contato do projeto (RH)</p>
           </div>
         </div>
         <div class="person-card">
-          <label class="person-photo" data-initials="??"><span>??</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <label class="person-photo" data-initials="LU"><span>LU</span><input type="file" accept="image/*" class="personPhotoInput"></label>
           <div>
-            <h4 contenteditable="true" class="person-name">Nome a preencher</h4>
+            <h4 contenteditable="true" class="person-name">Luciana</h4>
             <p contenteditable="true" class="person-role">Gerente de RH</p>
           </div>
         </div>
         <div class="person-card">
-          <label class="person-photo" data-initials="??"><span>??</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <label class="person-photo" data-initials="FA"><span>FA</span><input type="file" accept="image/*" class="personPhotoInput"></label>
           <div>
-            <h4 contenteditable="true" class="person-name">Nome a preencher</h4>
-            <p contenteditable="true" class="person-role">Diretor(a) de RH</p>
+            <h4 contenteditable="true" class="person-name">Fabrício</h4>
+            <p contenteditable="true" class="person-role">CEO</p>
           </div>
         </div>
       </div>
@@ -450,46 +450,422 @@
     <!-- ABA 4 — DIFERENCIAIS IMPULSEUP -->
     <section class="tab-panel" id="tab-4">
       <h1 class="section-title">Diferenciais impulseup</h1>
-      <p class="section-sub">Comparativo com base nos critérios mais importantes para este projeto</p>
-      <div class="empty-state" id="tab4EmptyState">
+      <p class="section-sub">Comparativo com base nos critérios mais importantes para o projeto da Ondacom</p>
+      <div class="empty-state" id="tab4EmptyState" style="display:none;">
         <i class="fa-regular fa-list-check"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
         <p>Assim que o closer finalizar o diagnóstico, esta aba mostra o comparativo entre a impulseup e os concorrentes identificados na conversa. Se nenhum concorrente específico for mencionado, o comparativo é feito contra "Outras soluções", com resultado mediano.</p>
       </div>
-      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;display:none;">
+      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;display:block;">
         <table class="rfp-table" id="tab4Table">
-          <!-- Preenchido pela skill site-cliente-impulseup a partir da transcrição da reunião de Diagnóstico e de references/rfp-criterios.json.
-               Cada critério exibe sua tag (campo "tags" do JSON) junto ao nome, ex:
-               <tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>...</tr> -->
+          <thead>
+            <tr><th>Critério</th><th class="iup-col">impulseup</th><th>Outras soluções</th></tr>
+          </thead>
+          <tbody>
+          <tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">Competências específicas por líder, não líder ou cargo</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Avaliação de consenso entre avaliadores</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">Consenso aprovado, ao final, pelo próprio colaborador</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Gestor acompanha o status das respostas da equipe</div><span class="feat-tag">Liderança</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">Gestor libera o relatório diretamente para o liderado</div><span class="feat-tag">Liderança</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Registro de feedbacks categorizados e compartilhados</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">Competências vinculadas ao feedback</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">IA para ajudar o gestor a escrever o feedback</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Diversos formatos de pesquisa (pulso, clima, NPS)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">Plano de ação criado a partir dos resultados da pesquisa</div><span class="feat-tag">Liderança</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">IA para análise de comentários e questões abertas</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Comparativo histórico de resultados de pesquisas</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">Comparação de performance e desenvolvimento ao longo do tempo</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">Comparação de resultados por cargo, área ou diretoria</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">Resultado final do colaborador em pontuação, percentual ou conceito</div><span class="feat-tag">Confiável</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td></tr>
+          <tr><td><div class="feat-name">Conexão de gaps da avaliação com PDI e trilhas de desenvolvimento</div><span class="feat-tag">Inteligente</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Biblioteca de ações de desenvolvimento personalizada</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Treinamento para gestores na implantação</div><span class="feat-tag">Atendimento consultivo</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Equipe de implementação com psicólogos organizacionais</div><span class="feat-tag">Atendimento consultivo</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          <tr><td><div class="feat-name">Material consolidado de resultados para apresentar à diretoria</div><span class="feat-tag">Atendimento consultivo</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td><td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td></tr>
+          </tbody>
         </table>
       </div>
     </section>
 
     <!-- ABA 5 — APROVAÇÃO DO PROJETO -->
     <section class="tab-panel" id="tab-5">
-      <h1 class="section-title">Aprovação do projeto</h1>
-      <p class="section-sub">Do motivador da contratação ao estado futuro da Ondacom com a impulseup</p>
-      <div class="empty-state" id="tab5EmptyState">
-        <i class="fa-regular fa-square-check"></i>
+      <h1 class="section-title">Aprovação e plano de ação</h1>
+      <p class="section-sub">Objetivos de negócio da Ondacom, o caminho para chegar lá e o estado futuro com a impulseup</p>
+      <div class="empty-state" id="tab5EmptyState" style="display:none;">
+        <i class="fa-regular fa-clipboard"></i>
         <h3>Aba liberada após a reunião de Diagnóstico</h3>
-        <p>Assim que os desafios forem mapeados, esta aba mostra, para cada um deles, o motivador da contratação, como a impulseup resolve e qual o estado futuro do negócio — pronta para embasar a apresentação à diretoria.</p>
+        <p>Assim que os desafios forem mapeados, esta aba mostra os objetivos de negócio e RH por trás do projeto, o plano de ação com cronograma para chegar lá, e o estado futuro do negócio com a impulseup, pronta para embasar a apresentação à diretoria.</p>
       </div>
-      <div id="tab5ApprovalWrap" style="display:none;">
-        <!--APPROVAL_ROWS-->
+      <div id="tab5PlanoWrap" style="display:block;">
+      <div class="objetivo-card">
+        <div class="objetivo-header">
+          <div class="objetivo-num">01</div>
+          <div>
+            <h3>Profissionalizar a liderança na gestão de pessoas</h3>
+            <p>Dar ao gestor um dado objetivo para conduzir conversas de performance, hoje dependentes só da percepção e da mediação do RH.</p>
+          </div>
+        </div>
+        <div class="objetivo-body">
+          <div class="objetivo-compare-col">
+            <div class="objetivo-compare-box atual">
+              <span class="objetivo-compare-label">Situação atual</span>
+              <p>Kianni relatou que o RH recebe muitas ligações de líderes com dificuldade de tratar situações com liderados, e que hoje falta uma ferramenta que dê esse dado ao gestor, o que ela descreveu como um laxismo a ser corrigido.</p>
+            </div>
+            <div class="objetivo-compare-box meta">
+              <span class="objetivo-compare-label">Meta</span>
+              <p>Líderes acompanhando o andamento das avaliações da própria equipe e liberando relatórios diretamente aos liderados, reduzindo o volume de casos que chegam ao RH para mediação.</p>
+            </div>
+            <div class="objetivo-indicador">
+              <i class="fa-solid fa-chart-line"></i>
+              <div>
+                <span class="objetivo-indicador-label">Indicador de sucesso</span>
+                <p>Redução no número de ligações e encaminhamentos ao RH para mediar conflitos entre líder e liderado.</p>
+              </div>
+            </div>
+          </div>
+          <div class="objetivo-plan-col">
+            <div class="objetivo-etapas-title">Plano de ação</div>
+            <div class="objetivo-etapas">
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">1</div>
+              <div class="objetivo-etapa-line"></div>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 1</span>
+                <h4>Parametrização de competências de liderança</h4>
+                <p>Construção de competências específicas para líderes, alinhadas ao contexto operacional da Ondacom.</p>
+                <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">2</div>
+              <div class="objetivo-etapa-line"></div>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 2</span>
+                <h4>Piloto com um grupo de líderes</h4>
+                <p>Ciclo piloto para validar a dinâmica de acompanhamento e liberação de relatório pelo gestor.</p>
+                <span class="objetivo-etapa-resp">Responsável: conjunta</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">3</div>
+              <div class="objetivo-etapa-line"></div>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 3</span>
+                <h4>Rollout geral e treinamento de gestores</h4>
+                <p>Extensão do ciclo para toda a liderança, com treinamento sobre como conduzir a devolutiva.</p>
+                <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">4</div>
+              
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 4 em diante</span>
+                <h4>Acompanhamento contínuo</h4>
+                <p>Monitoramento da adoção pelos gestores e ajustes finos no processo.</p>
+                <span class="objetivo-etapa-resp">Responsável: conjunta</span>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="approval-outcome">
+          <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+          <div class="approval-outcome-grid">
+            <div class="approval-stage futuro">
+              <span class="approval-stage-label">RH / DHO</span>
+              <p>Gestores acompanham o status das avaliações de suas equipes e liberam relatórios diretamente aos liderados, sem depender do RH como intermediário.</p>
+            </div>
+            <div class="approval-stage negocio">
+              <span class="approval-stage-label">Negócio</span>
+              <p>Conversas de performance passam a ter evidência registrada, o que Kianni apontou como o principal fator hoje ausente nas discussões entre líder e liderado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="objetivo-card">
+        <div class="objetivo-header">
+          <div class="objetivo-num">02</div>
+          <div>
+            <h3>Estruturar a primeira avaliação de desempenho formal</h3>
+            <p>Sair de um cenário sem nenhum ciclo formal de avaliação para um processo estruturado, com critério técnico por trás das decisões de desenvolvimento.</p>
+          </div>
+        </div>
+        <div class="objetivo-body">
+          <div class="objetivo-compare-col">
+            <div class="objetivo-compare-box atual">
+              <span class="objetivo-compare-label">Situação atual</span>
+              <p>A Ondacom nunca realizou um ciclo formal de avaliação de desempenho. Kianni apontou que a maior volumetria de dor está nos liderados, ligada a comportamento, e que isso já se reflete em turnover, atestados e afastamentos.</p>
+            </div>
+            <div class="objetivo-compare-box meta">
+              <span class="objetivo-compare-label">Meta</span>
+              <p>Primeiro ciclo de avaliação rodando, com critérios específicos para o público operacional, dando ao RH um dado concreto para embasar promoções e desenvolvimento.</p>
+            </div>
+            <div class="objetivo-indicador">
+              <i class="fa-solid fa-chart-line"></i>
+              <div>
+                <span class="objetivo-indicador-label">Indicador de sucesso</span>
+                <p>Primeiro ciclo de avaliação concluído com adesão da operação e resultado comparável nos próximos ciclos.</p>
+              </div>
+            </div>
+          </div>
+          <div class="objetivo-plan-col">
+            <div class="objetivo-etapas-title">Plano de ação</div>
+            <div class="objetivo-etapas">
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">1</div>
+              <div class="objetivo-etapa-line"></div>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 1</span>
+                <h4>Parametrização por cargo e área</h4>
+                <p>Definição de competências e escalas de avaliação específicas para o perfil operacional da Ondacom.</p>
+                <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">2</div>
+              <div class="objetivo-etapa-line"></div>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 2</span>
+                <h4>Piloto com uma frente da operação</h4>
+                <p>Ciclo piloto para validar formato e comunicação antes do rollout geral.</p>
+                <span class="objetivo-etapa-resp">Responsável: conjunta</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">3</div>
+              <div class="objetivo-etapa-line"></div>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 3</span>
+                <h4>Rollout geral do ciclo</h4>
+                <p>Extensão da avaliação para toda a base de colaboradores mapeada.</p>
+                <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">4</div>
+              
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 4</span>
+                <h4>Leitura de resultados e plano de ação</h4>
+                <p>Análise dos resultados do primeiro ciclo e definição de próximos passos com o RH.</p>
+                <span class="objetivo-etapa-resp">Responsável: conjunta</span>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="approval-outcome">
+          <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+          <div class="approval-outcome-grid">
+            <div class="approval-stage futuro">
+              <span class="approval-stage-label">RH / DHO</span>
+              <p>Resultado final de cada colaborador em pontuação ou percentual, comparável ao longo do tempo e por área.</p>
+            </div>
+            <div class="approval-stage negocio">
+              <span class="approval-stage-label">Negócio</span>
+              <p>Promoções passam a ter base técnica, hoje concedidas, segundo Kianni, muitas vezes só para não perder a pessoa para o mercado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="objetivo-card">
+        <div class="objetivo-header">
+          <div class="objetivo-num">03</div>
+          <div>
+            <h3>Aumentar a adesão e a efetividade das pesquisas de clima</h3>
+            <p>Transformar um levantamento pontual, com baixa adesão, em um processo contínuo de escuta e ação.</p>
+          </div>
+        </div>
+        <div class="objetivo-body">
+          <div class="objetivo-compare-col">
+            <div class="objetivo-compare-box atual">
+              <span class="objetivo-compare-label">Situação atual</span>
+              <p>A pesquisa de diagnóstico da NR1 já foi realizada, mas, segundo Kianni, enfrentou uma problemática de aderência muito séria, com desconfiança das pontas mesmo sendo aplicada por uma empresa externa.</p>
+            </div>
+            <div class="objetivo-compare-box meta">
+              <span class="objetivo-compare-label">Meta</span>
+              <p>Pesquisas de clima rodando em ciclo contínuo, com adesão maior e plano de ação estruturado a partir de cada resultado.</p>
+            </div>
+            <div class="objetivo-indicador">
+              <i class="fa-solid fa-chart-line"></i>
+              <div>
+                <span class="objetivo-indicador-label">Indicador de sucesso</span>
+                <p>Taxa de adesão à pesquisa e volume de ações concluídas a partir do plano gerado em cada ciclo.</p>
+              </div>
+            </div>
+          </div>
+          <div class="objetivo-plan-col">
+            <div class="objetivo-etapas-title">Plano de ação</div>
+            <div class="objetivo-etapas">
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">1</div>
+              <div class="objetivo-etapa-line"></div>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 1</span>
+                <h4>Parametrização da pesquisa</h4>
+                <p>Construção do questionário de clima com base nos temas já mapeados (comunicação, liderança, assédio).</p>
+                <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">2</div>
+              <div class="objetivo-etapa-line"></div>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 2</span>
+                <h4>Campanha de sensibilização e primeiro ciclo</h4>
+                <p>Comunicação interna reforçando confidencialidade e importância da resposta, seguida da aplicação.</p>
+                <span class="objetivo-etapa-resp">Responsável: conjunta</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">3</div>
+              <div class="objetivo-etapa-line"></div>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 3</span>
+                <h4>Leitura dos resultados e plano de ação</h4>
+                <p>Estruturação de planos de ação a partir dos resultados junto às lideranças.</p>
+                <span class="objetivo-etapa-resp">Responsável: conjunta</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">4</div>
+              
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">A definir com CS</span>
+                <h4>Novo ciclo comparativo</h4>
+                <p>Nova rodada para medir evolução de adesão e clima frente ao ciclo anterior.</p>
+                <span class="objetivo-etapa-resp">Responsável: conjunta</span>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="approval-outcome">
+          <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+          <div class="approval-outcome-grid">
+            <div class="approval-stage futuro">
+              <span class="approval-stage-label">RH / DHO</span>
+              <p>Comparativo histórico de resultados de pesquisa, com plano de ação gerado a partir de cada rodada.</p>
+            </div>
+            <div class="approval-stage negocio">
+              <span class="approval-stage-label">Negócio</span>
+              <p>Redução do risco apontado pela própria Kianni, de que a baixa adesão à pesquisa siga influenciando negativamente o clima se não for trabalhada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="objetivo-card">
+        <div class="objetivo-header">
+          <div class="objetivo-num">04</div>
+          <div>
+            <h3>Dar ao RH um material consolidado para a aprovação do projeto</h3>
+            <p>Apoiar Kianni na construção do caso de negócio que ela mesma vai levar à Luciana e ao Fabrício para aprovar o orçamento do projeto.</p>
+          </div>
+        </div>
+        <div class="objetivo-body">
+          <div class="objetivo-compare-col">
+            <div class="objetivo-compare-box atual">
+              <span class="objetivo-compare-label">Situação atual</span>
+              <p>Kianni relatou estar montando os orçamentos internamente, sem budget pré-definido, para depois levar a proposta à Luciana (gerente de RH) e ao Fabrício (CEO), com o objetivo de ter as propostas prontas já no início do próximo mês.</p>
+            </div>
+            <div class="objetivo-compare-box meta">
+              <span class="objetivo-compare-label">Meta</span>
+              <p>RH com material consolidado de resultados e diagnóstico pronto para apresentar à diretoria, sustentando a decisão de orçamento para o próximo ano.</p>
+            </div>
+            <div class="objetivo-indicador">
+              <i class="fa-solid fa-chart-line"></i>
+              <div>
+                <span class="objetivo-indicador-label">Indicador de sucesso</span>
+                <p>Aprovação do orçamento pela diretoria dentro do prazo que Kianni definiu (propostas prontas até o início do próximo mês).</p>
+              </div>
+            </div>
+          </div>
+          <div class="objetivo-plan-col">
+            <div class="objetivo-etapas-title">Plano de ação</div>
+            <div class="objetivo-etapas">
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">1</div>
+              <div class="objetivo-etapa-line"></div>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 1</span>
+                <h4>Consolidação do material com o RH</h4>
+                <p>Organização do diagnóstico e da proposta em material único para apresentação interna.</p>
+                <span class="objetivo-etapa-resp">Responsável: impulseup</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">2</div>
+              <div class="objetivo-etapa-line"></div>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 1-2</span>
+                <h4>Apresentação a Luciana e Fabrício</h4>
+                <p>Kianni apresenta o material consolidado à gerente de RH e ao CEO.</p>
+                <span class="objetivo-etapa-resp">Responsável: Ondacom</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">3</div>
+              <div class="objetivo-etapa-line"></div>
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">Mês 2</span>
+                <h4>Aprovação de orçamento</h4>
+                <p>Definição do orçamento aprovado para início do projeto em 2027, conforme planejamento de Kianni.</p>
+                <span class="objetivo-etapa-resp">Responsável: Ondacom</span>
+              </div>
+            </div>
+            <div class="objetivo-etapa">
+              <div class="objetivo-etapa-dot">4</div>
+              
+              <div class="objetivo-etapa-content">
+                <span class="objetivo-etapa-period">A definir</span>
+                <h4>Assinatura e kickoff</h4>
+                <p>Formalização e início da implementação após aprovação.</p>
+                <span class="objetivo-etapa-resp">Responsável: conjunta</span>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="approval-outcome">
+          <div class="approval-outcome-title"><i class="fa-solid fa-flag-checkered"></i>Estado futuro</div>
+          <div class="approval-outcome-grid">
+            <div class="approval-stage futuro">
+              <span class="approval-stage-label">RH / DHO</span>
+              <p>RH conta com material consolidado de resultados, pronto para apresentar à diretoria sem depender de uma consultoria externa para isso.</p>
+            </div>
+            <div class="approval-stage negocio">
+              <span class="approval-stage-label">Negócio</span>
+              <p>Aprovação do projeto sustentada por dado e diagnóstico estruturado, e não apenas por percepção, apoiando a decisão de orçamento para o próximo ano.</p>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     </section>
 
     <!-- ABA 6 — PLANO DE AÇÃO -->
     <section class="tab-panel" id="tab-6">
-      <h1 class="section-title">Plano de ação</h1>
-      <p class="section-sub">Objetivos de negócio da Ondacom e o caminho para chegar lá com a impulseup</p>
+      <h1 class="section-title">Processo de implementação</h1>
+      <p class="section-sub">Como será a jornada de implementação da Ondacom com a impulseup</p>
+
       <div class="empty-state" id="tab6EmptyState">
-        <i class="fa-regular fa-clipboard"></i>
-        <h3>Aba liberada após a reunião de Diagnóstico</h3>
-        <p>Assim que os desafios forem mapeados, esta aba mostra os objetivos de negócio e RH por trás do projeto e o plano de ação, com cronograma, para chegar lá com a impulseup.</p>
+        <i class="fa-regular fa-map"></i>
+        <h3>Aba liberada após o closer confirmar cluster, módulos e Weeklies (se Enterprise)</h3>
+        <p>Assim que o cluster de implementação (Low/Mid, High ou Enterprise) e os módulos da proposta forem confirmados, esta aba mostra a cadeia de implementação de cada módulo: etapas e responsáveis do nosso lado.</p>
       </div>
-      <div id="tab6ObjetivosWrap" style="display:none;">
-        <!--OBJETIVOS-->
+
+      <div id="tab6ProcessWrap" style="display:none;">
+        <!--IMPL_PROCESSO-->
+        <div class="impl-legend">
+          <div class="impl-legend-item"><span class="impl-legend-dot" style="background:#CC0088;"></span>Consultor de implementação</div>
+          <div class="impl-legend-item"><span class="impl-legend-dot" style="background:#4B4B8A;"></span>CSI</div>
+          <div class="impl-legend-item"><span class="impl-legend-dot" style="background:#111;"></span>Gerente de contas</div>
+        </div>
       </div>
     </section>
 
