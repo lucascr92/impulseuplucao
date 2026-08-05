@@ -394,12 +394,12 @@
     <section class="tab-panel" id="tab-3">
       <h1 class="section-title">Demonstração</h1>
       <p class="section-sub">Vídeos da plataforma, orientados aos desafios da Grupo Felice</p>
-      <div class="empty-state" id="tab3EmptyState">
+      <div class="empty-state" id="tab3EmptyState" style="display:none;">
         <i class="fa-regular fa-circle-play"></i>
         <h3>Aba liberada após a reunião de Demo</h3>
         <p>O closer vai incluir aqui vídeos curtos mostrando a solução aplicada aos desafios mapeados no Diagnóstico.</p>
       </div>
-      <div id="tab3Content" style="display:none;">
+      <div id="tab3Content">
         <div class="stat-grid" id="tab3ImpactoGrid">
           <!-- Preenchido pela skill a partir de "impacto" (estrutura-abas.md, Aba 3). Ex:
                <div class="stat-card"><div class="num">32%</div><div class="label">redução no tempo de ciclo de avaliação</div></div> -->
@@ -416,6 +416,7 @@
           </table>
         </div>
         <div class="video-grid" id="tab3VideoGrid">
+          <div class="video-card"><h4>Gravação completa da demonstração</h4><p>Reunião de Demo com Lenissa e Rodrigo, cobrindo avaliação de desempenho, People Analytics, Nine Box, sucessão, PDI, learning e metas.</p><div class="video-embed-wrap"><iframe src="https://drive.google.com/file/d/1fn2XCxuYBnXx64BBZqhDD_T74VTNgnjW/preview" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
           <!-- Preenchido pela skill a partir de "videos" (estrutura-abas.md, Aba 3), um .video-card por vídeo.
                Ver scripts/gerar_video_embed.py::gerar_bloco_video() para a lógica de geração.
 
