@@ -117,6 +117,9 @@
   .tl-date[contenteditable="true"]:hover,.tl-date[contenteditable="true"]:focus{background:var(--color-surface);}
   .tl-desc{font-size:14px;font-weight:600;}
   .tl-meta{font-size:12.5px;color:var(--color-fg-muted);margin-top:2px;}
+  .tl-item.done .tl-dot{background:var(--color-fg-muted);display:flex;align-items:center;justify-content:center;}
+  .tl-item.done .tl-dot::after{content:"✓";font-size:8px;font-weight:700;color:#fff;line-height:1;}
+  .tl-item.done .tl-date,.tl-item.done .tl-desc,.tl-item.done .tl-meta{color:var(--color-fg-muted);text-decoration:line-through;}
 
   .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
   .stat-card{background:var(--color-surface);border-radius:14px;padding:22px;text-align:center;}
@@ -745,13 +748,16 @@
       <h1 class="section-title">Próximos passos</h1>
       <p class="section-sub">Jornada de compra da Companhia Têxtil de Castanhal</p>
       <div class="timeline">
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">Julho</span><div><span class="tl-desc">Reunião de Diagnóstico</span><div class="tl-meta">Entender contexto e desafios · Otávio Neto, João e Bárbara Pereira</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">21 jul</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Avaliação de desempenho e pesquisa de clima aplicadas aos desafios mapeados · Otávio e João</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">28 jul</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Implementação, cenários de investimento (usuários x créditos) e argumentação para a diretoria · Otávio e Bárbara</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">3 a 7 ago</span><div><span class="tl-desc">Apresentação para diretoria</span><div class="tl-meta">Bárbara apresenta o projeto internamente, com apoio do material de Aprovação do projeto</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Revisão jurídica</span></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">Setembro</span><div><span class="tl-desc">Assinatura e kickoff</span><div class="tl-meta">Ciclo de avaliação de desempenho planejado para rodar em outubro</div></div></div>
+        <div class="tl-item done"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">15 jul</span><div><span class="tl-desc">Diagnóstico do projeto</span><div class="tl-meta">Entender contexto e desafios · Otávio Neto, João e Bárbara Pereira</div></div></div>
+        <div class="tl-item done"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">21 jul</span><div><span class="tl-desc">Demonstração da plataforma</span><div class="tl-meta">Avaliação de desempenho e pesquisa de clima aplicadas aos desafios mapeados · Otávio e João</div></div></div>
+        <div class="tl-item done"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">28 jul</span><div><span class="tl-desc">Plano de projeto</span><div class="tl-meta">Implementação, cenários de investimento (usuários x créditos) e argumentação para a diretoria · Otávio e Bárbara</div></div></div>
+        <div class="tl-item done"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">3 ago</span><div><span class="tl-desc">Bench com a Matcon</span><div class="tl-meta">Troca com Carolina Grilli (Matcon) sobre implementação e adesão à plataforma · Otávio, João e Ageu</div></div></div>
+        <div class="tl-item done"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">6 ago</span><div><span class="tl-desc">Alinhamento de próximas etapas</span></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Validação com time de TI</span></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Apresentação e aprovação com a diretoria</span><div class="tl-meta">Bárbara apresenta o projeto internamente, com apoio do material de Aprovação do projeto</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Análise contratual e assinaturas</span></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Kick off do projeto</span></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">Outubro</span><div><span class="tl-desc">Ciclo de avaliação de desempenho</span></div></div>
       </div>
     </section>
 
