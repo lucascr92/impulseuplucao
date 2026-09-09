@@ -1436,7 +1436,7 @@ ${comparativoSectionHtml}
     function renderParticipantes(){
       const nomes = Array.from(document.querySelectorAll('#teamGrid .person-name'))
         .map(el => el.textContent.trim()).filter(Boolean);
-      const salvos = tgLoad('teste_participantes', null);
+      const salvos = tgLoad('teste_participantes_v2', null);
       // Sem seleção salva ainda: padrão é todas marcadas, exceto a Larissa (não participa do teste).
       const selecionados = salvos === null ? nomes.filter(n => n !== 'Larissa') : salvos;
       if(!nomes.length){
@@ -1450,7 +1450,7 @@ ${comparativoSectionHtml}
       participantesWrap.querySelectorAll('input[type="checkbox"]').forEach(cb => {
         cb.addEventListener('change', () => {
           const marcados = Array.from(participantesWrap.querySelectorAll('input:checked')).map(c => c.value);
-          tgSave('teste_participantes', marcados);
+          tgSave('teste_participantes_v2', marcados);
         });
       });
     }
