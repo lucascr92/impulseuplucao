@@ -1437,8 +1437,8 @@ ${comparativoSectionHtml}
       const nomes = Array.from(document.querySelectorAll('#teamGrid .person-name'))
         .map(el => el.textContent.trim()).filter(Boolean);
       const salvos = tgLoad('teste_participantes', null);
-      // Sem seleção salva ainda: padrão é todas as pessoas marcadas.
-      const selecionados = salvos === null ? nomes.slice() : salvos;
+      // Sem seleção salva ainda: padrão é todas marcadas, exceto a Larissa (não participa do teste).
+      const selecionados = salvos === null ? nomes.filter(n => n !== 'Larissa') : salvos;
       if(!nomes.length){
         participantesWrap.innerHTML = '<span class="tg-empty-hint">Cadastre os responsáveis na aba de Diagnóstico para selecioná-los aqui.</span>';
         return;
