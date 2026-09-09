@@ -125,8 +125,18 @@
   .tl-item.expandable.open .tl-toggle i{transform:rotate(180deg);}
   .tl-desc-clickable{cursor:pointer;}
   .tl-desc-clickable:hover{color:var(--color-primary);}
-  .tg-panel{display:none;margin:16px 0 4px 26px;padding:22px 24px;border-radius:12px;background:var(--color-bg-alt);border:1px solid var(--color-border);}
-  .tl-item.expandable.open .tg-panel{display:block;}
+  .tg-panel{
+    max-height:0;opacity:0;overflow:hidden;
+    margin:0 0 0 26px;padding:0 24px;border-radius:12px;
+    background:var(--color-bg-alt);border:1px solid transparent;
+    transition:max-height .38s ease, opacity .28s ease, padding .38s ease, margin .38s ease, border-color .28s ease;
+  }
+  .tl-item.expandable.open .tg-panel{
+    max-height:900px;opacity:1;
+    margin:16px 0 4px 26px;padding:22px 24px;
+    border-color:var(--color-border);
+    transition:max-height .38s ease, opacity .32s ease .06s, padding .38s ease, margin .38s ease, border-color .28s ease;
+  }
   .tg-field{margin-bottom:20px;}
   .tg-field:last-child{margin-bottom:0;}
   .tg-field label{display:block;font-size:12.5px;font-weight:700;color:var(--color-fg);margin-bottom:10px;}
