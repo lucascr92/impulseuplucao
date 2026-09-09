@@ -123,6 +123,8 @@
   .tl-toggle i{transition:transform .2s;}
   .tl-toggle:hover{color:var(--color-primary);}
   .tl-item.expandable.open .tl-toggle i{transform:rotate(180deg);}
+  .tl-desc-clickable{cursor:pointer;}
+  .tl-desc-clickable:hover{color:var(--color-primary);}
   .tg-panel{display:none;margin:16px 0 4px 26px;padding:22px 24px;border-radius:12px;background:var(--color-bg-alt);border:1px solid var(--color-border);}
   .tl-item.expandable.open .tg-panel{display:block;}
   .tg-field{margin-bottom:20px;}
@@ -134,6 +136,10 @@
   .tg-empty-hint{font-size:12.5px;color:var(--color-fg-muted);font-style:italic;}
   .tg-criterios-list{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;}
   .tg-criterio-item{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--color-bg);border:1px solid var(--color-border);border-radius:8px;padding:9px 14px;font-size:13px;}
+  .tg-criterio-left{display:flex;align-items:center;gap:10px;flex:1;}
+  .tg-criterio-left input[type="checkbox"]{accent-color:var(--color-primary);width:16px;height:16px;flex-shrink:0;cursor:pointer;}
+  .tg-criterio-left span{cursor:default;}
+  .tg-criterio-item.done .tg-criterio-left span{text-decoration:line-through;color:var(--color-fg-muted);}
   .tg-criterio-item button{background:none;border:none;color:var(--color-fg-muted);cursor:pointer;font-size:13px;flex-shrink:0;}
   .tg-criterio-item button:hover{color:var(--color-primary);}
   .tg-add-row{display:flex;gap:8px;}
@@ -772,7 +778,7 @@
           <div class="tl-row">
             <span class="tl-dot"></span>
             <span class="tl-date" contenteditable="true">A definir</span>
-            <div><span class="tl-desc">Teste guiado da plataforma</span></div>
+            <div><span class="tl-desc tl-desc-clickable" id="testeGuiadoLabel">Teste guiado da plataforma</span></div>
             <button type="button" class="tl-toggle" id="testeGuiadoToggle" aria-label="Expandir detalhes do teste guiado"><i class="fa-solid fa-chevron-down"></i></button>
           </div>
           <div class="tg-panel">
@@ -1447,19 +1453,37 @@ ${comparativoSectionHtml}
       });
     });
 
-    // Campo 3 — critérios de sucesso: lista livre, adicionar/remover.
+    // Campo 3 — critérios de sucesso: lista livre, adicionar/remover, com check de "testado".
+    // Normaliza itens antigos (string simples) para o formato {texto, feito}.
+    function normalizeCriterios(lista){
+      return lista.map(item => typeof item === 'string' ? {texto: item, feito: false} : item);
+    }
     function renderCriterios(){
-      const criterios = tgLoad('teste_criterios', []);
+      const criterios = normalizeCriterios(tgLoad('teste_criterios', []));
       if(!criterios.length){
         criteriosList.innerHTML = '';
         return;
       }
-      criteriosList.innerHTML = criterios.map((texto, i) => `
-        <div class="tg-criterio-item"><span>${escapeHtml(texto)}</span><button type="button" data-i="${i}" aria-label="Remover critério"><i class="fa-solid fa-xmark"></i></button></div>
+      criteriosList.innerHTML = criterios.map((c, i) => `
+        <div class="tg-criterio-item${c.feito ? ' done' : ''}">
+          <label class="tg-criterio-left">
+            <input type="checkbox" data-check-i="${i}" ${c.feito ? 'checked' : ''} aria-label="Marcar critério como testado">
+            <span>${escapeHtml(c.texto)}</span>
+          </label>
+          <button type="button" data-i="${i}" aria-label="Remover critério"><i class="fa-solid fa-xmark"></i></button>
+        </div>
       `).join('');
+      criteriosList.querySelectorAll('input[data-check-i]').forEach(cb => {
+        cb.addEventListener('change', () => {
+          const atual = normalizeCriterios(tgLoad('teste_criterios', []));
+          atual[Number(cb.dataset.checkI)].feito = cb.checked;
+          tgSave('teste_criterios', atual);
+          renderCriterios();
+        });
+      });
       criteriosList.querySelectorAll('button[data-i]').forEach(btn => {
         btn.addEventListener('click', () => {
-          const atual = tgLoad('teste_criterios', []);
+          const atual = normalizeCriterios(tgLoad('teste_criterios', []));
           atual.splice(Number(btn.dataset.i), 1);
           tgSave('teste_criterios', atual);
           renderCriterios();
@@ -1469,8 +1493,8 @@ ${comparativoSectionHtml}
     function addCriterio(){
       const texto = criterioInput.value.trim();
       if(!texto) return;
-      const atual = tgLoad('teste_criterios', []);
-      atual.push(texto);
+      const atual = normalizeCriterios(tgLoad('teste_criterios', []));
+      atual.push({texto: texto, feito: false});
       tgSave('teste_criterios', atual);
       criterioInput.value = '';
       renderCriterios();
@@ -1480,10 +1504,13 @@ ${comparativoSectionHtml}
       if(e.key === 'Enter'){ e.preventDefault(); addCriterio(); }
     });
 
-    toggleBtn.addEventListener('click', () => {
+    function togglePanel(){
       item.classList.toggle('open');
       if(item.classList.contains('open')) renderParticipantes();
-    });
+    }
+    toggleBtn.addEventListener('click', togglePanel);
+    const label = document.getElementById('testeGuiadoLabel');
+    if(label) label.addEventListener('click', togglePanel);
 
     renderCriterios();
   })();
