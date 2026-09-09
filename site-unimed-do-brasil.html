@@ -128,7 +128,7 @@
   .tg-panel{
     max-height:0;opacity:0;overflow:hidden;
     margin:0 0 0 26px;padding:0 24px;border-radius:12px;
-    background:var(--color-bg-alt);border:1px solid transparent;
+    background:#FBE9F3;border:1px solid transparent;
     transition:max-height .38s ease, opacity .28s ease, padding .38s ease, margin .38s ease, border-color .28s ease;
   }
   .tl-item.expandable.open .tg-panel{
@@ -799,10 +799,10 @@
             <div class="tg-field">
               <label>Quais são os módulos que serão testados?</label>
               <div class="tg-checks" id="tgModulos">
-                <label class="tg-check"><input type="checkbox" value="Avaliações"> Avaliações</label>
+                <label class="tg-check"><input type="checkbox" value="Avaliações" checked> Avaliações</label>
                 <label class="tg-check"><input type="checkbox" value="Pesquisas"> Pesquisas</label>
-                <label class="tg-check"><input type="checkbox" value="Metas e OKR's"> Metas e OKR's</label>
-                <label class="tg-check"><input type="checkbox" value="Learning"> Learning</label>
+                <label class="tg-check"><input type="checkbox" value="Metas e OKR's" checked> Metas e OKR's</label>
+                <label class="tg-check"><input type="checkbox" value="Learning" checked> Learning</label>
                 <label class="tg-check"><input type="checkbox" value="Rem. Variável"> Rem. Variável</label>
               </div>
             </div>
@@ -1436,7 +1436,9 @@ ${comparativoSectionHtml}
     function renderParticipantes(){
       const nomes = Array.from(document.querySelectorAll('#teamGrid .person-name'))
         .map(el => el.textContent.trim()).filter(Boolean);
-      const selecionados = tgLoad('teste_participantes', []);
+      const salvos = tgLoad('teste_participantes', null);
+      // Sem seleção salva ainda: padrão é todas as pessoas marcadas.
+      const selecionados = salvos === null ? nomes.slice() : salvos;
       if(!nomes.length){
         participantesWrap.innerHTML = '<span class="tg-empty-hint">Cadastre os responsáveis na aba de Diagnóstico para selecioná-los aqui.</span>';
         return;
