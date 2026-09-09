@@ -117,6 +117,30 @@
   .tl-date[contenteditable="true"]:hover,.tl-date[contenteditable="true"]:focus{background:var(--color-surface);}
   .tl-desc{font-size:14px;font-weight:600;}
   .tl-meta{font-size:12.5px;color:var(--color-fg-muted);margin-top:2px;}
+  .tl-item.expandable{flex-direction:column;align-items:stretch;gap:0;}
+  .tl-row{display:flex;align-items:center;gap:16px;}
+  .tl-toggle{margin-left:auto;background:none;border:none;cursor:pointer;color:var(--color-fg-muted);font-size:13px;padding:6px 8px;display:flex;align-items:center;}
+  .tl-toggle i{transition:transform .2s;}
+  .tl-toggle:hover{color:var(--color-primary);}
+  .tl-item.expandable.open .tl-toggle i{transform:rotate(180deg);}
+  .tg-panel{display:none;margin:16px 0 4px 26px;padding:22px 24px;border-radius:12px;background:var(--color-bg-alt);border:1px solid var(--color-border);}
+  .tl-item.expandable.open .tg-panel{display:block;}
+  .tg-field{margin-bottom:20px;}
+  .tg-field:last-child{margin-bottom:0;}
+  .tg-field label{display:block;font-size:12.5px;font-weight:700;color:var(--color-fg);margin-bottom:10px;}
+  .tg-checks{display:flex;flex-wrap:wrap;gap:8px 20px;}
+  .tg-check{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--color-fg);cursor:pointer;}
+  .tg-check input{accent-color:var(--color-primary);width:15px;height:15px;cursor:pointer;}
+  .tg-empty-hint{font-size:12.5px;color:var(--color-fg-muted);font-style:italic;}
+  .tg-criterios-list{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;}
+  .tg-criterio-item{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--color-bg);border:1px solid var(--color-border);border-radius:8px;padding:9px 14px;font-size:13px;}
+  .tg-criterio-item button{background:none;border:none;color:var(--color-fg-muted);cursor:pointer;font-size:13px;flex-shrink:0;}
+  .tg-criterio-item button:hover{color:var(--color-primary);}
+  .tg-add-row{display:flex;gap:8px;}
+  .tg-add-row input{flex:1;border:1px solid var(--color-border);border-radius:8px;padding:9px 14px;font-size:13px;font-family:inherit;}
+  .tg-add-row input:focus{outline:none;border-color:var(--color-primary);}
+  .tg-add-row button{border:1px solid var(--color-primary);background:var(--color-primary);color:#fff;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;}
+  .tg-add-row button:hover{background:var(--color-primary-hover);}
 
   .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
   .stat-card{background:var(--color-surface);border-radius:14px;padding:22px;text-align:center;}
@@ -744,7 +768,38 @@
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">27/08</span><div><span class="tl-desc">Diagnóstico do projeto</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">02/09</span><div><span class="tl-desc">Demonstração da avaliação de desempenho</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">10/09</span><div><span class="tl-desc">Demonstração de Metas e Learning</span></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Teste guiado da plataforma</span></div></div>
+        <div class="tl-item expandable" id="testeGuiadoItem">
+          <div class="tl-row">
+            <span class="tl-dot"></span>
+            <span class="tl-date" contenteditable="true">A definir</span>
+            <div><span class="tl-desc">Teste guiado da plataforma</span></div>
+            <button type="button" class="tl-toggle" id="testeGuiadoToggle" aria-label="Expandir detalhes do teste guiado"><i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+          <div class="tg-panel">
+            <div class="tg-field">
+              <label>Quem são os participantes do teste?</label>
+              <div class="tg-checks" id="tgParticipantes"></div>
+            </div>
+            <div class="tg-field">
+              <label>Quais são os módulos que serão testados?</label>
+              <div class="tg-checks" id="tgModulos">
+                <label class="tg-check"><input type="checkbox" value="Avaliações"> Avaliações</label>
+                <label class="tg-check"><input type="checkbox" value="Pesquisas"> Pesquisas</label>
+                <label class="tg-check"><input type="checkbox" value="Metas e OKR's"> Metas e OKR's</label>
+                <label class="tg-check"><input type="checkbox" value="Learning"> Learning</label>
+                <label class="tg-check"><input type="checkbox" value="Rem. Variável"> Rem. Variável</label>
+              </div>
+            </div>
+            <div class="tg-field">
+              <label>O que queremos testar? Quais são os critérios de sucesso do teste?</label>
+              <div class="tg-criterios-list" id="tgCriteriosList"></div>
+              <div class="tg-add-row">
+                <input type="text" id="tgCriterioInput" placeholder="Ex: conseguir simular um ciclo completo de avaliação">
+                <button type="button" id="tgCriterioAddBtn">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Plano de projeto</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Definição com o time de compras</span></div></div>
       </div>
@@ -1339,6 +1394,99 @@ ${comparativoSectionHtml}
       step.querySelector('.impl-step-text').focus();
     });
   });
+  // --- Aba 8: painel expansível "Teste guiado da plataforma" ---
+  (function initTesteGuiadoPanel(){
+    const item = document.getElementById('testeGuiadoItem');
+    const toggleBtn = document.getElementById('testeGuiadoToggle');
+    if(!item || !toggleBtn) return;
+
+    const participantesWrap = document.getElementById('tgParticipantes');
+    const criteriosList = document.getElementById('tgCriteriosList');
+    const criterioInput = document.getElementById('tgCriterioInput');
+    const criterioAddBtn = document.getElementById('tgCriterioAddBtn');
+
+    function tgSave(key, value){
+      const store = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      store[key] = value;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    }
+    function tgLoad(key, fallback){
+      const store = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      return store[key] !== undefined ? store[key] : fallback;
+    }
+
+    // Campo 1 — participantes: lista sempre lida ao vivo do #teamGrid (Aba 2), nunca fixa,
+    // para acompanhar automaticamente qualquer pessoa adicionada/editada na aba de Diagnóstico.
+    function renderParticipantes(){
+      const nomes = Array.from(document.querySelectorAll('#teamGrid .person-name'))
+        .map(el => el.textContent.trim()).filter(Boolean);
+      const selecionados = tgLoad('teste_participantes', []);
+      if(!nomes.length){
+        participantesWrap.innerHTML = '<span class="tg-empty-hint">Cadastre os responsáveis na aba de Diagnóstico para selecioná-los aqui.</span>';
+        return;
+      }
+      participantesWrap.innerHTML = nomes.map(nome => {
+        const checked = selecionados.includes(nome) ? 'checked' : '';
+        return `<label class="tg-check"><input type="checkbox" value="${escapeHtml(nome)}" ${checked}> ${escapeHtml(nome)}</label>`;
+      }).join('');
+      participantesWrap.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        cb.addEventListener('change', () => {
+          const marcados = Array.from(participantesWrap.querySelectorAll('input:checked')).map(c => c.value);
+          tgSave('teste_participantes', marcados);
+        });
+      });
+    }
+
+    // Campo 2 — módulos: lista fixa, só restaura estado salvo.
+    const modulosSalvos = tgLoad('teste_modulos', []);
+    document.querySelectorAll('#tgModulos input[type="checkbox"]').forEach(cb => {
+      if(modulosSalvos.includes(cb.value)) cb.checked = true;
+      cb.addEventListener('change', () => {
+        const marcados = Array.from(document.querySelectorAll('#tgModulos input:checked')).map(c => c.value);
+        tgSave('teste_modulos', marcados);
+      });
+    });
+
+    // Campo 3 — critérios de sucesso: lista livre, adicionar/remover.
+    function renderCriterios(){
+      const criterios = tgLoad('teste_criterios', []);
+      if(!criterios.length){
+        criteriosList.innerHTML = '';
+        return;
+      }
+      criteriosList.innerHTML = criterios.map((texto, i) => `
+        <div class="tg-criterio-item"><span>${escapeHtml(texto)}</span><button type="button" data-i="${i}" aria-label="Remover critério"><i class="fa-solid fa-xmark"></i></button></div>
+      `).join('');
+      criteriosList.querySelectorAll('button[data-i]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const atual = tgLoad('teste_criterios', []);
+          atual.splice(Number(btn.dataset.i), 1);
+          tgSave('teste_criterios', atual);
+          renderCriterios();
+        });
+      });
+    }
+    function addCriterio(){
+      const texto = criterioInput.value.trim();
+      if(!texto) return;
+      const atual = tgLoad('teste_criterios', []);
+      atual.push(texto);
+      tgSave('teste_criterios', atual);
+      criterioInput.value = '';
+      renderCriterios();
+    }
+    criterioAddBtn.addEventListener('click', addCriterio);
+    criterioInput.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter'){ e.preventDefault(); addCriterio(); }
+    });
+
+    toggleBtn.addEventListener('click', () => {
+      item.classList.toggle('open');
+      if(item.classList.contains('open')) renderParticipantes();
+    });
+
+    renderCriterios();
+  })();
 </script>
 
 </body>
