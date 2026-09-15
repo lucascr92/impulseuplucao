@@ -118,6 +118,30 @@
   .tl-desc{font-size:14px;font-weight:600;}
   .tl-meta{font-size:12.5px;color:var(--color-fg-muted);margin-top:2px;}
 
+  .tl-item-expandable .tl-toggle-wrap{display:flex;align-items:center;gap:10px;flex:1;cursor:pointer;}
+  .tl-chevron{font-size:13px;color:var(--color-fg-muted);transition:transform 0.3s ease;margin-left:auto;}
+  .tl-item-expandable.open .tl-chevron{transform:rotate(180deg);color:var(--color-primary);}
+  .teste-panel{background:#FBEAF0;border-radius:12px;max-height:0;opacity:0;overflow:hidden;padding:0 24px;margin:0;transition:max-height 0.4s ease,opacity 0.3s ease,padding 0.4s ease,margin 0.4s ease;}
+  .teste-panel.open{max-height:900px;opacity:1;padding:20px 24px;margin:-2px 0 16px;}
+  .teste-field{margin-bottom:18px;}
+  .teste-field:last-child{margin-bottom:0;}
+  .teste-field-title{display:block;font-size:13px;font-weight:700;color:var(--color-fg);margin-bottom:10px;}
+  .teste-checklist{display:flex;flex-direction:column;gap:8px;}
+  .teste-check-item{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:400;color:var(--color-fg);cursor:pointer;}
+  .teste-check-item span{font-weight:400;}
+  .teste-check-item input[type="checkbox"]{width:15px;height:15px;accent-color:var(--color-primary);cursor:pointer;flex-shrink:0;}
+  .teste-criterio-input-row{display:flex;gap:10px;margin-bottom:12px;}
+  .teste-criterio-input-row input{flex:1;padding:9px 12px;border:1px solid var(--color-border);border-radius:8px;font-size:13px;font-family:inherit;font-weight:400;}
+  .teste-criterio-input-row button{background:var(--color-primary);color:#fff;border:none;padding:9px 18px;border-radius:8px;font-size:12.5px;font-weight:700;cursor:pointer;flex-shrink:0;}
+  .teste-criterio-input-row button:hover{opacity:0.9;}
+  .teste-criterios-list{display:flex;flex-direction:column;gap:8px;}
+  .teste-criterio-item{display:flex;align-items:center;gap:10px;background:#fff;border-radius:8px;padding:9px 12px;}
+  .teste-criterio-item input[type="checkbox"]{width:15px;height:15px;accent-color:var(--color-primary);cursor:pointer;flex-shrink:0;}
+  .teste-criterio-texto{flex:1;font-size:13px;font-weight:400;color:var(--color-fg);}
+  .teste-criterio-item.done .teste-criterio-texto{text-decoration:line-through;color:var(--color-fg-muted);}
+  .teste-criterio-del{background:none;border:none;color:var(--color-fg-muted);cursor:pointer;font-size:14px;flex-shrink:0;padding:2px;}
+  .teste-criterio-del:hover{color:#D4534F;}
+
   .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
   .stat-card{background:var(--color-surface);border-radius:14px;padding:22px;text-align:center;}
   .stat-card .num{font-size:30px;font-weight:800;color:var(--color-primary);}
@@ -879,7 +903,38 @@
       <div class="timeline">
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">03 set</span><div><span class="tl-desc">Diagnóstico do projeto</span><div class="tl-meta">Entender contexto e desafios · Fábia Dias</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">15 set</span><div><span class="tl-desc">Demonstração da plataforma</span><div class="tl-meta">Apresentação com Fábia e Sílvia</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Teste guiado</span></div></div>
+        <div class="tl-item tl-item-expandable" id="tlItemTeste">
+          <span class="tl-dot"></span>
+          <span class="tl-date" contenteditable="true">A definir</span>
+          <div class="tl-toggle-wrap" id="testeToggleWrap">
+            <span class="tl-desc">Teste guiado da plataforma</span>
+            <i class="fa-solid fa-chevron-down tl-chevron"></i>
+          </div>
+        </div>
+        <div class="teste-panel" id="testePanel">
+          <div class="teste-field">
+            <label class="teste-field-title">Quem são os participantes do teste?</label>
+            <div class="teste-checklist" id="testeParticipantesList"></div>
+          </div>
+          <div class="teste-field">
+            <label class="teste-field-title">Quais são os módulos que serão testados?</label>
+            <div class="teste-checklist" id="testeModulosList">
+              <label class="teste-check-item"><input type="checkbox" value="Avaliações"><span>Avaliações</span></label>
+              <label class="teste-check-item"><input type="checkbox" value="Pesquisas"><span>Pesquisas</span></label>
+              <label class="teste-check-item"><input type="checkbox" value="Metas e OKR's"><span>Metas e OKR's</span></label>
+              <label class="teste-check-item"><input type="checkbox" value="Learning"><span>Learning</span></label>
+              <label class="teste-check-item"><input type="checkbox" value="Rem. Variável"><span>Rem. Variável</span></label>
+            </div>
+          </div>
+          <div class="teste-field">
+            <label class="teste-field-title">O que queremos testar? Quais são os critérios de sucesso do teste?</label>
+            <div class="teste-criterio-input-row">
+              <input type="text" id="testeCriterioInput" placeholder="Ex: Simulação de avaliação recebida via WhatsApp">
+              <button type="button" id="testeCriterioAddBtn">Adicionar</button>
+            </div>
+            <div class="teste-criterios-list" id="testeCriteriosList"></div>
+          </div>
+        </div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Plano de projeto</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Negociação e fechamento</span></div></div>
       </div>
@@ -1488,6 +1543,111 @@ ${comparativoSectionHtml}
       step.querySelector('.impl-step-text').focus();
     });
   });
+  // --- Aba 8: painel expansível "Teste guiado da plataforma" ---
+  (function initTestePanel(){
+    const toggleWrap = document.getElementById('testeToggleWrap');
+    const tlItemTeste = document.getElementById('tlItemTeste');
+    const panel = document.getElementById('testePanel');
+    if(!toggleWrap || !panel || !tlItemTeste) return;
+
+    toggleWrap.addEventListener('click', () => {
+      const abrindo = !panel.classList.contains('open');
+      panel.classList.toggle('open', abrindo);
+      tlItemTeste.classList.toggle('open', abrindo);
+    });
+
+    const store = loadStore();
+
+    // Participantes: lidos dinamicamente dos responsáveis já cadastrados na aba de Diagnóstico
+    const participantesList = document.getElementById('testeParticipantesList');
+    const nomesResponsaveis = Array.from(document.querySelectorAll('#teamGrid .person-name'))
+      .map(el => el.textContent.trim())
+      .filter(nome => nome && nome !== 'Nome a preencher');
+    const participantesSalvos = store['teste_participantes_v1'] || {};
+    participantesList.innerHTML = nomesResponsaveis.map(nome => {
+      const marcado = participantesSalvos.hasOwnProperty(nome) ? participantesSalvos[nome] : true;
+      return '<label class="teste-check-item"><input type="checkbox" data-nome="' + nome.replace(/"/g, '&quot;') + '"' + (marcado ? ' checked' : '') + '><span>' + nome + '</span></label>';
+    }).join('') || '<p style="font-size:12.5px;color:var(--color-fg-muted);">Nenhum responsável cadastrado ainda no Diagnóstico.</p>';
+
+    function salvarParticipantes(){
+      const dados = {};
+      participantesList.querySelectorAll('input[type="checkbox"]').forEach(cb => { dados[cb.dataset.nome] = cb.checked; });
+      const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      s['teste_participantes_v1'] = dados;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+    }
+    participantesList.addEventListener('change', salvarParticipantes);
+    salvarParticipantes();
+
+    // Módulos testados: lista fixa, com padrão pré-marcado (Avaliações e Metas e OKR's,
+    // por já terem sido demonstrados/combinados com a Fábia). Versionar a chave se o padrão mudar.
+    const modulosDefault = { 'Avaliações': true, 'Pesquisas': false, "Metas e OKR's": true, 'Learning': false, 'Rem. Variável': false };
+    const modulosSalvos = store['teste_modulos_v1'];
+    const modulosList = document.getElementById('testeModulosList');
+    modulosList.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      const nome = cb.value;
+      cb.checked = modulosSalvos ? !!modulosSalvos[nome] : !!modulosDefault[nome];
+    });
+    function salvarModulos(){
+      const dados = {};
+      modulosList.querySelectorAll('input[type="checkbox"]').forEach(cb => { dados[cb.value] = cb.checked; });
+      const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      s['teste_modulos_v1'] = dados;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+    }
+    modulosList.addEventListener('change', salvarModulos);
+
+    // Critérios de sucesso do teste: lista dinâmica (texto + testado/não testado + excluir)
+    const criteriosList = document.getElementById('testeCriteriosList');
+    const criterioInput = document.getElementById('testeCriterioInput');
+    const criterioAddBtn = document.getElementById('testeCriterioAddBtn');
+    let criterios = store['teste_criterios_v1'] || [];
+
+    function salvarCriterios(){
+      const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      s['teste_criterios_v1'] = criterios;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+    }
+    function renderCriterios(){
+      criteriosList.innerHTML = criterios.map((c, i) =>
+        '<div class="teste-criterio-item' + (c.feito ? ' done' : '') + '">' +
+          '<input type="checkbox" data-idx="' + i + '" class="teste-criterio-check"' + (c.feito ? ' checked' : '') + '>' +
+          '<span class="teste-criterio-texto">' + escapeHtml(c.texto) + '</span>' +
+          '<button type="button" class="teste-criterio-del" data-idx="' + i + '"><i class="fa-solid fa-xmark"></i></button>' +
+        '</div>'
+      ).join('');
+    }
+    renderCriterios();
+
+    criteriosList.addEventListener('click', e => {
+      const check = e.target.closest('.teste-criterio-check');
+      if(check){
+        criterios[parseInt(check.dataset.idx, 10)].feito = check.checked;
+        salvarCriterios();
+        renderCriterios();
+        return;
+      }
+      const del = e.target.closest('.teste-criterio-del');
+      if(del){
+        criterios.splice(parseInt(del.dataset.idx, 10), 1);
+        salvarCriterios();
+        renderCriterios();
+      }
+    });
+
+    function adicionarCriterio(){
+      const texto = criterioInput.value.trim();
+      if(!texto) return;
+      criterios.push({ texto: texto, feito: false });
+      criterioInput.value = '';
+      salvarCriterios();
+      renderCriterios();
+    }
+    criterioAddBtn.addEventListener('click', adicionarCriterio);
+    criterioInput.addEventListener('keydown', e => {
+      if(e.key === 'Enter'){ e.preventDefault(); adicionarCriterio(); }
+    });
+  })();
 </script>
 
 </body>
