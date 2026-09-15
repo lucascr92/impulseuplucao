@@ -503,11 +503,13 @@
       </div>
 
       <div class="block-title"><i class="fa-regular fa-flag"></i>Desafios mapeados</div>
-      <div class="challenges cols-2">
+      <div class="challenges">
         <div class="challenge-card"><span class="ch-num">01</span><h4>Estruturação do zero</h4><p>Nunca houve avaliação de desempenho formal, o processo está sendo desenhado agora com a consultoria Share.</p></div>
-        <div class="challenge-card"><span class="ch-num">02</span><h4>Prazo apertado</h4><p>Meta de rodar o primeiro ciclo em novembro, com o modelo ainda em fase de definição de competências.</p></div>
-        <div class="challenge-card"><span class="ch-num">03</span><h4>Feedback e reconhecimento sem processo</h4><p>Hoje não existe estrutura para feedback contínuo, avaliação e reconhecimento.</p></div>
-        <div class="challenge-card"><span class="ch-num">04</span><h4>Nine box e sucessão no radar</h4><p>Interesse já sinalizado para etapas futuras, mesmo não sendo o foco do primeiro ciclo.</p></div>
+        <div class="challenge-card"><span class="ch-num">02</span><h4>Prazo apertado</h4><p>Público operacional concentra a maior demanda no fim do ano, então o primeiro ciclo precisa rodar antes de novembro/dezembro.</p></div>
+        <div class="challenge-card"><span class="ch-num">03</span><h4>Feedback e reconhecimento sem processo</h4><p>Hoje não existe estrutura para feedback contínuo, avaliação e reconhecimento — público operacional ainda precisa ser sensibilizado sobre o tema.</p></div>
+        <div class="challenge-card"><span class="ch-num">04</span><h4>Sucessão e potenciais sob demanda da diretoria</h4><p>A diretoria pede recorrentemente visibilidade de quem são os potenciais e como a empresa está retendo talentos-chave.</p></div>
+        <div class="challenge-card"><span class="ch-num">05</span><h4>Promoções e reajustes sem critério objetivo</h4><p>Decisões de carreira ainda acontecem de forma subjetiva, associadas a tempo de casa ou proximidade com a liderança.</p></div>
+        <div class="challenge-card"><span class="ch-num">06</span><h4>Treinamentos sem rastreio para auditoria</h4><p>Existe matriz de treinamento, mas não há acompanhamento de quem participou nem comprovação fácil para as auditorias e certificações recorrentes.</p></div>
       </div>
 
       <div class="block-title"><i class="fa-regular fa-user-tie"></i>Responsáveis pelo projeto</div>
@@ -613,16 +615,38 @@
     <section class="tab-panel" id="tab-4">
       <h1 class="section-title">Diferenciais impulseup</h1>
       <p class="section-sub">Comparativo com base nos critérios mais importantes para este projeto</p>
-      <div class="empty-state" id="tab4EmptyState">
-        <i class="fa-regular fa-list-check"></i>
-        <h3>Aba liberada após a reunião de Diagnóstico</h3>
-        <p>Assim que o closer finalizar o diagnóstico, esta aba mostra o comparativo entre a impulseup e os concorrentes identificados na conversa. Se nenhum concorrente específico for mencionado, o comparativo é feito contra "Outras soluções", com resultado mediano.</p>
-      </div>
-      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;display:none;">
+      <div id="tab4TableWrap" style="margin-top:24px;overflow-x:auto;">
         <table class="rfp-table" id="tab4Table">
-          <!-- Preenchido pela skill site-cliente-impulseup a partir da transcrição da reunião de Diagnóstico e de references/rfp-criterios.json.
-               Cada critério exibe sua tag (campo "tags" do JSON) junto ao nome, ex:
-               <tr><td><div class="feat-name">Formatos de avaliação diferentes (90/180/360)</div><span class="feat-tag">Flexível</span></td><td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>...</tr> -->
+          <tr>
+            <th>Critério</th>
+            <th class="iup-col">impulseup</th>
+            <th>Smart Leader</th>
+          </tr>
+          <tr>
+            <td><div class="feat-name">Acesso sem necessidade de login e senha corporativos</div><span class="feat-tag">Fácil</span></td>
+            <td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>
+            <td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td>
+          </tr>
+          <tr>
+            <td><div class="feat-name">Envio de avaliações direto por WhatsApp</div><span class="feat-tag">Fácil</span></td>
+            <td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>
+            <td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td>
+          </tr>
+          <tr>
+            <td><div class="feat-name">Comparação de resultados entre unidades</div><span class="feat-tag">Inteligente</span></td>
+            <td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>
+            <td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td>
+          </tr>
+          <tr>
+            <td><div class="feat-name">IA para geração de relatórios e insights personalizados</div><span class="feat-tag">Inteligente</span></td>
+            <td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>
+            <td class="check-cell"><i class="fa-solid fa-xmark icon-no"></i></td>
+          </tr>
+          <tr>
+            <td><div class="feat-name">Matriz de potencial e sucessão (n-Box)</div><span class="feat-tag">Liderança</span></td>
+            <td class="iup-col check-cell"><i class="fa-solid fa-check icon-yes"></i></td>
+            <td class="check-cell"><i class="fa-solid fa-check icon-yes"></i></td>
+          </tr>
         </table>
       </div>
     </section>
@@ -631,13 +655,151 @@
     <section class="tab-panel" id="tab-5">
       <h1 class="section-title">Aprovação e plano de ação</h1>
       <p class="section-sub">Objetivos de negócio da Águas Prata, o caminho para chegar lá e o estado futuro com a impulseup</p>
-      <div class="empty-state" id="tab5EmptyState">
-        <i class="fa-regular fa-clipboard"></i>
-        <h3>Aba liberada após a reunião de Diagnóstico</h3>
-        <p>Assim que os desafios forem mapeados, esta aba mostra os objetivos de negócio e RH por trás do projeto, o plano de ação com cronograma para chegar lá, e o estado futuro do negócio com a impulseup — pronta para embasar a apresentação à diretoria.</p>
-      </div>
-      <div id="tab5PlanoWrap" style="display:none;">
-        <!--OBJETIVOS-->
+      <div id="tab5PlanoWrap">
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">01</span>
+            <div><h3>Formalizar decisões de carreira com base em dados</h3><p>Sair do "mundo das ideias" e ligar o resultado da avaliação diretamente às decisões de promoção e reajuste salarial.</p></div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>Promoções e aumentos ainda acontecem de forma subjetiva, muitas vezes associados a tempo de casa ou proximidade com a liderança.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Primeiro ciclo de avaliação 180° rodando ainda este ano, com resultado objetivo vinculado à estrutura de cargos e salários já construída com a Share.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-crosshairs"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>1º ciclo de avaliação 180° concluído, com resultado vinculado à matriz de cargos e salários.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação (estimativa)</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">1</span><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1</span><h4>Parametrização do ciclo 180°</h4><p>Configuração de competências e escala, a partir do modelo já desenhado com a Share.</p><span class="objetivo-etapa-resp">impulseup</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">2</span><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1–2</span><h4>Vínculo com cargos e salários</h4><p>Conexão do resultado da avaliação à matriz de cargos já estruturada.</p><span class="objetivo-etapa-resp">conjunta</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">3</span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 3 em diante</span><h4>Rodada de calibração</h4><p>Comitê de calibração para validar decisões de promoção e reajuste com base no resultado.</p><span class="objetivo-etapa-resp">Águas Prata</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-bullseye"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">Para o RH</span><p>Resultado de avaliação documentado e defensável para embasar cada decisão de promoção ou reajuste.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Para o negócio</span><p>Decisões de carreira deixam de depender de percepção subjetiva, reduzindo o risco de insatisfação e turnover ligado à sensação de injustiça.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">02</span>
+            <div><h3>Levar o processo ao público operacional sem barreira de acesso</h3><p>Garantir adesão de quem trabalha na produção, mesmo sem contato prévio com feedback formal.</p></div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>Público operacional (cerca de 160 pessoas entre Águas da Prata e Cunha) nunca teve contato com avaliação formal; alternativas avaliadas no mercado exigiam login e senha para acessar.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Colaborador operacional recebe e responde à avaliação direto pelo WhatsApp, sem precisar de login.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-crosshairs"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Taxa de resposta do público operacional na primeira rodada, comparável aos 85% de participação já obtidos na pesquisa de clima.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação (estimativa)</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">1</span><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1</span><h4>Cadastro do público operacional</h4><p>Carga de colaboradores com número de WhatsApp, sem depender de e-mail corporativo.</p><span class="objetivo-etapa-resp">conjunta</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">2</span><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1–2</span><h4>Sensibilização da liderança</h4><p>Treinamento dos cerca de 10 a 15 líderes de produção e logística sobre o objetivo do feedback.</p><span class="objetivo-etapa-resp">impulseup</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">3</span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 2</span><h4>Piloto com o time operacional</h4><p>Primeira rodada com peso do resultado concentrado no gestor, servindo de teste guiado.</p><span class="objetivo-etapa-resp">conjunta</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-bullseye"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">Para o RH</span><p>Não depende mais de sensibilização manual nem de acesso via e-mail corporativo para garantir adesão do time de fábrica.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Para o negócio</span><p>Maior adesão logo na primeira rodada, mesmo com pouca maturidade, viabilizando o prazo apertado antes do pico de demanda de novembro/dezembro.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">03</span>
+            <div><h3>Dar à diretoria visibilidade de potenciais e sucessão</h3><p>Responder de forma visual ao pedido recorrente da diretoria: quem são os potenciais e como a empresa está retendo talentos-chave.</p></div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>Diretoria cobra recorrentemente visibilidade de potenciais e retenção, sem uma ferramenta visual estruturada para responder isso hoje.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>n-Box customizável rodando, cruzando resultado de avaliação com metas, com sucessão mapeada por colaborador e por cargo crítico.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-crosshairs"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>n-Box publicado com os cargos de liderança mapeados e sucessores indicados.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação (estimativa)</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">1</span><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 2</span><h4>Configuração do n-Box</h4><p>Definição dos eixos de cruzamento (ex: avaliação x metas) e dos quadrantes.</p><span class="objetivo-etapa-resp">impulseup</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">2</span><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 2–3</span><h4>Mapeamento de posições críticas</h4><p>Indicação de sucessores e nível de prontidão para cargos-chave.</p><span class="objetivo-etapa-resp">Águas Prata</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">3</span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 3 em diante</span><h4>Calibração periódica</h4><p>Uso contínuo do n-Box para revisar potenciais e plano de sucessão.</p><span class="objetivo-etapa-resp">Águas Prata</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-bullseye"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">Para o RH</span><p>Consegue mostrar, em uma única tela, quem são os colaboradores-chave, o risco de saída e quem já está pronto para sucedê-los.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Para o negócio</span><p>Decisão de retenção deixa de ser reativa; a diretoria enxerga o pipeline de sucessão antes de perder uma posição crítica.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">04</span>
+            <div><h3>Rastrear treinamentos e comprovar presença para auditoria</h3><p>Transformar a matriz de treinamento que já existe em acompanhamento real de quem participou.</p></div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>RH tem a matriz de treinamento, mas não consegue acompanhar quem participou nem gerar comprovação de presença para as auditorias e certificações recorrentes.</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Turmas presenciais e online com controle de presença via QR Code, vinculadas à matriz de treinamento, com relatório exportável para auditoria.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-crosshairs"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Relatório de presença por treinamento disponível e usado em ao menos uma auditoria.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação (estimativa)</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">1</span><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1</span><h4>Cadastro da matriz de treinamento</h4><p>Estruturação de turmas e vínculo com cargos, conforme matriz já existente no RH.</p><span class="objetivo-etapa-resp">conjunta</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">2</span><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1–2</span><h4>Ativação do QR Code de presença</h4><p>Instrutores passam a abrir o QR Code em cada turma presencial, em Águas da Prata e Cunha.</p><span class="objetivo-etapa-resp">Águas Prata</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">3</span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 2 em diante</span><h4>Exportação para auditoria</h4><p>Geração do relatório de presença por treinamento para as certificações recorrentes.</p><span class="objetivo-etapa-resp">Águas Prata</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-bullseye"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">Para o RH</span><p>Emite comprovante de participação por turma em poucos cliques, sem depender de planilha manual.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Para o negócio</span><p>Reduz o risco de não conformidade nas auditorias e certificações que, segundo a própria Águas Prata, acontecem "uma atrás da outra".</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="objetivo-card">
+          <div class="objetivo-header">
+            <span class="objetivo-num">05</span>
+            <div><h3>Comparar performance entre as unidades do grupo</h3><p>Dar ao RH visão estruturada de Águas da Prata, Cunha e São Paulo lado a lado.</p></div>
+          </div>
+          <div class="objetivo-body">
+            <div class="objetivo-compare-col">
+              <div class="objetivo-compare-box atual"><span class="objetivo-compare-label">Situação atual</span><p>Não existe hoje um comparativo estruturado de resultado entre as unidades (Águas da Prata, Cunha e São Paulo).</p></div>
+              <div class="objetivo-compare-box meta"><span class="objetivo-compare-label">Meta</span><p>Analytics segmentado por unidade, cargo e área, com filtros e calibração entre times.</p></div>
+              <div class="objetivo-indicador"><i class="fa-solid fa-crosshairs"></i><div><span class="objetivo-indicador-label">Indicador de sucesso</span><p>Primeiro relatório comparativo entre unidades gerado logo após o primeiro ciclo.</p></div></div>
+            </div>
+            <div class="objetivo-plan-col">
+              <div class="objetivo-etapas-title">Plano de ação (estimativa)</div>
+              <div class="objetivo-etapas">
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">1</span><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 1</span><h4>Cadastro por unidade</h4><p>Estrutura de área e unidade de trabalho para cada colaborador, incluindo as três localidades.</p><span class="objetivo-etapa-resp">conjunta</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">2</span><div class="objetivo-etapa-line"></div><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 3</span><h4>Primeira leitura comparativa</h4><p>Análise do resultado do primeiro ciclo, filtrado por unidade e por competência.</p><span class="objetivo-etapa-resp">Águas Prata</span></div></div>
+                <div class="objetivo-etapa"><span class="objetivo-etapa-dot">3</span><div class="objetivo-etapa-content"><span class="objetivo-etapa-period">Mês 3 em diante</span><h4>Uso contínuo no Insights</h4><p>Perguntas recorrentes ao Insights para acompanhar diferenças entre unidades ao longo dos ciclos.</p><span class="objetivo-etapa-resp">Águas Prata</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="approval-outcome">
+            <div class="approval-outcome-title"><i class="fa-solid fa-bullseye"></i>Estado futuro</div>
+            <div class="approval-outcome-grid">
+              <div class="approval-stage futuro"><span class="approval-stage-label">Para o RH</span><p>Compara o resultado de cada unidade lado a lado, inclusive competência por competência.</p></div>
+              <div class="approval-stage negocio"><span class="approval-stage-label">Para o negócio</span><p>Decisões de calibração e investimento em desenvolvimento passam a considerar as diferenças reais entre as operações, não uma média genérica.</p></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
