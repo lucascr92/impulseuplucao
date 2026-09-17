@@ -118,6 +118,41 @@
   .tl-desc{font-size:14px;font-weight:600;}
   .tl-meta{font-size:12.5px;color:var(--color-fg-muted);margin-top:2px;}
 
+  /* --- Painel expansível "Teste guiado da plataforma" (Aba 8) --- */
+  .tl-toggle{display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none;}
+  .tl-toggle:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:4px;}
+  .tl-chevron{flex-shrink:0;color:var(--color-fg-muted);transition:transform .3s ease;}
+  .tl-toggle.open .tl-chevron{transform:rotate(180deg);color:var(--color-primary);}
+  .tl-panel-wrap{
+    display:grid;grid-template-rows:0fr;opacity:0;
+    margin-left:152px;
+    transition:grid-template-rows .35s ease,opacity .3s ease,margin .35s ease;
+  }
+  .tl-panel-wrap.open{grid-template-rows:1fr;opacity:1;margin-top:4px;margin-bottom:16px;}
+  .tl-panel-wrap .tl-panel-inner{overflow:hidden;min-height:0;}
+  .tl-panel{background:#FBE4F1;border-radius:14px;padding:22px 26px;}
+  .tl-panel-section{margin-bottom:20px;}
+  .tl-panel-section:last-child{margin-bottom:0;}
+  .tl-panel-title{font-size:13.5px;font-weight:700;color:var(--color-fg);margin-bottom:12px;}
+  .tl-panel-empty{font-size:13px;color:var(--color-fg-muted);font-weight:400;margin:0;}
+  .tl-check-list{display:flex;flex-direction:column;gap:10px;}
+  .tl-check-item{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:400;color:var(--color-fg);cursor:pointer;}
+  .tl-check-item input[type="checkbox"]{width:15px;height:15px;flex-shrink:0;accent-color:var(--color-primary);cursor:pointer;}
+  .tl-criteria-add-row{display:flex;gap:8px;margin-bottom:14px;}
+  .tl-criteria-input{flex:1;border:1px solid var(--color-border);border-radius:8px;padding:9px 12px;font-family:'Poppins',sans-serif;font-size:13.5px;font-weight:400;background:#fff;}
+  .tl-criteria-input:focus{outline:none;border-color:var(--color-primary);}
+  .tl-criteria-add-btn{background:var(--color-primary);color:#fff;border:none;border-radius:8px;padding:0 18px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;cursor:pointer;flex-shrink:0;}
+  .tl-criteria-add-btn:hover{background:var(--color-primary-hover);}
+  .tl-criteria-list{display:flex;flex-direction:column;}
+  .tl-criteria-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid rgba(12,12,12,0.08);}
+  .tl-criteria-item:last-child{border-bottom:none;}
+  .tl-criteria-item .tl-check-item{flex:1;min-width:0;}
+  .tl-criteria-text{word-break:break-word;}
+  .tl-criteria-item.done .tl-criteria-text{text-decoration:line-through;color:var(--color-fg-muted);}
+  .tl-criteria-del{background:none;border:none;color:var(--color-fg-muted);font-size:18px;line-height:1;cursor:pointer;padding:2px 6px;flex-shrink:0;}
+  .tl-criteria-del:hover{color:var(--color-primary);}
+  @media (max-width:860px){.tl-panel-wrap{margin-left:0;}}
+
   .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
   .stat-card{background:var(--color-surface);border-radius:14px;padding:22px;text-align:center;}
   .stat-card .num{font-size:30px;font-weight:800;color:var(--color-primary);}
@@ -756,7 +791,36 @@
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">27/08</span><div><span class="tl-desc">Diagnóstico do projeto</span><div class="tl-meta">Entender contexto e desafios · Karina e Bruna Campos</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">01/09</span><div><span class="tl-desc">Demonstração da plataforma (etapa 1)</span><div class="tl-meta">Módulos de Desenvolvimento, Engajamento &amp; Cultura e Learning aplicados aos 40 líderes · Karina</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">08/09</span><div><span class="tl-desc">Demonstração da plataforma (etapa 2)</span><div class="tl-meta">Continuidade da demonstração · Karina e Bruna Campos</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">18/09</span><div><span class="tl-desc">Plano de projeto e início do teste guiado</span></div></div>
+        <div class="tl-item">
+          <span class="tl-dot"></span>
+          <span class="tl-date" contenteditable="true">18/09</span>
+          <div class="tl-toggle" id="guidedTestToggle" role="button" tabindex="0" aria-expanded="false">
+            <span class="tl-desc">Plano de projeto e início do teste guiado</span>
+            <svg class="tl-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+        <div class="tl-panel-wrap" id="guidedTestPanelWrap">
+          <div class="tl-panel-inner">
+            <div class="tl-panel">
+              <div class="tl-panel-section">
+                <div class="tl-panel-title">Quem são os participantes do teste?</div>
+                <div class="tl-check-list" id="guidedTestParticipantsList"></div>
+              </div>
+              <div class="tl-panel-section">
+                <div class="tl-panel-title">Quais são os módulos que serão testados?</div>
+                <div class="tl-check-list" id="guidedTestModulesList"></div>
+              </div>
+              <div class="tl-panel-section">
+                <div class="tl-panel-title">O que queremos testar? Quais são os critérios de sucesso do teste?</div>
+                <div class="tl-criteria-add-row">
+                  <input type="text" class="tl-criteria-input" id="guidedTestCriteriaInput" placeholder="Descreva um critério de sucesso e clique em Adicionar">
+                  <button type="button" class="tl-criteria-add-btn" id="guidedTestCriteriaAddBtn">Adicionar</button>
+                </div>
+                <div class="tl-criteria-list" id="guidedTestCriteriaList"></div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Análise técnica com o time de TI</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Negociação com o time de Compras</span><div class="tl-meta">Meta interna do cliente: fechamento do fornecedor até 30 de setembro</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">Setembro</span><div><span class="tl-desc">Primeira rodada de avaliação</span></div></div>
@@ -1362,6 +1426,173 @@ ${comparativoSectionHtml}
       step.querySelector('.impl-step-text').focus();
     });
   });
+
+  // --- Aba 8 (Próximos passos): painel expansível "Teste guiado da plataforma" ---
+  (function(){
+    const toggleEl = document.getElementById('guidedTestToggle');
+    const panelWrap = document.getElementById('guidedTestPanelWrap');
+    if(!toggleEl || !panelWrap) return;
+
+    // Chaves versionadas: sempre que a regra de valor padrão mudar, subir o sufixo (_v1 -> _v2)
+    // para que seleções antigas salvas no navegador não sobrescrevam o novo comportamento.
+    const PARTICIPANTS_KEY = 'testeGuiado_participantes_v1';
+    const MODULES_KEY = 'testeGuiado_modulos_v1';
+    const CRITERIA_KEY = 'testeGuiado_criterios_v1';
+
+    const MODULOS_FIXOS = ['Avaliações', 'Pesquisas', "Metas e OKR's", 'Learning', 'Rem. Variável'];
+    // Padrão pré-marcado: módulos já apresentados aos 40 líderes na Demonstração e que
+    // resolvem diretamente o desafio central mapeado no Diagnóstico (avaliação de desempenho).
+    const MODULOS_PADRAO_MARCADOS = ['Avaliações', 'Learning'];
+
+    function slugName(name){ return name.trim().toLowerCase(); }
+
+    function readStore(){ return loadStore(); }
+    function writeKey(key, value){
+      const store = loadStore();
+      store[key] = value;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    }
+
+    function renderParticipantes(){
+      const listEl = document.getElementById('guidedTestParticipantsList');
+      if(!listEl) return;
+      const saved = readStore()[PARTICIPANTS_KEY] || {};
+      const names = Array.from(document.querySelectorAll('#teamGrid .person-name'))
+        .map(el => el.textContent.trim())
+        .filter(name => name && name.toLowerCase() !== 'nome a preencher');
+      listEl.innerHTML = '';
+      if(!names.length){
+        listEl.innerHTML = '<p class="tl-panel-empty">Nenhum responsável cadastrado ainda na aba de Diagnóstico.</p>';
+        return;
+      }
+      names.forEach(name => {
+        const key = slugName(name);
+        const checked = saved.hasOwnProperty(key) ? saved[key] : true; // padrão: todo mundo marcado
+        const label = document.createElement('label');
+        label.className = 'tl-check-item';
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.checked = checked;
+        const span = document.createElement('span');
+        span.textContent = name;
+        label.appendChild(input);
+        label.appendChild(span);
+        input.addEventListener('change', () => {
+          const store = readStore();
+          const p = store[PARTICIPANTS_KEY] || {};
+          p[key] = input.checked;
+          store[PARTICIPANTS_KEY] = p;
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+        });
+        listEl.appendChild(label);
+      });
+    }
+
+    function renderModulos(){
+      const listEl = document.getElementById('guidedTestModulesList');
+      if(!listEl) return;
+      const saved = readStore()[MODULES_KEY] || {};
+      listEl.innerHTML = '';
+      MODULOS_FIXOS.forEach(mod => {
+        const checked = saved.hasOwnProperty(mod) ? saved[mod] : MODULOS_PADRAO_MARCADOS.includes(mod);
+        const label = document.createElement('label');
+        label.className = 'tl-check-item';
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.checked = checked;
+        const span = document.createElement('span');
+        span.textContent = mod;
+        label.appendChild(input);
+        label.appendChild(span);
+        input.addEventListener('change', () => {
+          const store = readStore();
+          const m = store[MODULES_KEY] || {};
+          m[mod] = input.checked;
+          store[MODULES_KEY] = m;
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+        });
+        listEl.appendChild(label);
+      });
+    }
+
+    function getCriterios(){ return readStore()[CRITERIA_KEY] || []; }
+    function saveCriterios(list){ writeKey(CRITERIA_KEY, list); }
+
+    function renderCriterios(){
+      const listEl = document.getElementById('guidedTestCriteriaList');
+      if(!listEl) return;
+      const criterios = getCriterios();
+      listEl.innerHTML = '';
+      criterios.forEach(c => {
+        const row = document.createElement('div');
+        row.className = 'tl-criteria-item' + (c.done ? ' done' : '');
+        row.dataset.id = c.id;
+
+        const label = document.createElement('label');
+        label.className = 'tl-check-item';
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.checked = !!c.done;
+        const span = document.createElement('span');
+        span.className = 'tl-criteria-text';
+        span.textContent = c.text;
+        label.appendChild(input);
+        label.appendChild(span);
+
+        const delBtn = document.createElement('button');
+        delBtn.type = 'button';
+        delBtn.className = 'tl-criteria-del';
+        delBtn.setAttribute('aria-label', 'Excluir critério');
+        delBtn.innerHTML = '&times;';
+
+        input.addEventListener('change', () => {
+          const list = getCriterios();
+          const item = list.find(i => i.id === c.id);
+          if(item){ item.done = input.checked; saveCriterios(list); }
+          row.classList.toggle('done', input.checked);
+        });
+        delBtn.addEventListener('click', () => {
+          saveCriterios(getCriterios().filter(i => i.id !== c.id));
+          renderCriterios();
+        });
+
+        row.appendChild(label);
+        row.appendChild(delBtn);
+        listEl.appendChild(row);
+      });
+    }
+
+    const criteriaInput = document.getElementById('guidedTestCriteriaInput');
+    const criteriaAddBtn = document.getElementById('guidedTestCriteriaAddBtn');
+    function addCriterio(){
+      const text = criteriaInput.value.trim();
+      if(!text) return;
+      const list = getCriterios();
+      list.push({ id: 'crit_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7), text, done: false });
+      saveCriterios(list);
+      criteriaInput.value = '';
+      renderCriterios();
+    }
+    criteriaAddBtn.addEventListener('click', addCriterio);
+    criteriaInput.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter'){ e.preventDefault(); addCriterio(); }
+    });
+
+    function togglePanel(){
+      const isOpen = panelWrap.classList.toggle('open');
+      toggleEl.classList.toggle('open', isOpen);
+      toggleEl.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if(isOpen){
+        renderParticipantes();
+        renderModulos();
+        renderCriterios();
+      }
+    }
+    toggleEl.addEventListener('click', togglePanel);
+    toggleEl.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); togglePanel(); }
+    });
+  })();
 </script>
 
 </body>
