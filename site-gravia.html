@@ -546,15 +546,16 @@
     <section class="tab-panel" id="tab-3">
       <h1 class="section-title">Demonstração</h1>
       <p class="section-sub">Vídeos da plataforma, orientados aos desafios da Gravia</p>
-      <div class="empty-state" id="tab3EmptyState">
+      <div class="empty-state" id="tab3EmptyState" style="display:none;">
         <i class="fa-regular fa-circle-play"></i>
         <h3>Aba liberada após a reunião de Demo</h3>
         <p>O closer vai incluir aqui vídeos curtos mostrando a solução aplicada aos desafios mapeados no Diagnóstico.</p>
       </div>
-      <div id="tab3Content" style="display:none;">
+      <div id="tab3Content">
         <div class="stat-grid" id="tab3ImpactoGrid">
-          <!-- Preenchido pela skill a partir de "impacto" (estrutura-abas.md, Aba 3). Ex:
-               <div class="stat-card"><div class="num">32%</div><div class="label">redução no tempo de ciclo de avaliação</div></div> -->
+          <div class="stat-card"><div class="num">2,5%</div><div class="label">turnover mensal hoje, contra 1 a 1,5% nos anos anteriores</div></div>
+          <div class="stat-card"><div class="num">430</div><div class="label">colaboradores em varejo, indústria e administrativo</div></div>
+          <div class="stat-card"><div class="num">2022</div><div class="label">ano da última pesquisa de clima realizada</div></div>
         </div>
         <div style="overflow-x:auto;margin-bottom:40px;">
           <table class="rfp-table" id="tab3ComparativoTable">
@@ -562,8 +563,10 @@
               <tr><th>Situação atual</th><th>Módulo impulseup</th><th>Como fica</th></tr>
             </thead>
             <tbody>
-              <!-- Preenchido pela skill a partir de "comparativo" (máx. 4 linhas). Ex:
-                   <tr><td>Avaliação só em planilha</td><td class="feat-name">Ciclos de avaliação</td><td>Fluxo 100% digital com lembretes automáticos</td></tr> -->
+              <tr><td>Última pesquisa de clima em 2022, com um modelo muito voltado à liderança e pouco aderente a todos os públicos</td><td class="feat-name">Pesquisas</td><td>Diversos formatos (clima, pulso, NPS) e escalas de resposta ajustáveis, com linguagem adequada a varejo, indústria e administrativo, e comparativo histórico a cada novo ciclo</td></tr>
+              <tr><td>A maioria dos colaboradores não tem e-mail e o público de fábrica tem mais dificuldade para participar</td><td class="feat-name">Pesquisas</td><td>Envio por WhatsApp e SMS, com link individual, sem login nem senha e sem necessidade de e-mail corporativo</td></tr>
+              <tr><td>Relatório de clima testado considerado superficial, sem profundidade para decisões estratégicas</td><td class="feat-name">Pesquisas + Análises e relatórios</td><td>Comparação de resultados por área, cargo e diretoria, filtros customizados, IA para analisar comentários abertos e material consolidado para a diretoria</td></tr>
+              <tr><td>Turnover subiu para 2,5% ao mês e os desligamentos citam apenas "oportunidades melhores"</td><td class="feat-name">Pesquisas (planos de ação)</td><td>Planos de ação criados a partir dos resultados, para que RH e liderança atuem nos fatores que mais pesam na permanência das pessoas</td></tr>
             </tbody>
           </table>
         </div>
@@ -714,7 +717,7 @@
       <p class="section-sub">Jornada de compra da Gravia</p>
       <div class="timeline">
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">09 set</span><div><span class="tl-desc">Reunião de Conexão</span><div class="tl-meta">Entender contexto e desafios · Letícia Mac Cormick (RH)</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar solução aplicada aos desafios mapeados</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">25 set</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar solução aplicada aos desafios mapeados</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Definir escopo e cenários de investimento</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Apresentação para diretoria</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span></div></div>
@@ -772,7 +775,7 @@
       "titulo": "Reunião de conexão e diagnóstico"
     },
     {
-      "data": "A definir",
+      "data": "25 set",
       "titulo": "Demonstração personalizada"
     },
     {
