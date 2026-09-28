@@ -658,15 +658,16 @@
     <section class="tab-panel" id="tab-3">
       <h1 class="section-title">Demonstração</h1>
       <p class="section-sub">Vídeos da plataforma, orientados aos desafios da Grupo Raízes</p>
-      <div class="empty-state" id="tab3EmptyState">
+      <div class="empty-state" id="tab3EmptyState" style="display:none;">
         <i class="fa-regular fa-circle-play"></i>
         <h3>Aba liberada após a reunião de Demo</h3>
         <p>O closer vai incluir aqui vídeos curtos mostrando a solução aplicada aos desafios mapeados no Diagnóstico.</p>
       </div>
-      <div id="tab3Content" style="display:none;">
+      <div id="tab3Content" style="display:block;">
         <div class="stat-grid" id="tab3ImpactoGrid">
-          <!-- Preenchido pela skill a partir de "impacto" (estrutura-abas.md, Aba 3). Ex:
-               <div class="stat-card"><div class="num">32%</div><div class="label">redução no tempo de ciclo de avaliação</div></div> -->
+          <div class="stat-card"><div class="num">700 de 2.000+</div><div class="label">colaboradores avaliados hoje — time operacional ainda fora do ciclo</div></div>
+          <div class="stat-card"><div class="num">2 a 3 semanas</div><div class="label">de calibração manual em planilhas, por time, a cada ciclo</div></div>
+          <div class="stat-card"><div class="num">A confirmar</div><div class="label">impacto em turnover e engajamento — dado não quantificado na reunião de diagnóstico</div></div>
         </div>
         <div style="overflow-x:auto;margin-bottom:40px;">
           <table class="rfp-table" id="tab3ComparativoTable">
@@ -674,8 +675,10 @@
               <tr><th>Situação atual</th><th>Módulo impulseup</th><th>Como fica</th></tr>
             </thead>
             <tbody>
-              <!-- Preenchido pela skill a partir de "comparativo" (máx. 4 linhas). Ex:
-                   <tr><td>Avaliação só em planilha</td><td class="feat-name">Ciclos de avaliação</td><td>Fluxo 100% digital com lembretes automáticos</td></tr> -->
+              <tr><td>Cobrança manual de pendências de avaliação, gestor por gestor, por e-mail</td><td class="feat-name">Avaliações</td><td>Painel de adesão em tempo real para RH e gestor, sem necessidade de cobrança manual</td></tr>
+              <tr><td>Feedback do gestor não fica registrado em nenhum sistema</td><td class="feat-name">Avaliações</td><td>Feedback registrado na plataforma, com histórico visível para gestor e colaborador</td></tr>
+              <tr><td>Calibração do Nine Box feita fora do sistema, em planilhas, por 2 a 3 semanas</td><td class="feat-name">Avaliações</td><td>Nbox nativo na plataforma, com filtros por loja, cargo e área, e comparativo entre ciclos</td></tr>
+              <tr><td>Trilhas de desenvolvimento da UOL não conectadas ao PDI da avaliação</td><td class="feat-name">Learning</td><td>Biblioteca sugere trilhas de desenvolvimento direto na devolutiva da avaliação, com acompanhamento de quem iniciou e concluiu</td></tr>
             </tbody>
           </table>
         </div>
@@ -825,7 +828,7 @@
       <p class="section-sub">Jornada de compra da Grupo Raízes</p>
       <div class="timeline">
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A confirmar</span><div><span class="tl-desc">Reunião de Diagnóstico</span><div class="tl-meta">Entender contexto e desafios · Jaqueline, Andréia e Roberta</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar solução aplicada aos desafios mapeados</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">24 set · 15h</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar solução aplicada aos desafios mapeados</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Definir escopo e cenários de investimento</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">Outubro</span><div><span class="tl-desc">Apresentação para diretoria</span><div class="tl-meta">Jaqueline apresenta o projeto internamente para aprovação do orçamento 2027</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span></div></div>
