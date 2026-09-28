@@ -1579,10 +1579,10 @@ ${comparativoSectionHtml}
     participantesList.addEventListener('change', salvarParticipantes);
     salvarParticipantes();
 
-    // Módulos testados: lista fixa, com padrão pré-marcado (Avaliações e Metas e OKR's,
-    // por já terem sido demonstrados/combinados com a Fábia). Versionar a chave se o padrão mudar.
-    const modulosDefault = { 'Avaliações': true, 'Pesquisas': false, "Metas e OKR's": true, 'Learning': false, 'Rem. Variável': false };
-    const modulosSalvos = store['teste_modulos_v1'];
+    // Módulos testados: lista fixa, com padrão pré-marcado (Avaliações e Learning,
+    // combinados com Fábia e Sílvia na demo de 15/09). Versionar a chave se o padrão mudar.
+    const modulosDefault = { 'Avaliações': true, 'Pesquisas': false, "Metas e OKR's": false, 'Learning': true, 'Rem. Variável': false };
+    const modulosSalvos = store['teste_modulos_v2'];
     const modulosList = document.getElementById('testeModulosList');
     modulosList.querySelectorAll('input[type="checkbox"]').forEach(cb => {
       const nome = cb.value;
@@ -1592,7 +1592,7 @@ ${comparativoSectionHtml}
       const dados = {};
       modulosList.querySelectorAll('input[type="checkbox"]').forEach(cb => { dados[cb.value] = cb.checked; });
       const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-      s['teste_modulos_v1'] = dados;
+      s['teste_modulos_v2'] = dados;
       localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
     }
     modulosList.addEventListener('change', salvarModulos);
@@ -1601,11 +1601,19 @@ ${comparativoSectionHtml}
     const criteriosList = document.getElementById('testeCriteriosList');
     const criterioInput = document.getElementById('testeCriterioInput');
     const criterioAddBtn = document.getElementById('testeCriterioAddBtn');
-    let criterios = store['teste_criterios_v1'] || [];
+    // Critérios definidos por Fábia e Sílvia na demo de 15/09. Versionar a chave se o padrão mudar.
+    const criteriosDefault = [
+      { texto: 'Praticidade: receber a avaliação pelo WhatsApp e acessar direto pelo link, sem login e senha', feito: false },
+      { texto: 'Praticidade: responder a avaliação 180° com a Sílvia como gestora de forma rápida e intuitiva', feito: false },
+      { texto: 'Learning + PDI: criar um treinamento na plataforma e vinculá-lo a um PDI', feito: false },
+      { texto: 'Learning + PDI: visualizar o treinamento vinculado no perfil do colaborador', feito: false },
+      { texto: 'Acessibilidade: ter segurança de que o público operacional consegue receber e responder feedbacks pela plataforma', feito: false }
+    ];
+    let criterios = store['teste_criterios_v2'] || criteriosDefault.map(c => ({ ...c }));
 
     function salvarCriterios(){
       const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-      s['teste_criterios_v1'] = criterios;
+      s['teste_criterios_v2'] = criterios;
       localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
     }
     function renderCriterios(){
