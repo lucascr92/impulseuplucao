@@ -905,7 +905,7 @@
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">15 set</span><div><span class="tl-desc">Demonstração da plataforma</span><div class="tl-meta">Apresentação com Fábia e Sílvia</div></div></div>
         <div class="tl-item tl-item-expandable" id="tlItemTeste">
           <span class="tl-dot"></span>
-          <span class="tl-date" contenteditable="true">A definir</span>
+          <span class="tl-date" contenteditable="true">17 set</span>
           <div class="tl-toggle-wrap" id="testeToggleWrap">
             <span class="tl-desc">Teste guiado da plataforma</span>
             <i class="fa-solid fa-chevron-down tl-chevron"></i>
@@ -935,8 +935,11 @@
             <div class="teste-criterios-list" id="testeCriteriosList"></div>
           </div>
         </div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Plano de projeto</span></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Negociação e fechamento</span></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">28 set</span><div><span class="tl-desc">Plano de projeto</span></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">Até 01 out</span><div><span class="tl-desc">Negociação e fechamento</span></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Kick-off do projeto</span></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Treinamentos com líderes</span></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">Final out / Nov</span><div><span class="tl-desc">Lançamento da Avaliação</span></div></div>
       </div>
     </section>
 
@@ -1501,7 +1504,7 @@ ${comparativoSectionHtml}
     attachEditableSave(el, key);
   });
   document.querySelectorAll('.tl-date[contenteditable]').forEach((el, idx) => {
-    attachEditableSave(el, 'tl_date_' + idx);
+    attachEditableSave(el, 'tl_date_v2_' + idx);
   });
 
   (function restoreEditableText(){
@@ -1513,7 +1516,7 @@ ${comparativoSectionHtml}
       if(store[key] !== undefined) el.textContent = store[key];
     });
     document.querySelectorAll('.tl-date[contenteditable]').forEach((el, idx) => {
-      const key = 'tl_date_' + idx;
+      const key = 'tl_date_v2_' + idx;
       if(store[key] !== undefined) el.textContent = store[key];
     });
   })();
