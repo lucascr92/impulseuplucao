@@ -455,6 +455,35 @@
   .export-exec-btn:hover{background:var(--color-primary-hover);}
   .export-exec-btn:disabled{opacity:0.6;cursor:wait;}
   .export-exec-btn i{font-size:13px;}
+
+  /* ABA 8 — PAINEL EXPANSÍVEL DO TESTE GUIADO */
+  .tl-toggle{display:inline-flex;align-items:center;gap:8px;background:none;border:none;padding:0;margin:0;cursor:pointer;font:inherit;color:inherit;text-align:left;}
+  .tl-toggle:hover .tl-desc{color:var(--color-primary);}
+  .tl-toggle:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:4px;}
+  .tl-chev{font-size:11px;color:var(--color-primary);transition:transform .35s ease;}
+  .tl-toggle[aria-expanded="true"] .tl-chev{transform:rotate(180deg);}
+  .tl-panel{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .4s ease,opacity .35s ease,margin .4s ease;margin:0;}
+  .tl-panel.open{grid-template-rows:1fr;opacity:1;margin:4px 0 16px;}
+  .tl-panel-inner{overflow:hidden;min-height:0;}
+  .tg-box{background:#FDEEF7;border:1px solid #F7D3E8;border-radius:12px;padding:20px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px 32px;}
+  .tg-field.tg-wide{grid-column:1 / -1;}
+  .tg-q{font-size:13.5px;font-weight:700;margin:0 0 10px;color:var(--color-fg);}
+  .tg-opts{display:flex;flex-direction:column;gap:7px;}
+  .tg-opt{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:400;cursor:pointer;color:var(--color-fg);}
+  .tg-opt input,.tg-crit input[type="checkbox"]{accent-color:var(--color-primary);width:15px;height:15px;cursor:pointer;flex-shrink:0;}
+  .tg-empty{font-size:12.5px;font-weight:400;color:var(--color-fg-muted);}
+  .tg-add{display:flex;gap:8px;margin-bottom:10px;}
+  .tg-add input{flex:1;min-width:0;border:1px solid #F0C2DD;background:#fff;border-radius:8px;padding:8px 12px;font:inherit;font-size:13.5px;font-weight:400;}
+  .tg-add input:focus{outline:none;border-color:var(--color-primary);}
+  .tg-add button{background:var(--color-primary);color:#fff;border:none;border-radius:8px;padding:8px 16px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;}
+  .tg-add button:hover{background:var(--color-primary-hover);}
+  .tg-crit-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;}
+  .tg-crit{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #F7D3E8;border-radius:8px;padding:8px 12px;}
+  .tg-crit-text{flex:1;font-size:13.5px;font-weight:400;word-break:break-word;}
+  .tg-crit.done .tg-crit-text{text-decoration:line-through;color:var(--color-fg-muted);}
+  .tg-del{background:none;border:none;color:var(--color-fg-muted);cursor:pointer;font-size:14px;padding:2px 6px;border-radius:4px;line-height:1;}
+  .tg-del:hover{color:var(--color-primary);background:#FDEEF7;}
+  @media (prefers-reduced-motion: reduce){.tl-panel,.tl-chev{transition:none;}}
 </style>
 </head>
 <body>
@@ -837,7 +866,26 @@
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">18/09</span><div><span class="tl-desc">Reunião de Diagnóstico</span><div class="tl-meta">Entender contexto e desafios · Jaqueline, Ana, Andréia e Roberta</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">29/09</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar solução aplicada aos desafios mapeados</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">06/10</span><div><span class="tl-desc">Plano de projeto</span><div class="tl-meta">Apresentar proposta, escopo de implementação e cenários de investimento</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Teste guiado na plataforma</span><div class="tl-meta">Experimentar a plataforma na prática com o acompanhamento da impulseup</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><button type="button" class="tl-toggle" id="testeGuiadoToggle" aria-expanded="false" aria-controls="testeGuiadoPanel"><span class="tl-desc">Teste guiado na plataforma</span><i class="fa-solid fa-chevron-down tl-chev" aria-hidden="true"></i></button><div class="tl-meta">Experimentar a plataforma na prática com o acompanhamento da impulseup</div></div></div>
+        <div class="tl-panel" id="testeGuiadoPanel" aria-hidden="true">
+          <div class="tl-panel-inner">
+            <div class="tg-box">
+              <div class="tg-field">
+                <p class="tg-q">Quem são os participantes do teste?</p>
+                <div class="tg-opts" id="tgParticipantes"></div>
+              </div>
+              <div class="tg-field">
+                <p class="tg-q">Quais são os módulos que serão testados?</p>
+                <div class="tg-opts" id="tgModulos"></div>
+              </div>
+              <div class="tg-field tg-wide">
+                <p class="tg-q">O que queremos testar? Quais são os critérios de sucesso do teste?</p>
+                <div class="tg-add"><input type="text" id="tgCritInput" placeholder="Ex: Gestor operacional responde a avaliação pelo WhatsApp sem ajuda do RH"><button type="button" id="tgCritAdd">Adicionar</button></div>
+                <ul class="tg-crit-list" id="tgCritList"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">Outubro</span><div><span class="tl-desc">Apresentação para diretoria</span><div class="tl-meta">Jaqueline apresenta o projeto internamente para aprovação do orçamento 2027</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Revisão jurídica</span></div></div>
@@ -1485,6 +1533,125 @@ ${comparativoSectionHtml}
       step.querySelector('.impl-step-text').focus();
     });
   });
+
+  /* ===== ABA 8 — PAINEL DO TESTE GUIADO =====
+     Chave versionada: ao mudar a regra de padrão, incrementar (teste_guiado_v2, v3...). */
+  (function testeGuiado(){
+    const TG_KEY = 'teste_guiado_v1';
+    const PART_DEFAULT = ['Jaqueline'];          // pré-marcados por padrão
+    const MODULOS = ['Avaliações', 'Pesquisas', 'Metas e OKR\'s', 'Learning', 'Rem. Variável'];
+    const MOD_DEFAULT = ['Avaliações'];
+
+    const toggle = document.getElementById('testeGuiadoToggle');
+    const panel = document.getElementById('testeGuiadoPanel');
+    if(!toggle || !panel) return;
+
+    function getStore(){ try { return loadStore(); } catch(e){ return {}; } }
+    function getState(){
+      const st = getStore()[TG_KEY] || {};
+      return { participantes: st.participantes || {}, modulos: st.modulos || null, criterios: st.criterios || [] };
+    }
+    function setState(state){
+      try {
+        const store = getStore();
+        store[TG_KEY] = state;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+      } catch(e){}
+    }
+    let state = getState();
+
+    toggle.addEventListener('click', () => {
+      const open = !panel.classList.contains('open');
+      panel.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    });
+
+    function makeOpt(text, checked, onChange){
+      const label = document.createElement('label');
+      label.className = 'tg-opt';
+      const cb = document.createElement('input');
+      cb.type = 'checkbox'; cb.checked = checked;
+      cb.addEventListener('change', () => onChange(cb.checked));
+      const span = document.createElement('span');
+      span.textContent = text;
+      label.append(cb, span);
+      return label;
+    }
+
+    /* Participantes: lidos ao vivo da lista de responsáveis da Aba 2 */
+    const partBox = document.getElementById('tgParticipantes');
+    function nomesResponsaveis(){
+      return Array.from(document.querySelectorAll('#teamGrid .person-name'))
+        .map(el => el.textContent.trim())
+        .filter(n => n && n !== 'Nome a preencher');
+    }
+    function renderParticipantes(){
+      const nomes = [...new Set(nomesResponsaveis())];
+      partBox.innerHTML = '';
+      if(!nomes.length){
+        partBox.innerHTML = '<span class="tg-empty">Nenhum responsável cadastrado na aba Diagnóstico.</span>';
+        return;
+      }
+      nomes.forEach(nome => {
+        const marcado = (nome in state.participantes) ? state.participantes[nome] : PART_DEFAULT.includes(nome);
+        partBox.appendChild(makeOpt(nome, marcado, (v) => { state.participantes[nome] = v; setState(state); }));
+      });
+    }
+    const teamGrid = document.getElementById('teamGrid');
+    if(teamGrid){
+      let t;
+      new MutationObserver(() => { clearTimeout(t); t = setTimeout(renderParticipantes, 250); })
+        .observe(teamGrid, { childList: true, subtree: true, characterData: true });
+    }
+
+    /* Módulos: lista fixa */
+    const modBox = document.getElementById('tgModulos');
+    function renderModulos(){
+      const marcados = state.modulos || MOD_DEFAULT.slice();
+      modBox.innerHTML = '';
+      MODULOS.forEach(m => {
+        modBox.appendChild(makeOpt(m, marcados.includes(m), (v) => {
+          const atual = new Set(state.modulos || MOD_DEFAULT);
+          v ? atual.add(m) : atual.delete(m);
+          state.modulos = MODULOS.filter(x => atual.has(x));
+          setState(state);
+        }));
+      });
+    }
+
+    /* Critérios de sucesso */
+    const critInput = document.getElementById('tgCritInput');
+    const critList = document.getElementById('tgCritList');
+    function renderCriterios(){
+      critList.innerHTML = '';
+      state.criterios.forEach((c, i) => {
+        const li = document.createElement('li');
+        li.className = 'tg-crit' + (c.done ? ' done' : '');
+        const cb = document.createElement('input');
+        cb.type = 'checkbox'; cb.checked = !!c.done; cb.title = 'Marcar como testado';
+        cb.addEventListener('change', () => { state.criterios[i].done = cb.checked; li.classList.toggle('done', cb.checked); setState(state); });
+        const txt = document.createElement('span');
+        txt.className = 'tg-crit-text'; txt.textContent = c.texto;
+        const del = document.createElement('button');
+        del.type = 'button'; del.className = 'tg-del'; del.title = 'Excluir'; del.setAttribute('aria-label', 'Excluir critério');
+        del.innerHTML = '&times;';
+        del.addEventListener('click', () => { state.criterios.splice(i, 1); setState(state); renderCriterios(); });
+        li.append(cb, txt, del);
+        critList.appendChild(li);
+      });
+    }
+    function addCriterio(){
+      const v = critInput.value.trim();
+      if(!v) return;
+      state.criterios.push({ texto: v, done: false });
+      setState(state); critInput.value = ''; renderCriterios(); critInput.focus();
+    }
+    document.getElementById('tgCritAdd').addEventListener('click', addCriterio);
+    critInput.addEventListener('keydown', (e) => { if(e.key === 'Enter'){ e.preventDefault(); addCriterio(); } });
+
+    renderParticipantes(); renderModulos(); renderCriterios();
+  })();
 </script>
 
 </body>
