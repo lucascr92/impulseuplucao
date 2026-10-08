@@ -86,6 +86,36 @@
     nav.side-nav button .label-text{opacity:1 !important;width:auto !important;position:static !important;}
   }
 
+
+  /* ---------- Aba 8: painel expansível do Teste guiado ---------- */
+  #tab-8 .tl-toggle{background:none;border:none;padding:0;margin:0;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:inherit;color:inherit;text-align:left;}
+  #tab-8 .tl-toggle:hover .tl-desc{color:var(--color-primary);}
+  #tab-8 .tl-chevron{font-size:11px;color:var(--color-primary);transition:transform .3s ease;}
+  #tab-8 .tl-expandable.open .tl-chevron{transform:rotate(180deg);}
+  #tab-8 .tl-expandable.open{border-bottom-color:transparent;}
+  #tab-8 .tg-panel{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .35s ease,opacity .3s ease,margin .35s ease;margin:0;}
+  #tab-8 .tg-panel.open{grid-template-rows:1fr;opacity:1;margin:0 0 14px;}
+  #tab-8 .tg-panel-inner{overflow:hidden;min-height:0;}
+  #tab-8 .tg-body{background:#FDEEF7;border:1px solid #F7CCE6;border-radius:12px;padding:22px 24px;display:grid;grid-template-columns:1fr 1fr;gap:22px 32px;}
+  #tab-8 .tg-field-wide{grid-column:1 / -1;}
+  #tab-8 .tg-question{font-size:14px;font-weight:700;color:var(--color-fg);margin:0 0 10px;}
+  #tab-8 .tg-options{display:flex;flex-direction:column;gap:8px;}
+  #tab-8 .tg-option{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:400;color:var(--color-fg);cursor:pointer;}
+  #tab-8 .tg-option input,#tab-8 .tg-crit input{accent-color:var(--color-primary);width:16px;height:16px;margin:0;cursor:pointer;flex-shrink:0;}
+  #tab-8 .tg-empty{font-size:13px;font-weight:400;color:var(--color-fg-muted);}
+  #tab-8 .tg-add-row{display:flex;gap:10px;}
+  #tab-8 .tg-input{flex:1;font-family:inherit;font-size:14px;font-weight:400;padding:10px 12px;border:1px solid #F0B8D9;border-radius:8px;background:#fff;outline:none;}
+  #tab-8 .tg-input:focus{border-color:var(--color-primary);}
+  #tab-8 .tg-add-btn{font-family:inherit;font-size:13px;font-weight:600;background:var(--color-primary);color:#fff;border:none;border-radius:8px;padding:0 16px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
+  #tab-8 .tg-add-btn:hover{background:var(--color-primary-hover);}
+  #tab-8 .tg-criterios{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;}
+  #tab-8 .tg-crit{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #F7CCE6;border-radius:8px;padding:9px 12px;}
+  #tab-8 .tg-crit-text{flex:1;font-size:14px;font-weight:400;color:var(--color-fg);}
+  #tab-8 .tg-crit.done .tg-crit-text{text-decoration:line-through;color:var(--color-fg-muted);}
+  #tab-8 .tg-crit-del{background:none;border:none;cursor:pointer;color:var(--color-fg-muted);font-size:14px;padding:2px 4px;line-height:1;}
+  #tab-8 .tg-crit-del:hover{color:var(--color-primary);}
+  @media (max-width:860px){ #tab-8 .tg-body{grid-template-columns:1fr;} }
+
   main{min-width:0;}
   .tab-panel{display:none;}
   .tab-panel.active{display:block;}
@@ -546,17 +576,24 @@
           </div>
         </div>
         <div class="person-card">
-          <label class="person-photo" data-initials="??"><span>??</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <label class="person-photo" data-initials="E"><span>E</span><input type="file" accept="image/*" class="personPhotoInput"></label>
           <div>
-            <h4 contenteditable="true" class="person-name">Nome a preencher</h4>
+            <h4 contenteditable="true" class="person-name">Edilene</h4>
             <p contenteditable="true" class="person-role">Gerente de RH</p>
           </div>
         </div>
         <div class="person-card">
-          <label class="person-photo" data-initials="??"><span>??</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <label class="person-photo" data-initials="AS"><span>AS</span><input type="file" accept="image/*" class="personPhotoInput"></label>
           <div>
-            <h4 contenteditable="true" class="person-name">Nome a preencher</h4>
-            <p contenteditable="true" class="person-role">Diretor(a) de RH</p>
+            <h4 contenteditable="true" class="person-name">Ana Sena</h4>
+            <p contenteditable="true" class="person-role">RH (cargo a confirmar)</p>
+          </div>
+        </div>
+        <div class="person-card">
+          <label class="person-photo" data-initials="K"><span>K</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <div>
+            <h4 contenteditable="true" class="person-name">Kaline</h4>
+            <p contenteditable="true" class="person-role">Time de RH (cargo a confirmar)</p>
           </div>
         </div>
       </div>
@@ -749,7 +786,29 @@
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">09 set</span><div><span class="tl-desc">Reunião de Conexão</span><div class="tl-meta">Entender contexto e desafios · Letícia Mac Cormick (RH)</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">25 set</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar solução aplicada aos desafios mapeados</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">06 out</span><div><span class="tl-desc">Bench com cliente impulseup</span><div class="tl-meta">Conversa com a Roberta Grangeiro (BSPAR) sobre a experiência com a plataforma</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">08 out</span><div><span class="tl-desc">Teste guiado da plataforma</span><div class="tl-meta">Mão na massa no ambiente de teste, com apoio do especialista impulseup</div></div></div>
+        <div class="tl-item tl-expandable" id="tlTesteGuiado"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">08 out</span><div><button type="button" class="tl-toggle" aria-expanded="false" aria-controls="testeGuiadoPanel"><span class="tl-desc">Teste guiado da plataforma</span><i class="fa-solid fa-chevron-down tl-chevron"></i></button><div class="tl-meta">Mão na massa no ambiente de teste, com apoio do especialista impulseup</div></div></div>
+        <div class="tg-panel" id="testeGuiadoPanel" aria-hidden="true">
+          <div class="tg-panel-inner">
+            <div class="tg-body">
+              <div class="tg-field">
+                <p class="tg-question">Quem são os participantes do teste?</p>
+                <div class="tg-options" id="tgParticipantes"></div>
+              </div>
+              <div class="tg-field">
+                <p class="tg-question">Quais são os módulos que serão testados?</p>
+                <div class="tg-options" id="tgModulos"></div>
+              </div>
+              <div class="tg-field tg-field-wide">
+                <p class="tg-question">O que queremos testar? Quais são os critérios de sucesso do teste?</p>
+                <div class="tg-add-row">
+                  <input type="text" id="tgCriterioInput" class="tg-input" placeholder="Ex.: disparar uma pesquisa pelo WhatsApp e responder pelo celular">
+                  <button type="button" id="tgCriterioAdd" class="tg-add-btn"><i class="fa-solid fa-plus"></i> Adicionar</button>
+                </div>
+                <ul class="tg-criterios" id="tgCriterios"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Definir escopo e cenários de investimento</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Apresentação para diretoria</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span></div></div>
@@ -1388,6 +1447,165 @@ ${comparativoSectionHtml}
       const key = 'tl_date_' + idx;
       if(store[key] !== undefined) el.textContent = store[key];
     });
+  })();
+
+
+  // --- Aba 8: painel expansível do Teste guiado ---
+  (function(){
+    const item = document.getElementById('tlTesteGuiado');
+    const panel = document.getElementById('testeGuiadoPanel');
+    if(!item || !panel) return;
+    const toggle = item.querySelector('.tl-toggle');
+
+    // Chaves versionadas: se a regra de padrão mudar, subir a versão (_v2, _v3...)
+    const K_PART = 'teste_guiado_participantes_v1';
+    const K_MOD  = 'teste_guiado_modulos_v1';
+    const K_CRIT = 'teste_guiado_criterios_v1';
+    const MODULOS = ['Avaliações', 'Pesquisas', "Metas e OKR's", 'Learning', 'Rem. Variável'];
+    const MODULOS_PADRAO = ['Avaliações', 'Pesquisas'];
+    const PARTICIPANTES_PADRAO = []; // ninguém pré marcado
+    const CRITERIOS_PADRAO = [
+      'Criar uma pesquisa segmentada por filial, unidade ou setor',
+      'Montar um instrumento com linguagem simples e escala de carinhas para a operação',
+      'Disparar a pesquisa pelo WhatsApp e responder pelo celular',
+      'Acompanhar a adesão e ver quem ainda não respondeu, sem acessar as respostas',
+      'Ver a análise de IA dos resultados, inclusive das perguntas abertas',
+      'Rodar um pulso e ver o comparativo histórico no analytics',
+      'Cruzar a avaliação de experiência (líder) com a de jornada (colaborador)'
+    ].map(t => ({ text: t, done: false }));
+
+    function get(key, fallback){
+      const store = loadStore();
+      return store[key] !== undefined ? store[key] : fallback;
+    }
+    function set(key, value){
+      const store = loadStore();
+      store[key] = value;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    }
+
+    // Abrir / fechar
+    function setOpen(open){
+      item.classList.toggle('open', open);
+      panel.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    toggle.addEventListener('click', () => setOpen(!panel.classList.contains('open')));
+
+    function optionHTML(name, value, checked){
+      const lbl = document.createElement('label');
+      lbl.className = 'tg-option';
+      const cb = document.createElement('input');
+      cb.type = 'checkbox'; cb.name = name; cb.value = value; cb.checked = checked;
+      const span = document.createElement('span');
+      span.textContent = value;
+      lbl.appendChild(cb); lbl.appendChild(span);
+      return lbl;
+    }
+
+    // Participantes: lidos dinamicamente da lista de responsáveis da aba Diagnóstico
+    const partBox = document.getElementById('tgParticipantes');
+    const PLACEHOLDERS = ['nome a preencher', ''];
+    function nomesResponsaveis(){
+      const nomes = [];
+      document.querySelectorAll('#teamGrid .person-name').forEach(el => {
+        const n = el.textContent.trim();
+        if(!PLACEHOLDERS.includes(n.toLowerCase()) && !nomes.includes(n)) nomes.push(n);
+      });
+      return nomes;
+    }
+    function renderParticipantes(){
+      const marcados = get(K_PART, PARTICIPANTES_PADRAO);
+      const nomes = nomesResponsaveis();
+      partBox.innerHTML = '';
+      if(!nomes.length){
+        const p = document.createElement('span');
+        p.className = 'tg-empty';
+        p.textContent = 'Adicione os responsáveis na aba Diagnóstico para eles aparecerem aqui.';
+        partBox.appendChild(p);
+        return;
+      }
+      nomes.forEach(n => partBox.appendChild(optionHTML('tgPart', n, marcados.includes(n))));
+    }
+    partBox.addEventListener('change', () => {
+      const atuais = Array.from(partBox.querySelectorAll('input')).map(i => i.value);
+      const anteriores = get(K_PART, PARTICIPANTES_PADRAO).filter(n => !atuais.includes(n));
+      const marcados = Array.from(partBox.querySelectorAll('input:checked')).map(i => i.value);
+      set(K_PART, anteriores.concat(marcados));
+    });
+    let partTimer;
+    const teamGrid = document.getElementById('teamGrid');
+    if(teamGrid){
+      new MutationObserver(() => {
+        clearTimeout(partTimer);
+        partTimer = setTimeout(renderParticipantes, 300);
+      }).observe(teamGrid, { childList: true, subtree: true, characterData: true });
+    }
+
+    // Módulos: lista fixa
+    const modBox = document.getElementById('tgModulos');
+    function renderModulos(){
+      const marcados = get(K_MOD, MODULOS_PADRAO);
+      modBox.innerHTML = '';
+      MODULOS.forEach(m => modBox.appendChild(optionHTML('tgMod', m, marcados.includes(m))));
+    }
+    modBox.addEventListener('change', () => {
+      set(K_MOD, Array.from(modBox.querySelectorAll('input:checked')).map(i => i.value));
+    });
+
+    // Critérios de sucesso
+    const critList = document.getElementById('tgCriterios');
+    const critInput = document.getElementById('tgCriterioInput');
+    function renderCriterios(){
+      const itens = get(K_CRIT, CRITERIOS_PADRAO);
+      critList.innerHTML = '';
+      itens.forEach((c, idx) => {
+        const li = document.createElement('li');
+        li.className = 'tg-crit' + (c.done ? ' done' : '');
+        const cb = document.createElement('input');
+        cb.type = 'checkbox'; cb.checked = !!c.done;
+        cb.setAttribute('aria-label', 'Marcar como testado');
+        cb.addEventListener('change', () => {
+          const lista = get(K_CRIT, CRITERIOS_PADRAO);
+          lista[idx].done = cb.checked;
+          set(K_CRIT, lista);
+          li.classList.toggle('done', cb.checked);
+        });
+        const span = document.createElement('span');
+        span.className = 'tg-crit-text';
+        span.textContent = c.text;
+        const del = document.createElement('button');
+        del.type = 'button'; del.className = 'tg-crit-del';
+        del.setAttribute('aria-label', 'Excluir critério');
+        del.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        del.addEventListener('click', () => {
+          const lista = get(K_CRIT, CRITERIOS_PADRAO);
+          lista.splice(idx, 1);
+          set(K_CRIT, lista);
+          renderCriterios();
+        });
+        li.appendChild(cb); li.appendChild(span); li.appendChild(del);
+        critList.appendChild(li);
+      });
+    }
+    function addCriterio(){
+      const t = critInput.value.trim();
+      if(!t) return;
+      const lista = get(K_CRIT, CRITERIOS_PADRAO);
+      lista.push({ text: t, done: false });
+      set(K_CRIT, lista);
+      critInput.value = '';
+      renderCriterios();
+      critInput.focus();
+    }
+    document.getElementById('tgCriterioAdd').addEventListener('click', addCriterio);
+    critInput.addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); addCriterio(); } });
+
+    // Espera a restauração dos nomes salvos na aba Diagnóstico antes do primeiro render
+    setTimeout(renderParticipantes, 0);
+    renderModulos();
+    renderCriterios();
   })();
 
   // --- Aba 7 (Processo de implementação): seletor de módulo (só existe com 2+ módulos) ---
