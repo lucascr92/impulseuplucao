@@ -1460,14 +1460,16 @@ ${comparativoSectionHtml}
     // Chaves versionadas: se a regra de padrão mudar, subir a versão (_v2, _v3...)
     const K_PART = 'teste_guiado_participantes_v2';
     const K_MOD  = 'teste_guiado_modulos_v1';
-    const K_CRIT = 'teste_guiado_criterios_v2';
+    const K_CRIT = 'teste_guiado_criterios_v3';
     const MODULOS = ['Avaliações', 'Pesquisas', "Metas e OKR's", 'Learning', 'Rem. Variável'];
     const MODULOS_PADRAO = ['Avaliações', 'Pesquisas'];
     const PARTICIPANTES_PADRAO = null; // null = todos os responsáveis marcados por padrão
     const CRITERIOS_PADRAO = [
       'Criar uma pesquisa 100% personalizada com os critérios da Gravia',
       'Disparar a pesquisa pelo WhatsApp e responder pelo celular',
-      'Ver a análise de IA dos resultados das perguntas abertas'
+      'Ver a análise de IA dos resultados das perguntas abertas',
+      'Criar pesquisas de pulso fazendo comparativo histórico',
+      'Ter relatórios para segmentar qualquer tipo de análise (unidade de trabalho, gestão, área de atuação e cargo)'
     ].map(t => ({ text: t, done: false }));
 
     function get(key, fallback){
