@@ -592,7 +592,7 @@
         <div class="person-card">
           <label class="person-photo" data-initials="K"><span>K</span><input type="file" accept="image/*" class="personPhotoInput"></label>
           <div>
-            <h4 contenteditable="true" class="person-name">Kaline</h4>
+            <h4 contenteditable="true" class="person-name">Kallyne</h4>
             <p contenteditable="true" class="person-role">Time de RH (cargo a confirmar)</p>
           </div>
         </div>
@@ -1458,20 +1458,16 @@ ${comparativoSectionHtml}
     const toggle = item.querySelector('.tl-toggle');
 
     // Chaves versionadas: se a regra de padrão mudar, subir a versão (_v2, _v3...)
-    const K_PART = 'teste_guiado_participantes_v1';
+    const K_PART = 'teste_guiado_participantes_v2';
     const K_MOD  = 'teste_guiado_modulos_v1';
-    const K_CRIT = 'teste_guiado_criterios_v1';
+    const K_CRIT = 'teste_guiado_criterios_v2';
     const MODULOS = ['Avaliações', 'Pesquisas', "Metas e OKR's", 'Learning', 'Rem. Variável'];
     const MODULOS_PADRAO = ['Avaliações', 'Pesquisas'];
-    const PARTICIPANTES_PADRAO = []; // ninguém pré marcado
+    const PARTICIPANTES_PADRAO = null; // null = todos os responsáveis marcados por padrão
     const CRITERIOS_PADRAO = [
-      'Criar uma pesquisa segmentada por filial, unidade ou setor',
-      'Montar um instrumento com linguagem simples e escala de carinhas para a operação',
+      'Criar uma pesquisa 100% personalizada com os critérios da Gravia',
       'Disparar a pesquisa pelo WhatsApp e responder pelo celular',
-      'Acompanhar a adesão e ver quem ainda não respondeu, sem acessar as respostas',
-      'Ver a análise de IA dos resultados, inclusive das perguntas abertas',
-      'Rodar um pulso e ver o comparativo histórico no analytics',
-      'Cruzar a avaliação de experiência (líder) com a de jornada (colaborador)'
+      'Ver a análise de IA dos resultados das perguntas abertas'
     ].map(t => ({ text: t, done: false }));
 
     function get(key, fallback){
@@ -1516,8 +1512,8 @@ ${comparativoSectionHtml}
       return nomes;
     }
     function renderParticipantes(){
-      const marcados = get(K_PART, PARTICIPANTES_PADRAO);
       const nomes = nomesResponsaveis();
+      const marcados = get(K_PART, PARTICIPANTES_PADRAO) || nomes;
       partBox.innerHTML = '';
       if(!nomes.length){
         const p = document.createElement('span');
@@ -1530,7 +1526,7 @@ ${comparativoSectionHtml}
     }
     partBox.addEventListener('change', () => {
       const atuais = Array.from(partBox.querySelectorAll('input')).map(i => i.value);
-      const anteriores = get(K_PART, PARTICIPANTES_PADRAO).filter(n => !atuais.includes(n));
+      const anteriores = (get(K_PART, PARTICIPANTES_PADRAO) || []).filter(n => !atuais.includes(n));
       const marcados = Array.from(partBox.querySelectorAll('input:checked')).map(i => i.value);
       set(K_PART, anteriores.concat(marcados));
     });
