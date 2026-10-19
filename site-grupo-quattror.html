@@ -142,6 +142,10 @@
   .tl-date[contenteditable="true"]:hover,.tl-date[contenteditable="true"]:focus{background:var(--color-surface);}
   .tl-desc{font-size:14px;font-weight:600;}
   .tl-meta{font-size:12.5px;color:var(--color-fg-muted);margin-top:2px;}
+  .tl-status{display:inline-block;margin-left:10px;font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--color-bg-alt);color:var(--color-fg-muted);vertical-align:middle;}
+  .tl-item.tl-now .tl-status{background:var(--color-primary);color:#fff;}
+  .tl-item.tl-now .tl-dot{box-shadow:0 0 0 4px var(--color-bg-alt);}
+  .tl-item.tl-done .tl-desc{color:var(--color-fg-muted);}
 
   .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
   .stat-card{background:var(--color-surface);border-radius:14px;padding:22px;text-align:center;}
@@ -783,8 +787,11 @@
       <h1 class="section-title">Próximos passos</h1>
       <p class="section-sub">Jornada de compra do Grupo Quattror</p>
       <div class="timeline">
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">14 set</span><div><span class="tl-desc">Reunião de Diagnóstico</span><div class="tl-meta">Entender contexto, dores e mapear caminho de aprovação · Ingrid Batista Nicácio</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar solução aplicada aos desafios mapeados</div></div></div>
+        <div class="tl-item tl-done"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">14 set</span><div><span class="tl-desc">Reunião de Diagnóstico</span><span class="tl-status">Concluída</span><div class="tl-meta">Entender contexto, dores e mapear caminho de aprovação · Ingrid Batista Nicácio e Ana Paula</div></div></div>
+        <div class="tl-item tl-done"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">30 set</span><div><span class="tl-desc">Demonstração personalizada</span><span class="tl-status">Concluída</span><div class="tl-meta">Solução aplicada aos desafios mapeados · Leonardo Bacelar e Ariadne Kaizer</div></div></div>
+        <div class="tl-item tl-done"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">14 out</span><div><span class="tl-desc">Benchmark com cliente de referência</span><span class="tl-status">Concluída</span><div class="tl-meta">Troca de experiência com a Buttini Moraes, que faz gestão de metas no modelo BSC na impulseup · Ariadne Kaizer e Izis Daumazio</div></div></div>
+        <div class="tl-item tl-now"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">19 out</span><div><span class="tl-desc">Início do teste guiado</span><span class="tl-status">Em andamento</span><div class="tl-meta">Metas da Diretoria de Gente e Gestão estruturadas na plataforma, com acompanhamento e análise de desvio</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Fim do teste guiado</span><div class="tl-meta">Consolidação das percepções do time e validação da aderência ao modelo BSC e GPD</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Definir escopo e cenários de investimento para orçamento 2027</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Apresentação para diretoria</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span></div></div>
@@ -847,20 +854,24 @@
   "investimento": null,
   "cronogramaMacro": [
     {
-      "periodo": "Setembro",
-      "descricao": "Reunião de Conexão e diagnóstico"
+      "data": "14 e 30 set",
+      "titulo": "Diagnóstico e demonstração personalizada"
     },
     {
-      "periodo": "Outubro/Novembro",
-      "descricao": "Demonstração e construção do estudo de migração"
+      "data": "14 out",
+      "titulo": "Benchmark com cliente de referência"
     },
     {
-      "periodo": "Dezembro",
-      "descricao": "Aprovação do orçamento 2027"
+      "data": "19 out",
+      "titulo": "Início do teste guiado"
     },
     {
-      "periodo": "Até junho",
-      "descricao": "Planejamento da migração antes da data-base do contrato com a Sólides"
+      "data": "Dezembro",
+      "titulo": "Aprovação do orçamento 2027"
+    },
+    {
+      "data": "A definir",
+      "titulo": "Assinatura e kickoff"
     }
   ]
 }
