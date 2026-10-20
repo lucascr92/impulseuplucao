@@ -1564,7 +1564,13 @@ ${comparativoSectionHtml}
     // para que seleções antigas salvas no navegador não sobrescrevam o novo comportamento.
     const PARTICIPANTS_KEY = 'testeGuiado_participantes_v1';
     const MODULES_KEY = 'testeGuiado_modulos_v1';
-    const CRITERIA_KEY = 'testeGuiado_criterios_v1';
+    const CRITERIA_KEY = 'testeGuiado_criterios_v2';
+    // Critérios definidos pela Bruna e pela Karina na reunião de Plano de Projeto
+    const CRITERIOS_PADRAO = [
+      { id: 'crit_padrao_1', text: 'Karina conseguir montar e lançar a avaliação de liderança sozinha, com facilidade', done: false },
+      { id: 'crit_padrao_2', text: 'Bruna e Diego conseguirem responder a avaliação sem travas', done: false },
+      { id: 'crit_padrao_3', text: 'Plataforma entregar o resultado com pontos fortes, pontos de melhoria, indicadores e PDI', done: false }
+    ];
 
     const MODULOS_FIXOS = ['Avaliações', 'Pesquisas', "Metas e OKR's", 'Learning', 'Rem. Variável'];
     // Padrão pré-marcado: módulos já apresentados aos 40 líderes na Demonstração e que
@@ -1642,7 +1648,11 @@ ${comparativoSectionHtml}
       });
     }
 
-    function getCriterios(){ return readStore()[CRITERIA_KEY] || []; }
+    function getCriterios(){
+      const store = readStore();
+      if(!store.hasOwnProperty(CRITERIA_KEY)) return CRITERIOS_PADRAO.map(c => ({...c}));
+      return store[CRITERIA_KEY] || [];
+    }
     function saveCriterios(list){ writeKey(CRITERIA_KEY, list); }
 
     function renderCriterios(){
