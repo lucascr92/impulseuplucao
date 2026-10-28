@@ -1504,7 +1504,13 @@ ${comparativoSectionHtml}
     // Chaves versionadas: ao mudar a regra de padrão, subir a versão (ex: _v2).
     const K_PART = 'tg_participantes_v1';  // padrão: todos marcados (guarda só as exceções)
     const K_MOD  = 'tg_modulos_v1';
-    const K_CRIT = 'tg_criterios_v1';
+    const K_CRIT = 'tg_criterios_v2';
+    const CRITERIOS_PADRAO = [
+      { texto: 'Ter visão consolidada do CEO', ok: false },
+      { texto: 'Resultado prático da bonificação com 100% de personalização', ok: false },
+      { texto: 'Conseguir cadastrar metas sem precisar de apoio contínuo/suporte', ok: false },
+      { texto: 'Visualização fácil do projeto/acesso fácil das informações', ok: false }
+    ];
     const MODULOS = ['Avaliações', 'Pesquisas', "Metas e OKR's", 'Learning', 'Rem. Variável'];
     const MODULOS_PADRAO = ["Metas e OKR's"];
     const PLACEHOLDERS = ['nome a preencher', ''];
@@ -1561,20 +1567,20 @@ ${comparativoSectionHtml}
     function renderCriterios(){
       const ul = document.getElementById('tgCriterios');
       ul.innerHTML = '';
-      get(K_CRIT, []).forEach((c, i) => {
+      get(K_CRIT, CRITERIOS_PADRAO.map(c => ({...c}))).forEach((c, i) => {
         const li = el('li', 'tg-crit' + (c.ok ? ' done' : ''));
         const cb = document.createElement('input');
         cb.type = 'checkbox'; cb.checked = !!c.ok;
         cb.setAttribute('aria-label', 'Marcar critério como testado');
         cb.addEventListener('change', () => {
-          const lista = get(K_CRIT, []); lista[i].ok = cb.checked; put(K_CRIT, lista);
+          const lista = get(K_CRIT, CRITERIOS_PADRAO.map(c => ({...c}))); lista[i].ok = cb.checked; put(K_CRIT, lista);
           li.classList.toggle('done', cb.checked);
         });
         const del = el('button', 'tg-del');
         del.type = 'button'; del.setAttribute('aria-label', 'Excluir critério');
         del.innerHTML = '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
         del.addEventListener('click', () => {
-          const lista = get(K_CRIT, []); lista.splice(i, 1); put(K_CRIT, lista); renderCriterios();
+          const lista = get(K_CRIT, CRITERIOS_PADRAO.map(c => ({...c}))); lista.splice(i, 1); put(K_CRIT, lista); renderCriterios();
         });
         li.appendChild(cb); li.appendChild(el('span', 'tg-crit-text', c.texto)); li.appendChild(del);
         ul.appendChild(li);
@@ -1584,7 +1590,7 @@ ${comparativoSectionHtml}
       const input = document.getElementById('tgCriterioInput');
       const texto = input.value.trim();
       if(!texto){ input.focus(); return; }
-      const lista = get(K_CRIT, []); lista.push({ texto, ok: false }); put(K_CRIT, lista);
+      const lista = get(K_CRIT, CRITERIOS_PADRAO.map(c => ({...c}))); lista.push({ texto, ok: false }); put(K_CRIT, lista);
       input.value = ''; renderCriterios(); input.focus();
     }
     document.getElementById('tgCriterioAdd').addEventListener('click', adicionarCriterio);
