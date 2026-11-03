@@ -214,7 +214,7 @@
   .piloto-ponte-card .desafio{font-size:14px;font-weight:600;color:var(--color-fg);margin-bottom:8px;}
   .piloto-ponte-card .tarefa{font-size:13px;color:var(--color-fg-muted);}
   .piloto-frame-wrap{border:1px solid var(--color-border);border-radius:14px;overflow:hidden;background:#fff;}
-  .piloto-frame-wrap iframe{display:block;width:100%;min-height:900px;border:0;}
+  .piloto-frame-wrap iframe{display:block;width:100%;height:82vh;min-height:640px;border:0;}
   .piloto-nota{font-size:12px;color:var(--color-fg-muted);margin-top:12px;}
   .empty-state{border:1px dashed var(--color-border);border-radius:14px;padding:48px;text-align:center;color:var(--color-fg-muted);}
   .empty-state i{font-size:26px;margin-bottom:12px;display:block;color:var(--color-border);}
@@ -464,6 +464,27 @@
   .export-exec-btn:hover{background:var(--color-primary-hover);}
   .export-exec-btn:disabled{opacity:0.6;cursor:wait;}
   .export-exec-btn i{font-size:13px;}
+
+  /* Bloco de prova social (cases) — Aba 1 */
+  .cases-grid{display:grid;gap:18px;margin-bottom:40px;}
+  .cases-grid-1{grid-template-columns:1fr;}
+  .cases-grid-2{grid-template-columns:repeat(2,1fr);}
+  .cases-grid-3{grid-template-columns:repeat(3,1fr);}
+  @media(max-width:860px){.cases-grid-2,.cases-grid-3{grid-template-columns:1fr;}}
+  .case-card{border:1px solid var(--color-border);border-radius:14px;padding:22px;background:#fff;display:flex;flex-direction:column;gap:14px;border-top:4px solid var(--color-primary);}
+  .case-head{display:flex;gap:12px;align-items:center;}
+  .case-head img{width:56px;height:40px;object-fit:contain;}
+  .case-head h4{font-size:17px;font-weight:700;margin:0;}
+  .case-meta{font-size:12px;color:var(--color-fg-muted);margin-top:2px;}
+  .case-bridge{font-size:13px;background:var(--color-surface);border-radius:8px;padding:8px 12px;display:flex;gap:8px;align-items:center;}
+  .case-bridge i{color:var(--color-primary);}
+  .case-nums{display:flex;gap:10px;flex-wrap:wrap;}
+  .case-num{flex:1;min-width:110px;background:var(--color-surface);border-radius:10px;padding:10px 12px;}
+  .case-num b{display:block;font-size:22px;font-weight:700;color:var(--color-primary);line-height:1.1;}
+  .case-num span{font-size:12px;color:var(--color-fg-muted);}
+  .case-flow{display:grid;gap:10px;}
+  .case-lbl{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-primary);}
+  .case-flow p{font-size:13.5px;line-height:1.5;margin:2px 0 0;}
 </style>
 </head>
 <body>
@@ -497,7 +518,7 @@
         <button data-tab="2" title="Diagnóstico"><span class="num">02</span><span class="label-text">Diagnóstico</span></button>
         <button data-tab="3" title="Demonstração"><span class="num">03</span><span class="label-text">Demonstração</span></button>
         <button data-tab="4" title="Diferenciais impulseup"><span class="num">04</span><span class="label-text">Diferenciais impulseup</span></button>
-        <button data-tab="9" title="Piloto"><span class="num">05</span><span class="label-text">Piloto</span></button>
+        <button data-tab="9" title="Teste guiado"><span class="num">05</span><span class="label-text">Teste guiado</span></button>
         <button data-tab="5" title="Aprovação e plano de ação"><span class="num">06</span><span class="label-text">Aprovação e plano de ação</span></button>
         <button data-tab="6" title="Processo de implementação"><span class="num">07</span><span class="label-text">Processo de implementação</span></button>
         <button data-tab="7" title="Proposta comercial"><span class="num">08</span><span class="label-text">Proposta comercial</span></button>
@@ -595,51 +616,52 @@
         </div>
       </div>
 
-      <div class="block-title"><i class="fa-regular fa-star"></i>Por que empresas com operação em várias regiões escolhem a impulseup</div>
+      <div class="block-title"><i class="fa-regular fa-star"></i>Por que empresas com público operacional escolhem a impulseup</div>
       <div class="pillars">
-        <div class="pillar-card"><span class="pillar-num">01</span><span class="feat-tag">Fácil</span><h4>A escuta chega a quem está na operação, não só no escritório</h4><p>Com pesquisas enviadas por SMS e WhatsApp e acesso sem e-mail corporativo, a participação deixa de depender de computador ou caixa de entrada, e o resultado passa a representar a empresa inteira.</p></div>
-        <div class="pillar-card"><span class="pillar-num">02</span><span class="feat-tag">Liderança</span><h4>O resultado vira ação de cada líder</h4><p>Planos de ação criados a partir dos resultados mostram ao colaborador que a opinião dele gerou mudança. É isso que sustenta a adesão rodada após rodada e constrói a cultura de responder.</p></div>
-        <div class="pillar-card"><span class="pillar-num">03</span><span class="feat-tag">Confiável</span><h4>Cada rodada mostra se a empresa está evoluindo</h4><p>O comparativo histórico entre pesquisas transforma rodadas isoladas em uma série confiável, e a diretoria passa a acompanhar a evolução do clima com dado, não com percepção.</p></div>
+        <div class="pillar-card"><span class="pillar-num">01</span><span class="feat-tag">Fácil</span><h4>A voz da operação entra no diagnóstico</h4><p>Com a pesquisa chegando pelo WhatsApp, sem login nem e-mail corporativo, quem está no pátio e na estrada participa, e o retrato do grupo deixa de refletir só o time administrativo.</p></div>
+        <div class="pillar-card"><span class="pillar-num">02</span><span class="feat-tag">Inteligente</span><h4>Fragilidades aparecem por unidade e região, não só na média</h4><p>Resultados comparados por área, unidade, localidade ou qualquer recorte da empresa mostram onde agir primeiro, em vez de esconder diferenças num número geral.</p></div>
+        <div class="pillar-card"><span class="pillar-num">03</span><span class="feat-tag">Liderança</span><h4>O resultado vira ação, e não relatório na gaveta</h4><p>Cada gap levantado ganha um plano com responsável e prazo, e a liderança acompanha a evolução a cada novo ciclo de pesquisa.</p></div>
       </div>
 
-      
+      <!-- BLOCO DE PROVA SOCIAL (cases) — preenchido por scripts/gerar_bloco_cases.py com os cases
+           confirmados pelo closer. Vazio = nada aparece. Ver estrutura-abas.md, Aba 1, "Cases". -->
+      <!--CASES_SLOT--><!--/CASES_SLOT-->
     </section>
 
     <!-- ABA 2 — DIAGNÓSTICO -->
     <section class="tab-panel" id="tab-2">
-      <h1 class="section-title">Diagnóstico: VIP Leilões</h1>
+      <h1 class="section-title">Diagnóstico — VIP Leilões</h1>
       <p class="section-sub">Reunião de conexão</p>
 
       <div class="top-grid">
         <div class="card">
           <div class="card-label">Perfil</div>
-          <p>Empresa de organização de leilões fundada em São Luís (MA), com 28 anos de mercado. Atua em leilões judiciais e extrajudiciais de veículos, imóveis e bens diversos, com tecnologia própria de leilões online, presença em 16 estados e mais de 30 cidades. Cerca de 900 colaboradores.</p>
-        </div>
-          <p>Construtora e incorporadora com atuação em Minas Gerais e Distrito Federal, fundada em 2004. Cerca de 640 colaboradores entre canteiros de obra e áreas corporativas.</p>
+          <p>Grupo com quase 30 anos de história e atuação nacional. Além da organização de leilões de veículos, imóveis e bens diversos, reúne a operação logística de remoção, guarda e gestão de veículos em pátios, uma empresa de vias e concessões e uma empresa de venda direta, somando um ecossistema de mais de 800 colaboradores entre CLT e empreendedores de serviços.</p>
         </div>
         <div class="card dark">
           <div class="card-label">Momento atual</div>
-          <p>Busca estruturar um programa de pesquisas internas, começando por uma pesquisa de NPS do colaborador com três rodadas previstas, para criar a cultura de escuta e apoiar decisões sobre pessoas e lideranças. Está avaliando soluções do mercado.</p>
-        </div>
-          <p>Reestruturação da área de Gente após aquisição de uma construtora regional. Buscam padronizar avaliação de desempenho entre as duas operações antes do próximo ciclo, em outubro.</p>
+          <p>Em plena transformação cultural e de posicionamento de marca, o grupo quer levar à convenção de 30 anos, em janeiro, um primeiro diagnóstico de engajamento. A ideia é rodar uma pesquisa rápida ainda em novembro, desdobrar planos de ação na convenção e criar uma rotina de pesquisas que prepare o terreno para a pesquisa de clima completa, já prevista no orçamento de DHO 2027.</p>
         </div>
       </div>
 
       <div class="block-title"><i class="fa-regular fa-flag"></i>Desafios mapeados</div>
-      <div class="challenges cols-2">
-        <div class="challenge-card"><span class="ch-num">01</span><h4>Cultura de responder pesquisa</h4><p>Criar o hábito de participação e transformar a escuta dos colaboradores em um processo contínuo, não pontual.</p></div>
-        <div class="challenge-card"><span class="ch-num">02</span><h4>Escuta em uma operação distribuída</h4><p>Alcançar colaboradores de diferentes estados e unidades com a mesma experiência de participação.</p></div>
-        <div class="challenge-card"><span class="ch-num">03</span><h4>Leitura das lideranças</h4><p>Entender melhor a atuação das lideranças para direcionar o desenvolvimento de cada gestor.</p></div>
-        <div class="challenge-card"><span class="ch-num">04</span><h4>Primeiro ciclo estruturado</h4><p>Estruturar a primeira rodada com método, garantindo comparabilidade entre as três rodadas previstas.</p></div>
+      <div class="challenges">
+        <div class="challenge-card"><span class="ch-num">01</span><h4>Primeiro retrato do engajamento</h4><p>O grupo nunca mediu clima ou engajamento de forma estruturada e precisa de um ponto de partida confiável sobre como as pessoas estão hoje.</p></div>
+        <div class="challenge-card"><span class="ch-num">02</span><h4>Ecossistema diverso e espalhado</h4><p>Mais de 800 pessoas em unidades de negócio, regiões e vínculos diferentes, e a leitura precisa mostrar onde estão as maiores fragilidades de cada recorte.</p></div>
+        <div class="challenge-card"><span class="ch-num">03</span><h4>Adesão da operação</h4><p>A maior parte do time é operacional e não usa computador: a participação precisa ser simples, pelo celular, com poucos cliques, e também construir confiança.</p></div>
+        <div class="centered-row">
+          <div class="challenge-card"><span class="ch-num">04</span><h4>Diagnóstico pronto para a convenção</h4><p>Pesquisa no ar em novembro para que os resultados, já segmentados, virem uma apresentação gerencial e planos de ação na convenção de janeiro.</p></div>
+        <div class="challenge-card"><span class="ch-num">05</span><h4>Cultura em transformação</h4><p>Acompanhar a aderência à nova cultura com pesquisas periódicas, criando a base para a pesquisa de clima completa nos próximos ciclos.</p></div>
+        </div>
       </div>
 
       <div class="block-title"><i class="fa-regular fa-user-tie"></i>Responsáveis pelo projeto</div>
       <div class="team" id="teamGrid">
         <div class="person-card">
-          <label class="person-photo" data-initials="MR"><span>MR</span><input type="file" accept="image/*" class="personPhotoInput"></label>
+          <label class="person-photo" data-initials="MP"><span>MP</span><input type="file" accept="image/*" class="personPhotoInput"></label>
           <div>
-            <h4 contenteditable="true" class="person-name">Mariana Oliveira de Rezende</h4>
-            <p contenteditable="true" class="person-role">Cargo a confirmar</p>
+            <h4 contenteditable="true" class="person-name">Mariana Oliveira Pavanelli</h4>
+            <p contenteditable="true" class="person-role">Desenvolvimento Humano e Organizacional (DHO)</p>
           </div>
         </div>
         <div class="person-card">
@@ -653,7 +675,7 @@
           <label class="person-photo" data-initials="??"><span>??</span><input type="file" accept="image/*" class="personPhotoInput"></label>
           <div>
             <h4 contenteditable="true" class="person-name">Nome a preencher</h4>
-            <p contenteditable="true" class="person-role">Diretor(a) de RH</p>
+            <p contenteditable="true" class="person-role">Diretor(a) responsável por DHO</p>
           </div>
         </div>
       </div>
@@ -661,12 +683,12 @@
 
       <div class="block-title"><i class="fa-regular fa-calendar"></i>Cronograma preliminar</div>
       <div class="timeline">
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Outubro</span><span class="tl-desc">Diagnóstico e demonstração da plataforma</span></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">A definir</span><span class="tl-desc">Construção e aprovação da proposta</span></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">A definir</span><span class="tl-desc">Assinatura e kickoff de implementação</span></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">A definir</span><span class="tl-desc">Primeira rodada da pesquisa na plataforma</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Novembro</span><span class="tl-desc">Aplicação da pesquisa de engajamento</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Dezembro</span><span class="tl-desc">Análise dos resultados por unidade, região e público</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">Janeiro</span><span class="tl-desc">Convenção de 30 anos: diagnóstico e planos de ação</span></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date">2027</span><span class="tl-desc">Pesquisas periódicas de pulso e cultura, rumo ao clima completo</span></div>
       </div>
-    </section>
+</section>
 
     <!-- ABA 3 — DEMONSTRAÇÃO -->
     <section class="tab-panel" id="tab-3">
@@ -750,23 +772,23 @@
       </div>
     </section>
 
-    <!-- ABA PILOTO (id interno tab-9, exibida como 05 entre Diferenciais e Aprovação) -->
+    <!-- ABA TESTE GUIADO (id interno tab-9, exibida como 05 entre Diferenciais e Aprovação) -->
     <section class="tab-panel" id="tab-9">
-      <h1 class="section-title">Piloto</h1>
+      <h1 class="section-title">Teste guiado</h1>
       <p class="section-sub">A VIP Leilões testa a impulseup na prática, a partir dos desafios do Diagnóstico</p>
       <div class="empty-state" id="tab9EmptyState">
         <i class="fa-solid fa-flask"></i>
-        <h3>Aba liberada quando o piloto for combinado</h3>
-        <p>Depois da Demonstração, esta aba recebe o roteiro do piloto: cada desafio mapeado no Diagnóstico vira uma tarefa prática na plataforma, com cronograma, participantes e o registro do resultado.</p>
+        <h3>Aba liberada quando o teste guiado for combinado</h3>
+        <p>Depois da Demonstração, esta aba recebe o deck do teste guiado: os desafios mapeados no Diagnóstico viram critérios de sucesso com indicador e meta, acompanhados no checkpoint e validados no fechamento com o tomador de decisão.</p>
       </div>
       <div id="tab9PilotoWrap" style="display:none;">
         <div class="piloto-ponte" id="tab9Ponte">
           <!--PONTE_PILOTO-->
         </div>
         <div class="piloto-frame-wrap">
-          <iframe id="pilotoFrame" title="Ferramenta de piloto" loading="lazy"></iframe>
+          <iframe id="pilotoFrame" title="Deck do teste guiado" loading="lazy"></iframe>
         </div>
-        <p class="piloto-nota">Os dados preenchidos no piloto ficam salvos neste navegador. Use o botão de exportar backup da própria ferramenta para guardar ou compartilhar o registro.</p>
+        <p class="piloto-nota">Use as setas para navegar entre os slides. O que for preenchido fica salvo neste navegador; o registro oficial do teste é a ficha anexada no HubSpot.</p>
       </div>
       <script type="text/plain" id="pilotoToolSrc"><!--PILOTO_B64--></script>
     </section>
@@ -856,16 +878,17 @@
 
     <!-- ABA 8 — PRÓXIMOS PASSOS -->
     <section class="tab-panel" id="tab-8">
+
       <h1 class="section-title">Próximos passos</h1>
       <p class="section-sub">Jornada de compra da VIP Leilões</p>
       <div class="timeline">
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">19 out</span><div><span class="tl-desc">Reunião de Diagnóstico</span><div class="tl-meta">Entender contexto e desafios · Mariana Oliveira de Rezende e Lucas Costa</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Mostrar solução aplicada aos desafios mapeados</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Definir escopo e cenários de investimento</div></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Apresentação para diretoria</span><div class="tl-meta">Apresentação do projeto internamente</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">02 nov</span><div><span class="tl-desc">Reunião de Diagnóstico</span><div class="tl-meta">Contexto do grupo, desafios e primeira visão da plataforma · Mariana e Lucas</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">02 nov</span><div><span class="tl-desc">Demonstração personalizada</span><div class="tl-meta">Pesquisas via WhatsApp, analytics por recorte, planos de ação e IA</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">04 nov · 16h30</span><div><span class="tl-desc">Construção de projeto e proposta</span><div class="tl-meta">Retorno do alinhamento com a diretoria e definição do escopo</div></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Apresentação para diretoria</span><div class="tl-meta">Mariana apresenta o projeto ao diretor</div></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Aprovação da proposta</span></div></div>
         <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Revisão jurídica</span></div></div>
-        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Assinatura e kickoff</span></div></div>
+        <div class="tl-item"><span class="tl-dot"></span><span class="tl-date" contenteditable="true">A definir</span><div><span class="tl-desc">Assinatura e kickoff</span><div class="tl-meta">Meta: pesquisa no ar ainda em novembro</div></div></div>
       </div>
     </section>
 
@@ -883,54 +906,54 @@
 {
   "nomeEmpresa": "VIP Leilões",
   "slugEmpresa": "vip-leiloes",
-  "contexto": "A VIP Leilões quer estruturar um programa de pesquisas internas, começando pelo NPS do colaborador, para criar a cultura de escuta e apoiar decisões sobre pessoas e lideranças.",
+  "contexto": "Em plena transformação cultural, o grupo quer levar à convenção de 30 anos um primeiro diagnóstico de engajamento e transformar o resultado em planos de ação.",
   "desafiosCentrais": [
     {
-      "titulo": "Cultura de responder pesquisa"
+      "titulo": "Primeiro retrato do engajamento"
     },
     {
-      "titulo": "Escuta em uma operação distribuída"
+      "titulo": "Ecossistema diverso e espalhado",
+      "numero": "800 colaboradores"
     },
     {
-      "titulo": "Leitura das lideranças"
+      "titulo": "Adesão da operação"
     },
     {
-      "titulo": "Primeiro ciclo estruturado"
+      "titulo": "Diagnóstico pronto para a convenção"
+    },
+    {
+      "titulo": "Cultura em transformação"
     }
   ],
   "objetivos": [],
   "pilaresDestaque": [
     {
-      "titulo": "A escuta chega a toda a operação",
+      "titulo": "A voz da operação entra no diagnóstico",
       "tag": "Fácil"
     },
     {
-      "titulo": "Cada resultado vira ação do líder",
-      "tag": "Liderança"
+      "titulo": "Fragilidades aparecem por unidade e região, não só na média",
+      "tag": "Inteligente"
     },
     {
-      "titulo": "A evolução do clima medida com dado",
-      "tag": "Confiável"
+      "titulo": "O resultado vira ação, e não relatório na gaveta",
+      "tag": "Liderança"
     }
   ],
   "comparativo": null,
   "investimento": null,
   "cronogramaMacro": [
     {
-      "data": "19 out",
-      "titulo": "Reunião de Diagnóstico"
+      "data": "Novembro",
+      "titulo": "Pesquisa de engajamento no ar"
     },
     {
-      "data": "A definir",
-      "titulo": "Demonstração personalizada"
+      "data": "Dezembro",
+      "titulo": "Análise por unidade, região e público"
     },
     {
-      "data": "A definir",
-      "titulo": "Apresentação para diretoria"
-    },
-    {
-      "data": "A definir",
-      "titulo": "Assinatura e kickoff"
+      "data": "Janeiro",
+      "titulo": "Convenção de 30 anos com planos de ação"
     }
   ]
 }
@@ -974,28 +997,17 @@
     });
   });
 
-  // ---------- ABA PILOTO (iframe autônomo, carregado sob demanda) ----------
-  (function initPiloto(){
+  // ---------- ABA TESTE GUIADO (deck em iframe autônomo, carregado sob demanda) ----------
+  (function initTesteGuiado(){
     const src = document.getElementById('pilotoToolSrc');
     const frame = document.getElementById('pilotoFrame');
     if (!src || !frame) return;
     const b64 = (src.textContent || '').replace(/<!--.*?-->/g, '').trim();
     if (!b64) return;
     let carregado = false;
-    function ajustarAltura(){
-      try {
-        const d = frame.contentDocument;
-        if (d && d.documentElement) frame.style.height = (d.documentElement.scrollHeight + 8) + 'px';
-      } catch (e) {}
-    }
     function carregar(){
       if (carregado) return; carregado = true;
       const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
-      frame.addEventListener('load', () => {
-        ajustarAltura();
-        try { new ResizeObserver(ajustarAltura).observe(frame.contentDocument.documentElement); } catch (e) {}
-        try { frame.contentDocument.addEventListener('click', () => setTimeout(ajustarAltura, 60)); } catch (e) {}
-      });
       frame.srcdoc = new TextDecoder('utf-8').decode(bytes);
     }
     const btn = document.querySelector('#tabNav button[data-tab="9"]');
